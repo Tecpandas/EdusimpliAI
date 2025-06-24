@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-standalone@7.22.5/babel.min.js"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .chatbot-container { position: fixed; bottom: 20px; right: 20px; }
+    .quiz-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; }
+    .quiz-content { background: white; padding: 20px; border-radius: 8px; max-width: 500px; width: 100%; }
+    .dark .quiz-content { background: #1f2937; color: white; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const modulesData = {
+      chemistryXII: [
+        {
+          id: 1,
+          title: 'The Solid State',
+          summary: 'Explores the structure and properties of crystalline and amorphous solids.',
+          keyTopics: [
+            'General Characteristics of Solid State',
+            'Amorphous and Crystalline Solids',
+            'Classification of Crystalline Solids',
+            'Crystal Lattices and Unit Cells',
+            'Number of Atoms in a Unit Cell',
+            'Close Packed Structures',
+            'Packing Efficiency',
+            'Calculations Involving Unit Cell Dimensions',
+            'Imperfections in Solids',
+            'Electrical Properties',
+            'Magnetic Properties',
+          ],
+          realWorldExample: 'Diamond\'s hardness is due to its tightly packed carbon atoms in a 3D crystal lattice, used in cutting tools.',
+          keyEquation: 'Density = (Z * M) / (a^3 * N_A)',
+          icon: 'flask',
+          visualizationLinks: [
+            'https://molview.org/?codid=1100025',
+            'https://www.chemtube3d.com/',
+            'https://vchem3d.univ-tlse3.fr/index.html',
+          ],
+          quiz: [
+            {
+              question: 'What is the basic unit of a crystal lattice?',
+              options: ['Molecule', 'Unit Cell', 'Atom', 'Ion'],
+              correct: 'Unit Cell',
+            },
+            {
+              question: 'Which property is NOT typical of crystalline solids?',
+              options: ['Definite melting point', 'Long-range order', 'Isotropic', 'Sharp edges'],
+              correct: 'Isotropic',
+            },
+          ],
+        },
+        // Rest of the chemistryXII modules...
+      ],
+      biologyXII: [
+        {
+          id: 1,
+          title: 'Sexual Reproduction in Flowering Plants',
+          summary: 'Explores how flowering plants reproduce through pollination and fertilization.',
+          keyTopics: [
+            'Flower Structure',
+            'Development of Male and Female Gametophytes',
+            'Pollination - Types, Agencies, and Examples',
+            'Outbreeding Devices',
+            'Pollen-Pistil Interaction',
+            'Double Fertilization',
+            'Post-Fertilization Events - Development of Endosperm and Embryo, Development of Seed, and Formation of Fruit',
+            'Special Modes - Apomixis, Parthenocarpy, Polyembryony',
+            'Significance of Seed Dispersal and Fruit Formation',
+          ],
+          realWorldExample: 'Hybrid corn production relies on controlled pollination to enhance yield.',
+          keyEquation: '',
+          icon: 'dna',
+          visualizationLinks: [
+            'https://www.visiblebody.com/learn/biology',
+            'https://www.smart-biology.com/',
+            'https://www.youtube.com/@bestforneet',
+          ],
+          quiz: [
+            {
+              question: 'What is double fertilization in plants?',
+              options: [
+                'Fusion of two eggs',
+                'Fusion of two pollen grains',
+                'Fusion of one male gamete with egg and another with polar nuclei',
+                'Fusion of two sperm cells',
+              ],
+              correct: 'Fusion of one male gamete with egg and another with polar nuclei',
+            },
+            {
+              question: 'Which part of the flower develops into fruit?',
+              options: ['Ovary', 'Stigma', 'Anther', 'Petal'],
+              correct: 'Ovary',
+            },
+          ],
+        },
+        // Rest of the biologyXII modules...
+      ],
+      physicsXII: [
+        {
+          id: 1,
+          title: 'Electric Charges and Fields',
+          summary: 'Introduces electric charges, forces, and fields.',
+          keyTopics: [
+            'Introduction',
+            'Electric Charge',
+            'Conductors and Insulators',
+            'Basic Properties of Electric Charge',
+            'Coulombs Law',
+            'Forces between Multiple Charges',
+            'Electric Field',
+            'Electric Field Lines',
+            'Electric Flux',
+            'Electric Dipole',
+            'Dipole in a Uniform External Field',
+            'Continuous Charge Distribution',
+            'Gausss Law',
+            'Applications of Gauss Law',
+          ],
+          realWorldExample: 'Photocopiers use static electricity to attract toner particles.',
+          keyEquation: 'F = k * q₁ * q₂ / r²',
+          icon: 'atom',
+          visualizationLinks: [
+            'https://phet.colorado.edu/',
+            'https://ophysics.com/',
+          ],
+          quiz: [
+            {
+              question: 'What is the SI unit of electric charge?',
+              options: ['Coulomb', 'Ampere', 'Volt', 'Ohm'],
+              correct: 'Coulomb',
+            },
+            {
+              question: 'Which law explains the force between two point charges?',
+              options: ['Ohms Law', 'Coulombs Law', 'Faraday Law', 'Gauss Law'],
+              correct: 'Coulombs Law',
+            },
+          ],
+        },
+        // Rest of the physicsXII modules...
+      ]
+    };
+
+    // Rest of the code remains the same...
+    const Login = ({ onLogin }) => {
+      const [email, setEmail] = useState('');
+      const [password, setPassword] = useState('');
+      const [error, setError] = useState('');
+
+      const handleLogin = () => {
+        if (email && password) {
+          onLogin({ email });
+        } else {
+          setError('Please fill in all fields');
+        }
+      };
+
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 className="text-2xl font-bold mb-6 text-center dark:text-white">Login</h2>
+            {error && <p className="text-red-500 mb-4">{error}</p>}
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-2 mb-4 border rounded dark:bg-gray-700 dark:text-white"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 mb-4 border rounded dark:bg-gray-700 dark:text-white"
+            />
+            <button
+              onClick={handleLogin}
+              className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+            >
+              Login
+            </button>
+            <p className="mt-4 text-center dark:text-white">
+              Don't have an account?{' '}
+              <a href="#" onClick={() => onLogin(null, true)} className="text-blue-600">
+                Sign Up
+              </a>
+            </p>
+          </div>
+        </div>
+      );
+    };
+
+    const Signup = ({ onSignup }) => {
+      const [email, setEmail] = useState('');
+      const [password, setPassword] = useState('');
+      const [error, setError] = useState('');
+
+      const handleSignup = () => {
+        if (email && password) {
+          onSignup({ email });
+        } else {
+          setError('Please fill in all fields');
+        }
+      };
+
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 className="text-2xl font-bold mb-6 text-center dark:text-white">Sign Up</h2>
+            {error && <p className="text-red-500 mb-4">{error}</p>}
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-2 mb-4 border rounded dark:bg-gray-700 dark:text-white"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 mb-4 border rounded dark:bg-gray-700 dark:text-white"
+            />
+            <button
+              onClick={handleSignup}
+              className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+            >
+              Sign Up
+            </button>
+            <p className="mt-4 text-center dark:text-white">
+              Already have an account?{' '}
+              <a href="#" onClick={() => onSignup(null, false)} className="text-blue-600">
+                Login
+              </a>
+            </p>
+          </div>
+        </div>
+      );
+    };
+
+    const StudentDetailsForm = ({ onSubmit }) => {
+      const [name, setName] = useState('');
+      const [standard, setStandard] = useState('');
+      const [subjects, setSubjects] = useState([]);
+      const [error, setError] = useState('');
+
+      const handleSubjectChange = (subject) => {
+        setSubjects((prev) =>
+          prev.includes(subject)
+            ? prev.filter((s) => s !== subject)
+            : [...prev, subject]
+        );
+      };
+
+      const handleSubmit = () => {
+        if (name && standard && subjects.length > 0) {
+          onSubmit({ name, standard, subjects });
+        } else {
+          setError('Please fill in all fields and select at least one subject');
+        }
+      };
+
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 className="text-2xl font-bold mb-6 text-center dark:text-white">Student Details</h2>
+            {error && <p className="text-red-500 mb-4">{error}</p>}
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-2 mb-4 border rounded dark:bg-gray-700 dark:text-white"
+            />
+            <select
+              value={standard}
+              onChange={(e) => setStandard(e.target.value)}
+              className="w-full p-2 mb-4 border rounded dark:bg-gray-700 dark:text-white"
+            >
+              <option value="">Select Class</option>
+              <option value="IX">Class IX</option>
+              <option value="X">Class X</option>
+              <option value="XI">Class XI</option>
+              <option value="XII">Class XII</option>
+            </select>
+            <div className="mb-4">
+              <p className="dark:text-white">Select Subjects:</p>
+              {['Physics', 'Chemistry', 'Biology', 'Mathematics'].map((subject) => (
+                <label key={subject} className="flex items-center dark:text-white">
+                  <input
+                    type="checkbox"
+                    checked={subjects.includes(subject)}
+                    onChange={() => handleSubjectChange(subject)}
+                    className="mr-2"
+                  />
+                  {subject}
+                </label>
+              ))}
+            </div>
+            <button
+              onClick={handleSubmit}
+              className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      );
+    };
+
+    const ClassSelection = ({ onSelect }) => {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 className="text-2xl font-bold mb-6 text-center dark:text-white">Select Your Class</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {['IX', 'X', 'XI', 'XII'].map((cls) => (
+                <button
+                  key={cls}
+                  onClick={() => onSelect(cls)}
+                  className="bg-blue-600 text-white p-4 rounded hover:bg-blue-700"
+                >
+                  Class {cls}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    const Chatbot = ({ darkMode }) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const [message, setMessage] = useState('');
+      const [chat, setChat] = useState([]);
+
+      const handleSend = () => {
+        if (message.trim()) {
+          setChat([...chat, { user: message, bot: 'This is a placeholder response. Integrate with an actual chatbot API.' }]);
+          setMessage('');
+        }
+      };
+
+      return (
+        <div className="chatbot-container">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700"
+          >
+            {isOpen ? 'Close Chat' : 'Open Chat'}
+          </button>
+          {isOpen && (
+            <div className={`mt-2 p-4 rounded-lg shadow-lg ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+              <div className="h-64 overflow-y-auto mb-2">
+                {chat.map((msg, index) => (
+                  <div key={index}>
+                    <p><strong>You:</strong> {msg.user}</p>
+                    <p><strong>Bot:</strong> {msg.bot}</p>
+                  </div>
+                ))}
+              </div>
+              <input
+                type="text"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className={`w-full p-2 border rounded ${darkMode ? 'bg-gray-700 text-white' : 'bg-white text-black'}`}
+                placeholder="Type your question..."
+              />
+              <button
+                onClick={handleSend}
+                className="w-full bg-blue-600 text-white p-2 rounded mt-2 hover:bg-blue-700"
+              >
+                Send
+              </button>
+            </div>
+          )}
+        </div>
+      );
+    };
+
+    const QuizModal = ({ module, onClose }) => {
+      const [currentQuestion, setCurrentQuestion] = useState(0);
+      const [selectedOption, setSelectedOption] = useState('');
+      const [score, setScore] = useState(0);
+      const [showResult, setShowResult] = useState(false);
+
+      const handleAnswer = () => {
+        if (selectedOption === module.quiz[currentQuestion].correct) {
+          setScore(score + 1);
+        }
+        if (currentQuestion + 1 < module.quiz.length) {
+          setCurrentQuestion(currentQuestion + 1);
+          setSelectedOption('');
+        } else {
+          setShowResult(true);
+        }
+      };
+
+      return (
+        <div className="quiz-modal">
+          <div className="quiz-content">
+            {showResult ? (
+              <div>
+                <h2 className="text-xl font-bold mb-4">{module.title} Quiz Result</h2>
+                <p>Your Score: {score}/{module.quiz.length}</p>
+                <button
+                  onClick={onClose}
+                  className="mt-4 bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+                >
+                  Close
+                </button>
+              </div>
+            ) : (
+              <div>
+                <h2 className="text-xl font-bold mb-4">{module.title} Quiz</h2>
+                <p className="mb-4">{module.quiz[currentQuestion].question}</p>
+                {module.quiz[currentQuestion].options.map((option, index) => (
+                  <label key={index} className="block mb-2">
+                    <input
+                      type="radio"
+                      name="option"
+                      value={option}
+                      checked={selectedOption === option}
+                      onChange={() => setSelectedOption(option)}
+                      className="mr-2"
+                    />
+                    {option}
+                  </label>
+                ))}
+                <button
+                  onClick={handleAnswer}
+                  disabled={!selectedOption}
+                  className="mt-4 bg-blue-600 text-white p-2 rounded hover:bg-blue-700 disabled:bg-gray-400"
+                >
+                  Submit Answer
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    };
+
+    const Dashboard = ({ user, standard, subjects }) => {
+      const [darkMode, setDarkMode] = useState(false);
+      const [selectedSubject, setSelectedSubject] = useState(subjects[0] || 'Chemistry');
+      const [selectedModule, setSelectedModule] = useState(null);
+
+      const modules = modulesData[`${selectedSubject.toLowerCase()}XII`] || [];
+
+      return (
+        <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900' : 'bg-gray-100'}`}>
+          <header className="bg-blue-600 text-white p-4 flex justify-between items-center">
+            <h1 className="text-2xl font-bold">Welcome, {user.name}</h1>
+            <div className="flex items-center">
+              <select
+                value={selectedSubject}
+                onChange={(e) => setSelectedSubject(e.target.value)}
+                className="mr-4 p-2 rounded bg-white text-black"
+              >
+                {subjects.map((subject) => (
+                  <option key={subject} value={subject}>{subject}</option>
+                ))}
+              </select>
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className="bg-gray-200 text-black p-2 rounded hover:bg-gray-300 dark:bg-gray-700 dark:text-white"
+              >
+                {darkMode ? 'Light Mode' : 'Dark Mode'}
+              </button>
+            </div>
+          </header>
+          <div className="container mx-auto p-4">
+            <h2 className="text-3xl font-bold mb-6 dark:text-white">Class {standard} {selectedSubject} Modules</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {modules.length === 0 ? (
+                <div className="col-span-full text-center text-gray-500 dark:text-gray-400">
+                  No modules found for this subject/class.
+                </div>
+              ) : (
+                modules.map((module) => (
+                  <div
+                    key={module.id}
+                    className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+                  >
+                    <h3 className="text-xl font-bold mb-2 dark:text-white">{module.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4">{module.summary}</p>
+                    <p className="text-gray-600 dark:text-gray-300 mb-2"><strong>Real-World Example:</strong> {module.realWorldExample}</p>
+                    {module.keyEquation && (
+                      <p className="text-gray-600 dark:text-gray-300 mb-2"><strong>Key Equation:</strong> {module.keyEquation}</p>
+                    )}
+                    <p className="text-gray-600 dark:text-gray-300 mb-2"><strong>Key Topics:</strong></p>
+                    <ul className="list-disc pl-5 mb-4 dark:text-gray-300">
+                      {module.keyTopics.map((topic, index) => (
+                        <li key={index}>{topic}</li>
+                      ))}
+                    </ul>
+                    <div className="mb-4">
+                      <p className="text-gray-600 dark:text-gray-300 mb-2"><strong>Visualizations:</strong></p>
+                      {module.visualizationLinks.map((link, index) => (
+                        <a
+                          key={index}
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:underline dark:text-blue-400 mr-2"
+                        >
+                          Link {index + 1}
+                        </a>
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => setSelectedModule(module)}
+                      className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+                    >
+                      Take Quiz
+                    </button>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+          {selectedModule && (
+            <QuizModal module={selectedModule} onClose={() => setSelectedModule(null)} />
+          )}
+          <Chatbot darkMode={darkMode} />
+        </div>
+      );
+    };
+
+    const App = () => {
+      const [isLoggedIn, setIsLoggedIn] = useState(false);
+      const [isSignup, setIsSignup] = useState(false);
+      const [user, setUser] = useState(null);
+      const [showDetailsForm, setShowDetailsForm] = useState(false);
+      const [standard, setStandard] = useState('');
+      const [subjects, setSubjects] = useState([]);
+
+      const handleLogin = (userData, signup = false) => {
+        if (signup) {
+          setIsSignup(true);
+        } else if (userData) {
+          setUser(userData);
+          setIsLoggedIn(true);
+          setShowDetailsForm(true);
+        } else {
+          setIsSignup(false);
+        }
+      };
+
+      const handleSignup = (userData, login = false) => {
+        if (login) {
+          setIsSignup(false);
+        } else if (userData) {
+          setUser(userData);
+          setIsLoggedIn(true);
+          setShowDetailsForm(true);
+        }
+      };
+
+      const handleDetailsSubmit = (details) => {
+        setUser({ ...user, ...details });
+        setStandard(details.standard);
+        setSubjects(details.subjects);
+        setShowDetailsForm(false);
+      };
+
+      const handleClassSelect = (cls) => {
+        setStandard(cls);
+        setShowDetailsForm(false);
+      };
+
+      return (
+        <>
+          {!isLoggedIn ? (
+            isSignup ? (
+              <Signup onSignup={handleSignup} />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          ) : showDetailsForm ? (
+            <StudentDetailsForm onSubmit={handleDetailsSubmit} />
+          ) : standard ? (
+            <Dashboard user={user} standard={standard} subjects={subjects} />
+          ) : (
+            <ClassSelection onSelect={handleClassSelect} />
+          )}
+        </>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
