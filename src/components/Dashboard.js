@@ -12,32 +12,55 @@ import {
   Button,
   Tabs,
   Tab,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
+  // List,          // REMOVED - Not used
+  // ListItem,      // REMOVED - Not used
+  // ListItemText,  // REMOVED - Not used
+  // ListItemIcon,  // REMOVED - Not used
   Alert,
   CircularProgress,
 } from '@mui/material';
 import {
   Science as ScienceIcon,
   Biotech as BiotechIcon,
+  MenuBook as BiologyIcon,
   Quiz as QuizIcon,
   Visibility,
   WbSunny as WbSunnyIcon,
   Nightlight as NightlightIcon,
   Info as InfoIcon,
 } from '@mui/icons-material';
+
+// Import data for Class XII
 import { modulesData } from './moduleData';
+
+// Import the separate Class XI modules directly
+import { biologyXI, chemistryXI, physicsXI } from './moduleData11'; 
+
 import { useThemeMode } from '../contexts/ThemeContext';
 import VisualizationModal from './VisualizationModal';
 import QuizModal from './QuizModal';
 import ChatbotModal from './ChatbotModal';
 import ExploreModal from './ExploreModal';
 
+
+// Build the allClassModules object from the correctly imported variables
+const allClassModules = {
+  'XI': {
+    'Chemistry': chemistryXI,
+    'Physics': physicsXI,
+    'Biology': biologyXI
+  },
+  'XII': {
+    'Chemistry': modulesData.chemistryXII,
+    'Physics': modulesData.physicsXII,
+    'Biology': modulesData.biologyXII
+  }
+};
+
+
 function Dashboard() {
   const [userProfile, setUserProfile] = useState(null);
-  const [selectedSubject, setSelectedSubject] = useState('Chemistry'); // Default value
+  const [selectedSubject, setSelectedSubject] = useState('Chemistry');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const [quizOpen, setQuizOpen] = useState(false);
@@ -55,8 +78,9 @@ function Dashboard() {
   const { currentUser, userProfile: authUserProfile, logout, isInitialized } = useAuth();
   const { mode, toggleTheme } = useThemeMode();
 
-  // Module images for visual enhancement
+  // Expanded module images to include Class XI titles
   const moduleImages = {
+    // Class XII Images (existing)
     'The Solid State': 'https://picsum.photos/seed/solidstate/800/600',
     'Solutions': 'https://picsum.photos/seed/solutions/800/600',
     'Electrochemistry': 'https://picsum.photos/seed/electrochemistry/800/600',
@@ -103,37 +127,94 @@ function Dashboard() {
     'Nuclei': 'https://picsum.photos/seed/nuclei/800/600',
     'Semiconductor Electronics: Materials, Devices and Simple Circuits': 'https://picsum.photos/seed/semiconductors/800/600',
     'Communication Systems': 'https://picsum.photos/seed/commsystems/800/600',
+    // Class XI Images
+    'Some Basic Concepts of Chemistry': 'https://picsum.photos/seed/chembasics/800/600',
+    'Structure of Atom': 'https://picsum.photos/seed/atomstructure/800/600',
+    'Classification of Elements and Periodicity in Properties': 'https://picsum.photos/seed/periodictable/800/600',
+    'Chemical Bonding and Molecular Structure': 'https://picsum.photos/seed/chembonding/800/600',
+    'States of Matter': 'https://picsum.photos/seed/statesmatter/800/600',
+    'Thermodynamics': 'https://picsum.photos/seed/thermo/800/600',
+    'Equilibrium': 'https://picsum.photos/seed/equilibrium/800/600',
+    'Redox Reactions': 'https://picsum.photos/seed/redox/800/600',
+    'Hydrogen': 'https://picsum.photos/seed/hydrogen/800/600',
+    'The s-Block Elements': 'https://picsum.photos/seed/sblock/800/600',
+    'Organic Chemistry: Some Basic Principles and Techniques': 'https://picsum.photos/seed/orgbasics/800/600',
+    'Hydrocarbons': 'https://picsum.photos/seed/hydrocarbons/800/600',
+    'Environmental Chemistry': 'https://picsum.photos/seed/envchem/800/600',
+    'Physical World': 'https://picsum.photos/seed/physworld/800/600',
+    'Units and Measurement': 'https://picsum.photos/seed/units/800/600',
+    'Motion in a Straight Line': 'https://picsum.photos/seed/motionline/800/600',
+    'Motion in a Plane': 'https://picsum.photos/seed/motionplane/800/600',
+    'Laws of Motion': 'https://picsum.photos/seed/lawsmotion/800/600',
+    'Work, Energy and Power': 'https://picsum.photos/seed/workenergy/800/600',
+    'System of Particles and Rotational Motion': 'https://picsum.photos/seed/rotation/800/600',
+    'Gravitation': 'https://picsum.photos/seed/gravity/800/600',
+    'Mechanical Properties of Solids': 'https://picsum.photos/seed/mechsolids/800/600',
+    'Mechanical Properties of Fluids': 'https://picsum.photos/seed/mechfluids/800/600',
+    'Thermal Properties of Matter': 'https://picsum.photos/seed/thermalprops/800/600',
+    'Kinetic Theory': 'https://picsum.photos/seed/kinetictheory/800/600',
+    'Oscillations': 'https://picsum.photos/seed/oscillations/800/600',
+    'Waves': 'https://picsum.photos/seed/waves/800/600',
+    'The Living World': 'https://picsum.photos/seed/livingworld/800/600',
+    'Biological Classification': 'https://picsum.photos/seed/bioclass/800/600',
+    'Plant Kingdom': 'https://picsum.photos/seed/plantkingdom/800/600',
+    'Animal Kingdom': 'https://picsum.photos/seed/animalkingdom/800/600',
+    'Morphology of Flowering Plants': 'https://picsum.photos/seed/morphology/800/600',
+    'Anatomy of Flowering Plants': 'https://picsum.photos/seed/anatomy/800/600',
+    'Structural Organisation in Animals': 'https://picsum.photos/seed/animalorg/800/600',
+    'Cell: The Unit of Life': 'https://picsum.photos/seed/cell/800/600',
+    'Cell Cycle and Cell Division': 'https://picsum.photos/seed/celldivision/800/600',
+    'Transport in Plants': 'https://picsum.photos/seed/planttransport/800/600',
+    'Mineral Nutrition': 'https://picsum.photos/seed/mineralnutrition/800/600',
+    'Photosynthesis in Higher Plants': 'https://picsum.photos/seed/photosynthesis/800/600',
+    'Respiration in Plants': 'https://picsum.photos/seed/plantresp/800/600',
+    'Plant Growth and Development': 'https://picsum.photos/seed/plantgrowth/800/600',
+    'Digestion and Absorption': 'https://picsum.photos/seed/digestion/800/600',
+    'Breathing and Exchange of Gases': 'https://picsum.photos/seed/breathing/800/600',
+    'Body Fluids and Circulation': 'https://picsum.photos/seed/circulation/800/600',
+    'Excretory Products and their Elimination': 'https://picsum.photos/seed/excretion/800/600',
+    'Locomotion and Movement': 'https://picsum.photos/seed/locomotion/800/600',
+    'Neural Control and Coordination': 'https://picsum.photos/seed/neural/800/600',
+    'Chemical Coordination and Integration': 'https://picsum.photos/seed/chemicalcoord/800/600',
   };
 
+
   useEffect(() => {
-    const loadProfileAndModules = async () => {
+    const loadProfileAndModules = () => {
       try {
+        if (!isInitialized) return;
         if (!currentUser) {
           navigate('/login', { replace: true });
           return;
         }
+
         const profileData = authUserProfile || {};
         setUserProfile(profileData);
-        const availableSubjects = profileData.subjects || ['Chemistry', 'Biology', 'Physics'];
+
+        const availableSubjects = profileData.subjects || ['Chemistry', 'Physics', 'Biology'];
         setSubjects(availableSubjects);
-        // Set initial selectedSubject only if not in available subjects
+
         if (!availableSubjects.includes(selectedSubject)) {
           setSelectedSubject(availableSubjects[0] || 'Chemistry');
         }
-        // Use hardcoded "XII" for consistency
-        const initialKey = `${selectedSubject.toLowerCase()}XII`;
-        const initialModules = modulesData[initialKey] || [];
-        setModules(initialModules);
+
+        const standard = profileData.standard || 'XII';
+        
+        const currentModules = allClassModules[standard]?.[selectedSubject] || [];
+        setModules(currentModules);
+
       } catch (error) {
         setError(`Failed to load profile: ${error.message}`);
       } finally {
         setLoading(false);
       }
     };
-    loadProfileAndModules();
-  }, [currentUser, authUserProfile, navigate, selectedSubject]);
 
+    loadProfileAndModules();
+  }, [currentUser, authUserProfile, navigate, selectedSubject, isInitialized]);
+  
   const handleSubjectChange = (event, newSubject) => {
+    setLoading(true);
     setSelectedSubject(newSubject);
   };
 
@@ -160,7 +241,6 @@ function Dashboard() {
     try {
       setError('');
       await logout();
-      localStorage.removeItem('userProfile');
       navigate('/login', { replace: true });
     } catch (err) {
       setError(`Failed to log out: ${err.message}`);
@@ -175,27 +255,31 @@ function Dashboard() {
     switch (subject.toLowerCase()) {
       case 'physics': return <ScienceIcon />;
       case 'chemistry': return <BiotechIcon />;
-      case 'biology': return <BiotechIcon />;
+      case 'biology': return <BiologyIcon />;
       default: return <ScienceIcon />;
     }
   };
 
   const getModuleIcon = (icon) => {
     if (icon === 'flask') return <BiotechIcon color="primary" />;
-    if (icon === 'dna') return <BiotechIcon color="success" />;
+    if (icon === 'dna') return <BiologyIcon color="success" />;
     if (icon === 'atom') return <ScienceIcon color="secondary" />;
     return null;
   };
 
-  if (!isInitialized) {
+  if (!isInitialized || loading) {
     return (
       <Container>
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
           <CircularProgress />
-          <Typography variant="h6" sx={{ ml: 2 }}>Initializing...</Typography>
+          <Typography variant="h6" sx={{ ml: 2 }}>Loading Dashboard...</Typography>
         </Box>
       </Container>
     );
+  }
+  
+  if (!userProfile) {
+    return null; 
   }
 
   if (error) {
@@ -208,14 +292,10 @@ function Dashboard() {
     );
   }
 
-  if (!userProfile) {
-    return null;
-  }
-
   return (
     <div style={{ minHeight: '100vh', background: mode === 'dark' ? '#181818' : '#f5f5f5' }}>
-      <Container maxWidth="lg" sx={{ pt: 4 }}>
-        <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+      <Container maxWidth="lg" sx={{ pt: 4, pb: 4 }}>
+        <Box display="flex" justifyContent="space-between" alignItems="center" mb={3} flexWrap="wrap" gap={2}>
           <Typography variant="h4" fontWeight="bold" color="primary">
             Welcome, {userProfile?.name || 'Student'}
           </Typography>
@@ -246,98 +326,86 @@ function Dashboard() {
           onChange={handleSubjectChange}
           indicatorColor="primary"
           textColor="primary"
+          variant="scrollable"
+          scrollButtons="auto"
+          allowScrollButtonsMobile
           sx={{ mb: 3 }}
         >
           {subjects.map((subject) => (
             <Tab key={subject} value={subject} label={subject} icon={getSubjectIcon(subject)} />
           ))}
         </Tabs>
-        {loading ? (
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-            <CircularProgress />
-          </Box>
-        ) : (
-          <Grid container spacing={4}>
-            {modules.length === 0 ? (
-              <Grid item xs={12}>
-                <Alert severity="info">No modules found for this subject/class.</Alert>
-              </Grid>
-            ) : (
-              modules.map((mod) => (
-                <Grid item xs={12} sm={6} md={4} key={mod.id}>
-                  <Card
+
+        <Grid container spacing={4}>
+          {modules.length === 0 ? (
+            <Grid item xs={12}>
+              <Alert severity="info">No modules found for {selectedSubject} Class {userProfile.standard}.</Alert>
+            </Grid>
+          ) : (
+            modules.map((mod) => (
+              <Grid item xs={12} sm={6} md={4} key={`${mod.id}-${mod.title}`}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    boxShadow: 6,
+                    borderRadius: 3,
+                    transition: 'transform 0.2s, box-shadow 0.2s',
+                    '&:hover': { transform: 'translateY(-8px) scale(1.03)', boxShadow: 12 },
+                    background: mode === 'dark' ? '#23272f' : '#fff',
+                  }}
+                >
+                  <Box
                     sx={{
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      boxShadow: 6,
-                      borderRadius: 3,
-                      transition: 'transform 0.2s, box-shadow 0.2s',
-                      '&:hover': { transform: 'translateY(-8px) scale(1.03)', boxShadow: 12 },
-                      background: mode === 'dark' ? '#23272f' : '#fff',
+                      height: 180,
+                      background: `url(${moduleImages[mod.title] || 'https://picsum.photos/seed/default/800/600'}) center/cover no-repeat`,
+                      borderTopLeftRadius: 12,
+                      borderTopRightRadius: 12,
                     }}
-                  >
-                    <Box
-                      sx={{
-                        height: 180,
-                        background: `url(${moduleImages[mod.title] || 'https://picsum.photos/seed/default/800/600'}) center/cover no-repeat`,
-                        borderTopLeftRadius: 12,
-                        borderTopRightRadius: 12,
-                      }}
-                    />
-                    <CardContent sx={{ flexGrow: 1 }}>
+                  />
+                  <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
                       <Box display="flex" alignItems="center" gap={1} mb={1}>
-                        {getModuleIcon(mod.icon)}
-                        <Typography variant="h6" fontWeight="bold">{mod.title}</Typography>
+                          {getModuleIcon(mod.icon)}
+                          <Typography variant="h6" fontWeight="bold">{mod.title}</Typography>
                       </Box>
                       <Typography variant="body2" color="textSecondary" mb={1}>{mod.summary}</Typography>
-                      <Box mb={1}>
-                        <Typography variant="subtitle2" color="primary">Topics:</Typography>
-                        <List dense>
-                          {mod.keyTopics.map((topic, i) => (
-                            <ListItem key={i} sx={{ pl: 0 }}>
-                              <ListItemIcon sx={{ minWidth: 32 }}>{getSubjectIcon(selectedSubject)}</ListItemIcon>
-                              <ListItemText primary={topic} />
-                            </ListItem>
-                          ))}
-                        </List>
-                      </Box>
-                    </CardContent>
-                    <CardActions sx={{ justifyContent: 'space-between', px: 2, pb: 2 }}>
-                      <Button
-                        size="small"
-                        variant="contained"
-                        color="primary"
-                        startIcon={<Visibility />}
-                        onClick={() => handleVisualize(mod)}
-                      >
-                        Visualize
-                      </Button>
-                      <Button
-                        size="small"
-                        variant="outlined"
-                        color="secondary"
-                        startIcon={<QuizIcon />}
-                        onClick={() => handleQuiz(mod)}
-                      >
-                        Quiz
-                      </Button>
-                      <Button
-                        size="small"
-                        variant="outlined"
-                        color="info"
-                        startIcon={<InfoIcon />}
-                        onClick={() => handleExplore(mod)}
-                      >
-                        Explore
-                      </Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              ))
-            )}
-          </Grid>
-        )}
+                  </CardContent>
+                  <CardActions sx={{ justifyContent: 'space-around', px: 2, pb: 2, mt: 'auto' }}>
+                    <Button
+                      size="small"
+                      variant="contained"
+                      color="primary"
+                      startIcon={<Visibility />}
+                      onClick={() => handleVisualize(mod)}
+                    >
+                      Visualize
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="secondary"
+                      startIcon={<QuizIcon />}
+                      onClick={() => handleQuiz(mod)}
+                    >
+                      Quiz
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="info"
+                      startIcon={<InfoIcon />}
+                      onClick={() => handleExplore(mod)}
+                    >
+                      Explore
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))
+          )}
+        </Grid>
+        
         <QuizModal open={quizOpen} onClose={() => setQuizOpen(false)} title={quizTitle} questions={quizQuestions} />
         <VisualizationModal open={visualizationOpen} onClose={() => setVisualizationOpen(false)} title={visualizationTitle} urls={visualizationLinks} />
         <ChatbotModal open={chatbotOpen} onClose={() => setChatbotOpen(false)} subjects={subjects} />
