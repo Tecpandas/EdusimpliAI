@@ -2,7 +2,7 @@
   min-height: 100vh;
   min-width: 100vw;
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url('C:\Users\astha\EduSimpliAI-1 - Copy\EduSimpliAI-1 - Copy\src\login_bg.png') no-repeat center center fixed;
+    url('../login_bg.png') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   align-items: center;

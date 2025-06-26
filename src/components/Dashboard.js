@@ -26,12 +26,14 @@ import {
   Visibility,
   WbSunny as WbSunnyIcon,
   Nightlight as NightlightIcon,
+  Info as InfoIcon,
 } from '@mui/icons-material';
 import { modulesData } from './moduleData';
 import { useThemeMode } from '../contexts/ThemeContext';
 import VisualizationModal from './VisualizationModal';
 import QuizModal from './QuizModal';
 import ChatbotModal from './ChatbotModal';
+import ExploreModal from './ExploreModal';
 
 function Dashboard() {
   const [userProfile, setUserProfile] = useState(null);
@@ -45,6 +47,8 @@ function Dashboard() {
   const [visualizationLinks, setVisualizationLinks] = useState([]);
   const [visualizationTitle, setVisualizationTitle] = useState('');
   const [chatbotOpen, setChatbotOpen] = useState(false);
+  const [exploreOpen, setExploreOpen] = useState(false);
+  const [exploreModule, setExploreModule] = useState(null);
   const [subjects, setSubjects] = useState([]);
   const [modules, setModules] = useState([]);
   const navigate = useNavigate();
@@ -145,6 +149,11 @@ function Dashboard() {
     setQuizOpen(true);
     setQuizTitle(mod.title);
     setQuizQuestions(mod.quiz || []);
+  };
+
+  const handleExplore = (mod) => {
+    setExploreModule(mod);
+    setExploreOpen(true);
   };
 
   const handleLogout = async () => {
@@ -313,6 +322,15 @@ function Dashboard() {
                       >
                         Quiz
                       </Button>
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        color="info"
+                        startIcon={<InfoIcon />}
+                        onClick={() => handleExplore(mod)}
+                      >
+                        Explore
+                      </Button>
                     </CardActions>
                   </Card>
                 </Grid>
@@ -323,6 +341,7 @@ function Dashboard() {
         <QuizModal open={quizOpen} onClose={() => setQuizOpen(false)} title={quizTitle} questions={quizQuestions} />
         <VisualizationModal open={visualizationOpen} onClose={() => setVisualizationOpen(false)} title={visualizationTitle} urls={visualizationLinks} />
         <ChatbotModal open={chatbotOpen} onClose={() => setChatbotOpen(false)} subjects={subjects} />
+        <ExploreModal open={exploreOpen} onClose={() => setExploreOpen(false)} module={exploreModule} subject={selectedSubject} />
       </Container>
     </div>
   );

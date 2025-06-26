@@ -54,22 +54,20 @@ class PDFKnowledgeBaseBuilder:
                 print(f"     -> Warning: Could not read {pdf_filename}. Error: {e}")
         return full_text
 
-    def _chunk_text(self, text, sentences_per_chunk=10):
-        """Splits text into chunks of N sentences to preserve meaning and context."""
-        print(f"  -> Splitting text into chunks of ~{sentences_per_chunk} sentences...")
+    def _chunk_text(self, text, sentences_per_chunk=10, overlap=3):
+        """Splits text into overlapping chunks of N sentences to preserve meaning and context."""
+        print(f"  -> Splitting text into chunks of ~{sentences_per_chunk} sentences with {overlap} overlap...")
         
-        # Use NLTK to intelligently split the text into a list of sentences
         sentences = sent_tokenize(text)
-        
-        # Group the sentences into larger, more meaningful chunks
         chunks = []
-        for i in range(0, len(sentences), sentences_per_chunk):
+        i = 0
+        while i < len(sentences):
             chunk = " ".join(sentences[i:i + sentences_per_chunk])
-            chunks.append(chunk)
-        
-        # Store the high-quality chunks in our knowledge base object
-        self.kb.chunks = [c for c in chunks if len(c.split()) > 10] # Filter out tiny chunks
-        print(f"  -> Created {len(self.kb.chunks)} sentence-based chunks.")
+            if len(chunk.split()) > 10:
+                chunks.append(chunk)
+            i += sentences_per_chunk - overlap  # Move forward with overlap
+        self.kb.chunks = chunks
+        print(f"  -> Created {len(self.kb.chunks)} overlapping chunks.")
 
     def build(self):
         """The main method to build the entire knowledge base."""
