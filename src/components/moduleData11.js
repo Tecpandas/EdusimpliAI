@@ -1733,4 +1733,4 @@ export const modulesData11 = {
   chemistryXI,
   biologyXI,
   physicsXI,
-};
+}; 
