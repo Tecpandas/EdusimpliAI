@@ -34,7 +34,8 @@ import {
 import { modulesData } from './moduleData';
 
 // Import the separate Class XI modules directly
-import { biologyXI, chemistryXI, physicsXI } from './moduleData11'; 
+import { biologyXI, chemistryXI, physicsXI } from './moduleData11.js';
+
 
 import { useThemeMode } from '../contexts/ThemeContext';
 import VisualizationModal from './VisualizationModal';
