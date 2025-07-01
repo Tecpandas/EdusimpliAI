@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Dialog,
   DialogTitle,
@@ -15,123 +15,95 @@ import {
   Paper,
   LinearProgress,
 } from '@mui/material';
+import axios from 'axios';
+import Leaderboard from './Leaderboard';
 
-// Sample quiz questions - you can expand this with more questions
-const quizQuestions = {
-  chemistry: {
-    'Solutions': [
-      {
-        question: 'What is a solution?',
-        options: [
-          'A homogeneous mixture of two or more substances',
-          'A heterogeneous mixture of two or more substances',
-          'A pure substance',
-          'A compound',
-        ],
-        correctAnswer: 0,
-      },
-      {
-        question: 'What is the unit of molarity?',
-        options: [
-          'mol/L',
-          'g/L',
-          'mol/kg',
-          'g/mol',
-        ],
-        correctAnswer: 0,
-      },
-    ],
-    'Electrochemistry': [
-      {
-        question: 'What is an electrochemical cell?',
-        options: [
-          'A device that converts chemical energy to electrical energy',
-          'A device that converts electrical energy to chemical energy',
-          'A device that stores electrical energy',
-          'A device that measures electrical current',
-        ],
-        correctAnswer: 0,
-      },
-    ],
-  },
-  physics: {
-    'Electric Charges and Fields': [
-      {
-        question: "What is Coulomb's Law?",
-        options: [
-          'The force between two charges is directly proportional to the product of charges and inversely proportional to the square of distance',
-          'The force between two charges is directly proportional to the square of distance',
-          'The force between two charges is independent of distance',
-          'The force between two charges is always attractive',
-        ],
-        correctAnswer: 0,
-      },
-    ],
-    'Current Electricity': [
-      {
-        question: "What is Ohm's Law?",
-        options: [
-          'The current through a conductor is directly proportional to the voltage across it and inversely proportional to its resistance',
-          'The current through a conductor is directly proportional to its resistance',
-          'The voltage across a conductor is directly proportional to its resistance',
-          'The current through a conductor is independent of voltage',
-        ],
-        correctAnswer: 0,
-      },
-    ],
-  },
-  biology: {
-    'Sexual Reproduction in Flowering Plants': [
-      {
-        question: 'What is pollination?',
-        options: [
-          'The transfer of pollen from anther to stigma',
-          'The fusion of male and female gametes',
-          'The development of seed',
-          'The formation of fruit',
-        ],
-        correctAnswer: 0,
-      },
-    ],
-    'Human Reproduction': [
-      {
-        question: 'What is gametogenesis?',
-        options: [
-          'The process of formation of gametes',
-          'The process of fertilization',
-          'The process of embryo development',
-          'The process of cell division',
-        ],
-        correctAnswer: 0,
-      },
-    ],
-  },
-};
-
-function Quiz({ open, onClose, subject, topic }) {
+function Quiz({ open, onClose, subject, topic, user, standard }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const [questions, setQuestions] = useState([]);
+  const [leaderboard, setLeaderboard] = useState([]);
+  const [streak, setStreak] = useState(0);
+  const [loading, setLoading] = useState(false);
 
-  const questions = quizQuestions[subject]?.[topic] || [];
-  const progress = (currentQuestion / questions.length) * 100;
+  useEffect(() => {
+    if (open && subject && topic) {
+      fetchQuestions();
+    }
+    // eslint-disable-next-line
+  }, [open, subject, topic]);
+
+  const fetchQuestions = async () => {
+    setLoading(true);
+    try {
+      const res = await axios.post('http://localhost:5000/api/quiz/generate', {
+        subject,
+        module_title: topic
+      });
+      setQuestions(res.data);
+    } catch (err) {
+      setQuestions([]);
+    }
+    setLoading(false);
+  };
+
+  const progress = (currentQuestion / (questions.length || 1)) * 100;
 
   const handleAnswerSelect = (event) => {
     setSelectedAnswer(parseInt(event.target.value));
   };
 
   const handleNext = () => {
-    if (selectedAnswer === questions[currentQuestion].correctAnswer) {
+    if (selectedAnswer === getCorrectIndex()) {
       setScore(score + 1);
     }
-
     if (currentQuestion + 1 < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
     } else {
       setShowResults(true);
+      submitQuiz(score + (selectedAnswer === getCorrectIndex() ? 1 : 0));
     }
+  };
+
+  const getCorrectIndex = () => {
+    const q = questions[currentQuestion];
+    if (!q) return -1;
+    if (typeof q.correctAnswer === 'number') return q.correctAnswer;
+    if (typeof q.correct === 'string') return q.options.findIndex(opt => opt === q.correct);
+    return -1;
+  };
+
+  const submitQuiz = async (finalScore) => {
+    if (!user) return;
+    const quiz_id = `${subject}_${topic}`;
+    try {
+      const res = await axios.post('http://localhost:5000/api/quiz/submit', {
+        user_id: user.uid,
+        user_name: user.name,
+        quiz_id,
+        subject,
+        standard,
+        score: finalScore,
+        total_questions: questions.length
+      });
+      setStreak(res.data.streak);
+      fetchLeaderboard();
+    } catch (err) {
+      // handle error
+    }
+  };
+
+  const fetchLeaderboard = async () => {
+    const quiz_id = `${subject}_${topic}`;
+    try {
+      const res = await axios.get('http://localhost:5000/api/quiz/leaderboard', {
+        params: { quiz_id, subject, standard }
+      });
+      setLeaderboard(res.data);
+    } catch (err) {}
   };
 
   const handleClose = () => {
@@ -139,8 +111,22 @@ function Quiz({ open, onClose, subject, topic }) {
     setSelectedAnswer(null);
     setScore(0);
     setShowResults(false);
+    setLeaderboard([]);
+    setStreak(0);
+    setQuestions([]);
     onClose();
   };
+
+  if (loading) {
+    return (
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Loading Quiz...</DialogTitle>
+        <DialogContent>
+          <Typography>Loading questions, please wait...</Typography>
+        </DialogContent>
+      </Dialog>
+    );
+  }
 
   if (!questions.length) {
     return (
@@ -214,6 +200,10 @@ function Quiz({ open, onClose, subject, topic }) {
                 ? 'Good job! Keep practicing!'
                 : 'Keep studying! You can do better!'}
             </Typography>
+            <Typography variant="h6" sx={{ mt: 2 }}>
+              🔥 Streak: {streak} days
+            </Typography>
+            <Leaderboard leaderboard={leaderboard} />
           </Box>
         )}
       </DialogContent>

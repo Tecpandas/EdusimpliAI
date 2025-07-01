@@ -1,1192 +1,1556 @@
-export const chemistryXI = [
-  {
-    id: 1,
-    title: 'Some Basic Concepts of Chemistry',
-    summary: 'Laying the groundwork for all of chemistry by exploring the nature of matter, the laws of chemical combination, and the crucial concept of the mole for quantitative analysis.',
-    detailedExplanation: "This foundational chapter introduces the language of chemistry. It begins by defining matter and the fundamental laws governing chemical combinations, which led to Dalton's atomic theory. We then explore how to quantify matter at the atomic level through atomic and molecular masses. The cornerstone of the chapter is the mole concept, a powerful tool that allows us to count vast numbers of atoms and molecules by weighing them. This skill is then applied to stoichiometry, the calculation of reactant and product quantities in chemical reactions, including the identification of limiting reagents.",
-    keyTopics: ['Importance of Chemistry', 'Laws of Chemical Combinations', 'Dalton’s Atomic Theory', 'Mole Concept and Molar Masses', 'Stoichiometry and Calculations'],
-    realWorldExample: 'Baking a cake requires precise amounts of ingredients (stoichiometry) to get the desired result.',
-    keyEquation: 'Number of moles = Given mass / Molar mass',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://molview.org/',
-      'https://www.chemtube3d.com/',
-      'https://ptable.com/'
-    ],
-    resourceLinks: [
-      { title: "Khan Academy: The Mole and Avogadro's Number", url: 'https://www.khanacademy.org/science/chemistry/atomic-structure-and-properties/the-mole-and-avogadros-number/v/the-mole-and-avogadros-number' },
-      { title: 'PhET Simulation: Reactants, Products and Leftovers', url: 'https://phet.colorado.edu/en/simulations/reactants-products-and-leftovers' }
-    ],
-    quiz: [
-      { question: 'What is the value of Avogadro\'s number?', options: ['6.022 x 10^23', '3.14 x 10^23', '6.022 x 10^-23', '1.602 x 10^19'], correct: '6.022 x 10^23' },
-      { question: 'The reactant that gets consumed first in a reaction is called the:', options: ['Excess reagent', 'Product', 'Catalyst', 'Limiting reagent'], correct: 'Limiting reagent' },
-    ]
-  },
-  {
-    id: 2,
-    title: 'Structure of Atom',
-    summary: 'A journey into the atom, from the discovery of subatomic particles to the modern quantum mechanical model that defines electron orbitals.',
-    detailedExplanation: "This chapter traces the historical development of our understanding of the atom. It starts with the discovery of electrons, protons, and neutrons, and moves through the early atomic models of Thomson and Rutherford. Bohr's model introduced the key idea of quantized energy levels, successfully explaining the hydrogen spectrum. The chapter culminates in the modern quantum mechanical model, which describes electrons in terms of probabilities and orbitals defined by a set of four quantum numbers. Rules like the Aufbau principle, Pauli exclusion principle, and Hund's rule are explained for determining the electronic configuration of atoms.",
-    keyTopics: ['Discovery of Sub-atomic Particles', 'Atomic Models (Thomson, Rutherford, Bohr)', 'Quantum Mechanical Model of Atom', 'Quantum Numbers', 'Shapes of Atomic Orbitals', 'Rules for Filling Electrons'],
-    realWorldExample: 'Neon signs glow because electricity excites electrons in neon atoms to higher energy levels; they emit colored light when falling back.',
-    keyEquation: 'ΔE = hν',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://winter.group.shef.ac.uk/orbitron/',
-      'https://phet.colorado.edu/en/simulations/build-an-atom',
-      'https://www.chemtube3d.com/'
-    ],
-    resourceLinks: [
-      { title: 'PhET Simulation: Build an Atom', url: 'https://phet.colorado.edu/en/simulations/build-an-atom' },
-      { title: 'The Orbitron: A gallery of atomic orbitals', url: 'https://winter.group.shef.ac.uk/orbitron/' }
-    ],
-    quiz: [
-      { question: 'Which quantum number defines the shape of an orbital?', options: ['Principal (n)', 'Azimuthal (l)', 'Magnetic (ml)', 'Spin (ms)'], correct: 'Azimuthal (l)' },
-      { question: 'Rutherford\'s alpha-scattering experiment led to the discovery of the:', options: ['Electron', 'Proton', 'Nucleus', 'Neutron'], correct: 'Nucleus' },
-    ]
-  },
-  {
-    id: 3,
-    title: 'Classification of Elements and Periodicity in Properties',
-    summary: 'An exploration of the modern periodic table and the recurring trends in the physical and chemical properties of elements.',
-    detailedExplanation: "This chapter explains why the periodic table is chemistry's most important tool. It traces the history of its development, culminating in the Modern Periodic Law, which arranges elements by atomic number. The structure of the table (s, p, d, f blocks) is linked to electronic configurations. The core of the chapter is the study of periodic trends, explaining how properties like atomic radius, ionization enthalpy, electron gain enthalpy, and electronegativity change systematically across periods and down groups, allowing us to predict the behavior of elements.",
-    keyTopics: ['Modern Periodic Law', 'The Periodic Table and Electronic Configurations', 'Periodic Trends in Properties', 'Atomic and Ionic Radii', 'Ionization Enthalpy', 'Electron Gain Enthalpy', 'Electronegativity'],
-    realWorldExample: 'Fluorine is highly reactive because it has a high electronegativity and readily accepts an electron, a trend seen in the periodic table.',
-    keyEquation: '',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://ptable.com/',
-      'https://www.rsc.org/periodic-table',
-      'https://www.youtube.com/watch?v=0-0Y_3a2p3Y'
-    ],
-    resourceLinks: [
-      { title: 'Khan Academy: Periodic Table Trends', url: 'https://www.khanacademy.org/science/chemistry/periodic-table' },
-      { title: 'Royal Society of Chemistry: Interactive Periodic Table', url: 'https://www.rsc.org/periodic-table' }
-    ],
-    quiz: [
-      { question: 'As you move from left to right across a period, atomic radius generally:', options: ['Increases', 'Decreases', 'Stays the same', 'Varies randomly'], correct: 'Decreases' },
-      { question: 'Elements in the same group have similar:', options: ['Atomic numbers', 'Atomic masses', 'Valence electron configurations', 'Number of protons'], correct: 'Valence electron configurations' },
-    ]
-  },
-  {
-    id: 4,
-    title: 'Chemical Bonding and Molecular Structure',
-    summary: 'A fundamental look at how atoms combine to form molecules, and how theories like VSEPR and VBT predict their shapes and properties.',
-    detailedExplanation: "This chapter answers the question of why atoms stick together. It covers the formation of ionic and covalent bonds based on the octet rule. Key bond parameters like length, angle, and enthalpy are defined. The VSEPR (Valence Shell Electron Pair Repulsion) theory is introduced as a simple yet powerful tool for predicting the geometry of molecules. For a deeper understanding of bonding, Valence Bond Theory (including the concepts of hybridization and orbital overlap) and Molecular Orbital Theory are explained. The chapter also discusses the special case of hydrogen bonding and its importance.",
-    keyTopics: ['Ionic and Covalent Bonds', 'Bond Parameters', 'VSEPR Theory', 'Valence Bond Theory and Hybridisation', 'Molecular Orbital Theory', 'Hydrogen Bonding'],
-    realWorldExample: 'The bent shape of a water molecule (H₂O), explained by VSEPR theory, gives it polarity, allowing it to dissolve many substances.',
-    keyEquation: 'Bond Order = ½ (Nb - Na)',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://molview.org/',
-      'https://phet.colorado.edu/en/simulations/molecule-shapes',
-      'https://www.chemtube3d.com/'
-    ],
-    resourceLinks: [
-      { title: 'PhET Simulation: Molecule Shapes', url: 'https://phet.colorado.edu/en/simulations/molecule-shapes' },
-      { title: 'Crash Course Chemistry: Bonding Models', url: 'https://www.youtube.com/watch?v=a8LF7JEb0IA' }
-    ],
-    quiz: [
-      { question: 'What is the geometry of a methane (CH4) molecule according to VSEPR theory?', options: ['Linear', 'Trigonal planar', 'Tetrahedral', 'Bent'], correct: 'Tetrahedral' },
-      { question: 'Which theory explains the paramagnetic nature of O₂?', options: ['VSEPR Theory', 'Valence Bond Theory', 'Molecular Orbital Theory', 'Lewis Theory'], correct: 'Molecular Orbital Theory' },
-    ]
-  },
-  {
-    id: 5,
-    title: 'States of Matter',
-    summary: 'An examination of the properties of gases and liquids, the laws that govern them, and the intermolecular forces that define their state.',
-    detailedExplanation: "This chapter explores the different physical states of matter, with a primary focus on gases and liquids. It starts by explaining the various types of intermolecular forces that determine a substance's state. The behavior of gases is described by the gas laws (Boyle's, Charles's, Avogadro's), which are combined into the Ideal Gas Equation. The Kinetic Molecular Theory of Gases provides a microscopic explanation for this behavior. The chapter also discusses why real gases deviate from ideal behavior and introduces the properties of liquids, such as vapor pressure, surface tension, and viscosity.",
-    keyTopics: ['Intermolecular Forces', 'The Gaseous State and The Gas Laws', 'Ideal Gas Equation', 'Kinetic Molecular Theory of Gases', 'Deviation from Ideal Behaviour', 'The Liquid State'],
-    realWorldExample: 'A pressure cooker works because it increases the pressure, which raises the boiling point of water, as described by the gas laws.',
-    keyEquation: 'PV = nRT',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/gas-properties',
-      'https://www.chemtube3d.com/',
-      'https://molview.org/'
-    ],
-    resourceLinks: [
-      { title: 'PhET Simulation: Gas Properties', url: 'https://phet.colorado.edu/en/simulations/gas-properties' },
-      { title: 'Khan Academy: States of Matter', url: 'https://www.khanacademy.org/science/chemistry/states-of-matter-and-intermolecular-forces' }
-    ],
-    quiz: [
-      { question: 'Which law relates pressure and volume at constant temperature?', options: ['Charles\'s Law', 'Boyle\'s Law', 'Avogadro\'s Law', 'Gay-Lussac\'s Law'], correct: 'Boyle\'s Law' },
-      { question: 'Real gases deviate from ideal behavior at:', options: ['High temperature and low pressure', 'High temperature and high pressure', 'Low temperature and high pressure', 'Low temperature and low pressure'], correct: 'Low temperature and high pressure' },
-    ]
-  },
-  {
-    id: 6,
-    title: 'Thermodynamics',
-    summary: 'A study of energy, heat, work, and the laws that govern their conversion, determining the spontaneity of chemical reactions.',
-    detailedExplanation: "Thermodynamics is the study of energy transformations. This chapter introduces key concepts like system, surroundings, and state functions. The First Law of Thermodynamics (conservation of energy) is discussed in terms of internal energy, heat, and work. The concept of enthalpy (ΔH) is introduced to measure heat changes in reactions. The chapter then moves to the Second Law and the concept of entropy (ΔS) as a measure of disorder, which helps predict the direction of spontaneous change. Finally, Gibbs Free Energy (ΔG) is presented as the ultimate criterion for spontaneity, combining enthalpy and entropy.",
-    keyTopics: ['Thermodynamic Terms', 'First Law of Thermodynamics', 'Enthalpy (ΔH)', 'Hess’s Law', 'Spontaneity', 'Entropy (ΔS) and the Second Law', 'Gibbs Energy (ΔG)'],
-    realWorldExample: 'An instant cold pack works because the dissolution of ammonium nitrate inside it is an endothermic process (ΔH > 0), absorbing heat.',
-    keyEquation: 'ΔG = ΔH - TΔS',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/energy-forms-and-changes',
-      'https://www.youtube.com/watch?v=G9E_q_3d3_k',
-      'https://www.chem.uiuc.edu/clcwebsite/therm.html'
-    ],
-    resourceLinks: [
-      { title: 'Crash Course Chemistry: Thermodynamics', url: 'https://www.youtube.com/watch?v=G9E_q_3d3_k' },
-      { title: 'PhET Simulation: Energy Forms and Changes', url: 'https://phet.colorado.edu/en/simulations/energy-forms-and-changes' }
-    ],
-    quiz: [
-      { question: 'A reaction that releases heat is called:', options: ['Endothermic', 'Exothermic', 'Isothermal', 'Adiabatic'], correct: 'Exothermic' },
-      { question: 'For a spontaneous process, the change in Gibbs Free Energy (ΔG) must be:', options: ['Positive', 'Negative', 'Zero', 'Equal to ΔH'], correct: 'Negative' },
-    ]
-  },
-  {
-    id: 7,
-    title: 'Equilibrium',
-    summary: 'An exploration of reversible reactions and the dynamic state of chemical equilibrium, including acid-base and solubility equilibria.',
-    detailedExplanation: "This chapter deals with the state of equilibrium in reversible reactions, where the rates of the forward and reverse reactions are equal. It introduces the law of mass action and the equilibrium constant (Kc, Kp). Le Chatelier's Principle is a key concept, explaining how a system at equilibrium responds to changes in concentration, pressure, or temperature. The principles of equilibrium are then applied to ionic systems, covering the theories of acids and bases, the pH scale, the action of buffer solutions, and the solubility product (Ksp) for sparingly soluble salts.",
-    keyTopics: ['Chemical Equilibrium', 'Equilibrium Constant (Kc, Kp)', 'Le Chatelier’s Principle', 'Acids, Bases and Salts', 'pH Scale', 'Buffer Solutions', 'Solubility Product'],
-    realWorldExample: 'A sealed bottle of soda is in equilibrium; opening it releases CO₂ pressure, shifting the equilibrium and causing fizzing (Le Chatelier\'s Principle).',
-    keyEquation: 'pH = -log[H⁺]',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/reversible-reactions',
-      'https://phet.colorado.edu/en/simulations/ph-scale',
-      'https://www.chemtube3d.com/'
-    ],
-    resourceLinks: [
-      { title: 'PhET Simulation: Reversible Reactions', url: 'https://phet.colorado.edu/en/simulations/reversible-reactions' },
-      { title: 'Khan Academy: Chemical Equilibrium', url: 'https://www.khanacademy.org/science/chemistry/chemical-equilibrium' }
-    ],
-    quiz: [
-      { question: 'According to Le Chatelier\'s principle, increasing the pressure on N₂(g) + 3H₂(g) ⇌ 2NH₃(g) will:', options: ['Shift left', 'Shift right', 'Have no effect', 'Increase temperature'], correct: 'Shift right' },
-      { question: 'A solution with a pH of 3 is considered:', options: ['Acidic', 'Basic', 'Neutral', 'A buffer'], correct: 'Acidic' },
-    ]
-  },
-  {
-    id: 8,
-    title: 'Redox Reactions',
-    summary: 'A detailed look at oxidation-reduction (redox) reactions, characterized by the transfer of electrons and changes in oxidation states.',
-    detailedExplanation: "Redox reactions are fundamental to many chemical and biological processes. This chapter defines oxidation and reduction in terms of electron transfer and introduces the concept of oxidation numbers as a tool for tracking these changes. It covers how to identify oxidizing and reducing agents and classifies different types of redox reactions. A significant part of the chapter is dedicated to the methods for balancing complex redox equations (oxidation number method and half-reaction method). The connection between redox reactions and electrochemical cells is also introduced.",
-    keyTopics: ['Oxidation and Reduction', 'Oxidation Number', 'Types of Redox Reactions', 'Balancing of Redox Reactions', 'Redox Reactions and Electrode Processes'],
-    realWorldExample: 'The rusting of iron is a redox reaction where iron is oxidized by air and water.',
-    keyEquation: '',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://www.youtube.com/watch?v=1v_8tF8-4zE',
-      'https://chem.libretexts.org/',
-      'https://www.chem.ucla.edu/~harding/IGOC/R/redox.html'
-    ],
-    resourceLinks: [
-      { title: 'Khan Academy: Oxidation-Reduction Reactions', url: 'https://www.khanacademy.org/science/chemistry/oxidation-reduction' },
-      { title: 'The Organic Chemistry Tutor: Balancing Redox Reactions', url: 'https://www.youtube.com/watch?v=v5sDNmYCaqo' }
-    ],
-    quiz: [
-      { question: 'In the reaction Zn + Cu²⁺ → Zn²⁺ + Cu, what is being oxidized?', options: ['Zn', 'Cu²⁺', 'Zn²⁺', 'Cu'], correct: 'Zn' },
-      { question: 'What is the oxidation number of sulfur in H₂SO₄?', options: ['+2', '+4', '+6', '-2'], correct: '+6' },
-    ]
-  },
-  {
-    id: 9,
-    title: 'Hydrogen',
-    summary: 'A study of the unique position, properties, preparation, and important compounds of hydrogen, the simplest and most abundant element.',
-    detailedExplanation: "Hydrogen holds a unique position in the periodic table due to its simple structure. This chapter discusses its properties and its similarities to both alkali metals and halogens. It covers the preparation of dihydrogen (H₂) and its uses. The various types of hydrides (ionic, covalent, and metallic) are explained. The chapter also delves into the chemistry of two of hydrogen's most important compounds: water, including its structure and the concept of hard and soft water, and hydrogen peroxide (H₂O₂), a powerful oxidizing agent. The potential of hydrogen as a clean fuel is also highlighted.",
-    keyTopics: ['Position in Periodic Table', 'Preparation and Properties of Dihydrogen', 'Hydrides', 'Water (Structure, Hard/Soft)', 'Hydrogen Peroxide (H₂O₂)', 'Hydrogen as a Fuel'],
-    realWorldExample: 'Hydrogen peroxide (H₂O₂) is used as a mild antiseptic because it decomposes into water and oxygen.',
-    keyEquation: '',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://www.rsc.org/periodic-table/element/1/hydrogen',
-      'https://molview.org/?q=water',
-      'https://www.energy.gov/eere/fuelcells/hydrogen-fuel-basics'
-    ],
-    resourceLinks: [
-      { title: 'Royal Society of Chemistry: Hydrogen', url: 'https://www.rsc.org/periodic-table/element/1/hydrogen' },
-      { title: 'U.S. Department of Energy: Hydrogen Fuel Basics', url: 'https://www.energy.gov/eere/fuelcells/hydrogen-fuel-basics' }
-    ],
-    quiz: [
-      { question: 'What causes temporary hardness in water?', options: ['Sulphates of Mg and Ca', 'Chlorides of Mg and Ca', 'Bicarbonates of Mg and Ca', 'Nitrates of Mg and Ca'], correct: 'Bicarbonates of Mg and Ca' },
-      { question: 'Which isotope of hydrogen is radioactive?', options: ['Protium', 'Deuterium', 'Tritium', 'All are stable'], correct: 'Tritium' },
-    ]
-  },
-  {
-    id: 10,
-    title: 'The s-Block Elements',
-    summary: 'An exploration of the alkali metals (Group 1) and alkaline earth metals (Group 2), known for their high reactivity and important compounds.',
-    detailedExplanation: "This chapter focuses on the elements of the first two groups of the periodic table. It discusses the general characteristics of the alkali metals (Group 1) and alkaline earth metals (Group 2), including trends in their atomic and physical properties. The anomalous behavior of the first element in each group (Lithium and Beryllium) is explained. The chapter also covers the preparation, properties, and uses of important compounds like sodium carbonate (washing soda), sodium hydroxide, and calcium carbonate (limestone), and discusses the biological importance of Na, K, Mg, and Ca ions.",
-    keyTopics: ['Group 1: Alkali Metals', 'Important Compounds of Sodium', 'Group 2: Alkaline Earth Metals', 'Important Compounds of Calcium', 'Biological Importance of s-Block Elements'],
-    realWorldExample: 'Baking soda (sodium bicarbonate, NaHCO₃) is a compound of an s-block element used in baking and as an antacid.',
-    keyEquation: '',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://ptable.com/',
-      'https://www.youtube.com/watch?v=6ZY6d6jI3kQ',
-      'https://www.rsc.org/periodic-table'
-    ],
-    resourceLinks: [
-      { title: 'Crash Course Chemistry: The Alkali Metals', url: 'https://www.youtube.com/watch?v=6ZY6d6jI3kQ' },
-      { title: 'Chem LibreTexts: The Alkali Metals (Group 1)', url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/Map%3A_Chemistry_-_The_Central_Science_(Brown_et_al.)/07%3A_Periodic_Properties_of_the_Elements/7.07%3A_Group_Trends_for_the_Active_Metals' }
-    ],
-    quiz: [
-      { question: 'Which alkali metal is the most reactive?', options: ['Li', 'Na', 'K', 'Cs'], correct: 'Cs' },
-      { question: 'Which element shows a diagonal relationship with Magnesium?', options: ['Sodium', 'Beryllium', 'Lithium', 'Boron'], correct: 'Lithium' },
-    ]
-  },
-  {
-    id: 11,
-    title: 'The p-Block Elements (Groups 13 & 14)',
-    summary: 'A detailed look at the chemistry of the Boron family (Group 13) and the Carbon family (Group 14), highlighting their diverse properties.',
-    detailedExplanation: "This chapter introduces the p-block, starting with Group 13 (Boron family) and Group 14 (Carbon family). It examines the trends in their properties, including the 'inert pair effect' which becomes significant down the groups. For Group 13, it discusses the electron-deficient nature of boron compounds like diborane. For Group 14, it highlights the unique property of carbon, catenation, which leads to a vast number of organic compounds. The different allotropes of carbon (diamond, graphite, fullerenes) and important compounds like carbon oxides and silicones are also covered.",
-    keyTopics: ['Group 13 Elements: The Boron Family', 'Important Compounds of Boron', 'Group 14 Elements: The Carbon Family', 'Allotropes of Carbon', 'Important Compounds of Carbon and Silicon'],
-    realWorldExample: 'Silicon, a Group 14 element, is the foundation of the modern electronics industry, used to make computer chips.',
-    keyEquation: '',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://ptable.com/',
-      'https://www.chemtube3d.com/',
-      'https://molview.org/'
-    ],
-    resourceLinks: [
-      { title: 'Khan Academy: Carbon and the p-block', url: 'https://www.khanacademy.org/science/biology/properties-of-carbon' },
-      { title: 'Chem LibreTexts: The Boron Family (Group 13)', url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/Book%3A_Chemistry_(Averill_and_Eldredge)/22%3A_The_p-Block_Elements/22.2%3A_The_Elements_of_Group_13' }
-    ],
-    quiz: [
-      { question: 'Which allotrope of carbon is a good conductor of electricity?', options: ['Diamond', 'Graphite', 'Fullerene', 'Coal'], correct: 'Graphite' },
-      { question: 'The tendency of an element to form chains of identical atoms is called:', options: ['Allotropy', 'Isomerism', 'Catenation', 'Polymerization'], correct: 'Catenation' },
-    ]
-  },
-  {
-    id: 12,
-    title: 'Organic Chemistry: Basic Principles & Techniques',
-    summary: 'Laying the foundation of organic chemistry by covering nomenclature, isomerism, reaction mechanisms, and purification methods.',
-    detailedExplanation: "This chapter serves as the entry point into the world of organic chemistry. It establishes the rules for naming organic compounds using the IUPAC system. The concept of isomerism, where molecules have the same formula but different structures, is introduced. It then delves into the fundamental concepts of reaction mechanisms, explaining electronic effects like inductive and resonance effects, which govern the reactivity of molecules. The chapter also defines key reactive species like electrophiles and nucleophiles and outlines common techniques for purifying organic compounds.",
-    keyTopics: ['IUPAC Nomenclature', 'Isomerism (Structural and Stereoisomerism)', 'Fundamental Concepts in Reaction Mechanism', 'Electronic Effects', 'Electrophiles and Nucleophiles', 'Purification of Organic Compounds'],
-    realWorldExample: 'The difference between butane (in lighters) and isobutane (in aerosols) is an example of structural isomerism.',
-    keyEquation: '',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://www.chem.ucla.edu/~harding/IGOC/IGOC.html',
-      'https://molview.org/',
-      'https://www.chemtube3d.com/'
-    ],
-    resourceLinks: [
-      { title: 'The Organic Chemistry Tutor: IUPAC Nomenclature', url: 'https://www.youtube.com/watch?v=z_s3g_45oNU' },
-      { title: 'Chem LibreTexts: Organic Chemistry', url: 'https://chem.libretexts.org/Bookshelves/Organic_Chemistry' }
-    ],
-    quiz: [
-      { question: 'A species that attacks an electron-rich center is called a(n):', options: ['Nucleophile', 'Electrophile', 'Free radical', 'Carbanion'], correct: 'Electrophile' },
-      { question: 'The stability of carbocations follows the order:', options: ['3° > 2° > 1°', '1° > 2° > 3°', '2° > 1° > 3°', '3° > 1° > 2°'], correct: '3° > 2° > 1°' },
-    ]
-  },
-  {
-    id: 13,
-    title: 'Hydrocarbons',
-    summary: 'An exploration of the simplest organic compounds—alkanes, alkenes, alkynes, and aromatic compounds—and their characteristic reactions.',
-    detailedExplanation: "Hydrocarbons, compounds containing only carbon and hydrogen, form the backbone of organic chemistry. This chapter classifies them into alkanes (saturated), alkenes (containing double bonds), and alkynes (containing triple bonds). It discusses their preparation and characteristic reactions: free-radical substitution for alkanes, and electrophilic addition for alkenes and alkynes (including Markovnikov's rule). The final section introduces aromatic hydrocarbons, focusing on benzene, the concept of aromaticity (Hückel's rule), and its characteristic electrophilic substitution reactions.",
-    keyTopics: ['Alkanes', 'Alkenes', 'Alkynes', 'Aromatic Hydrocarbons', 'Aromaticity', 'Electrophilic Substitution'],
-    realWorldExample: 'Natural gas (mostly methane, an alkane) and petrol (a mix of alkanes) are hydrocarbons used as major fuel sources worldwide.',
-    keyEquation: '',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://molview.org/',
-      'https://www.chemtube3d.com/',
-      'https://www.chem.ucla.edu/~harding/IGOC/IGOC.html'
-    ],
-    resourceLinks: [
-      { title: 'Khan Academy: Alkanes, Alkenes, and Alkynes', url: 'https://www.khanacademy.org/science/organic-chemistry/alkanes-cycloalkanes-and-conformational-analysis' },
-      { title: 'Crash Course Chemistry: Hydrocarbons', url: 'https://www.youtube.com/watch?v=U_y_h3Rykks' }
-    ],
-    quiz: [
-      { question: 'Which type of reaction is characteristic of alkanes?', options: ['Addition', 'Elimination', 'Free-radical substitution', 'Electrophilic substitution'], correct: 'Free-radical substitution' },
-      { question: 'Which of the following is an aromatic compound?', options: ['Cyclohexane', 'Cyclohexene', 'Benzene', 'Hexane'], correct: 'Benzene' },
-    ]
-  },
-  {
-    id: 14,
-    title: 'Environmental Chemistry',
-    summary: 'An application of chemical principles to understand and combat environmental pollution in the air, water, and soil.',
-    detailedExplanation: "This chapter examines the chemistry behind major environmental issues. It discusses atmospheric pollution, including the formation of acid rain, photochemical smog, the greenhouse effect leading to global warming, and the depletion of the stratospheric ozone layer. It also covers water pollution, defining terms like BOD (Biochemical Oxygen Demand) and explaining the process of eutrophication. Soil pollution from pesticides and industrial wastes is also addressed. The chapter concludes by introducing the principles of Green Chemistry as a sustainable approach to prevent pollution.",
-    keyTopics: ['Atmospheric Pollution (Tropospheric and Stratospheric)', 'Acid Rain, Smog, Greenhouse Effect, Ozone Depletion', 'Water Pollution (BOD, Eutrophication)', 'Soil Pollution', 'Green Chemistry'],
-    realWorldExample: 'Acid rain is caused by sulfur and nitrogen oxides from burning fossil fuels reacting with atmospheric water.',
-    keyEquation: '',
-    icon: 'flask',
-    visualizationLinks: [
-      'https://www.epa.gov/environmental-topics',
-      'https://climate.nasa.gov/',
-      'https://www.acs.org/greenchemistry.html'
-    ],
-    resourceLinks: [
-      { title: 'NASA: Global Climate Change', url: 'https://climate.nasa.gov/' },
-      { title: 'American Chemical Society: Green Chemistry', url: 'https://www.acs.org/greenchemistry.html' }
-    ],
-    quiz: [
-      { question: 'Acid rain is primarily caused by oxides of which two elements?', options: ['Carbon and Hydrogen', 'Sulfur and Nitrogen', 'Sodium and Potassium', 'Chlorine and Fluorine'], correct: 'Sulfur and Nitrogen' },
-      { question: 'The depletion of the ozone layer is mainly caused by:', options: ['Carbon dioxide', 'Methane', 'Chlorofluorocarbons (CFCs)', 'Acid rain'], correct: 'Chlorofluorocarbons (CFCs)' },
-    ]
-  }
-];
-
-// =================================================================================
-//                            BIOLOGY CLASS 11
-// =================================================================================
 export const biologyXI = [
   {
     id: 1,
-    title: 'The Living World',
-    summary: 'An introduction to the definition of life, the vast diversity of organisms, and the systematic approach used to classify them.',
-    detailedExplanation: "This opening chapter addresses the fundamental question: 'What is living?'. It distinguishes living from non-living based on defining characteristics like metabolism, cellular organization, and consciousness. It introduces the immense biodiversity on Earth and highlights the need for a standardized system of nomenclature (binomial nomenclature) and classification. The chapter outlines the taxonomic hierarchy (Kingdom, Phylum, Class, etc.) and describes various taxonomical aids like herbaria, museums, and botanical gardens that help in the study and conservation of organisms.",
-    keyTopics: ['What is ‘Living’?', 'Diversity in the Living World', 'Taxonomic Categories', 'Taxonomical Aids'],
-    realWorldExample: 'A museum or a botanical garden serves as a taxonomical aid, helping us identify and study different species.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "The Living World",
+    summary: "An introduction to the characteristics of life, biodiversity, and the classification of living organisms.",
+    detailedExplanation: "This chapter explores the definition of life through characteristics like growth, reproduction, metabolism, and response to stimuli. It discusses biodiversity, the variety of life on Earth, and the need for classification to organize organisms into groups. Taxonomic hierarchy (species, genus, family, etc.) and tools like binomial nomenclature, herbaria, and zoological parks are covered. The chapter emphasizes the role of taxonomy in understanding relationships among organisms.",
+    keyTopics: ["Characteristics of Life", "Biodiversity", "Taxonomic Hierarchy", "Binomial Nomenclature", "Taxonomical Aids"],
+    realWorldExample: "The classification of tigers (Panthera tigris) using binomial nomenclature helps scientists study and conserve this species globally.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=bO_T4t_d1pA',
-      'https://www.biologieducare.com/',
-      'https://www.britannica.com/science/taxonomy'
+      "https://www.youtube.com/watch?v=8PmM6Aj7t4M",
+      "https://www.britannica.com/science/biology",
+      "https://www.khanacademy.org/science/biology/biodiversity"
     ],
     resourceLinks: [
-      { title: 'Khan Academy: Introduction to biodiversity', url: 'https://www.khanacademy.org/science/biology/biodiversity-and-conservation/introduction-to-biodiversity/v/what-is-biodiversity' },
-      { title: 'Crash Course Biology: Taxonomy', url: 'https://www.youtube.com/watch?v=F38BmgPcZ_I' }
+      { title: "Khan Academy: Introduction to Biology", url: "https://www.khanacademy.org/science/biology/intro-to-biology" },
+      { title: "BYJU'S: The Living World", url: "https://byjus.com/biology/the-living-world/" }
     ],
     quiz: [
-      { question: 'Which of the following is a defining characteristic of living organisms?', options: ['Growth', 'Reproduction', 'Metabolism', 'Movement'], correct: 'Metabolism' },
-      { question: 'Who is known as the father of modern taxonomy?', options: ['Aristotle', 'Theophrastus', 'Carolus Linnaeus', 'Charles Darwin'], correct: 'Carolus Linnaeus' },
+      { question: "Which is a defining feature of living organisms?", options: ["Growth", "Metabolism", "Reproduction", "All of these"], correct: "All of these" },
+      { question: "Binomial nomenclature was introduced by:", options: ["Linnaeus", "Darwin", "Mendel", "Wallace"], correct: "Linnaeus" },
+      { question: "The lowest taxonomic rank is:", options: ["Genus", "Species", "Family", "Order"], correct: "Species" },
+      { question: "Biodiversity refers to:", options: ["Variety of life", "Number of cells", "Types of ecosystems", "Genetic mutations"], correct: "Variety of life" },
+      { question: "A herbarium is used to store:", options: ["Live animals", "Preserved plants", "Fossils", "Bacteria"], correct: "Preserved plants" },
+      { question: "The scientific name of humans is:", options: ["Homo sapiens", "Panthera leo", "Canis lupus", "Felis catus"], correct: "Homo sapiens" },
+      { question: "Which is a taxonomical aid?", options: ["Microscope", "Zoological park", "Telescope", "Centrifuge"], correct: "Zoological park" },
+      { question: "The highest taxonomic rank is:", options: ["Kingdom", "Phylum", "Class", "Domain"], correct: "Domain" },
+      { question: "Metabolism includes:", options: ["Only catabolic reactions", "Only anabolic reactions", "Both catabolic and anabolic reactions", "No chemical reactions"], correct: "Both catabolic and anabolic reactions" },
+      { question: "Taxonomy deals with:", options: ["Cell structure", "Classification of organisms", "Photosynthesis", "DNA replication"], correct: "Classification of organisms" },
     ]
   },
   {
     id: 2,
-    title: 'Biological Classification',
-    summary: 'An exploration of the major systems of classification, focusing on R.H. Whittaker\'s Five Kingdom system: Monera, Protista, Fungi, Plantae, and Animalia.',
-    detailedExplanation: "This chapter details how scientists have historically classified the living world. It focuses on R.H. Whittaker's widely accepted Five Kingdom Classification. Each kingdom is explored based on its key characteristics, such as cell structure (prokaryotic vs. eukaryotic), body organization (unicellular vs. multicellular), and mode of nutrition. It provides an overview of Kingdom Monera (bacteria), Protista (diverse eukaryotes), and Fungi. The chapter concludes by discussing organisms that don't fit into this system, such as viruses, viroids, and lichens.",
-    keyTopics: ['Kingdom Monera', 'Kingdom Protista', 'Kingdom Fungi', 'Kingdom Plantae', 'Kingdom Animalia', 'Viruses, Viroids and Lichens'],
-    realWorldExample: 'Yeast, a type of fungus, is used in baking and brewing, showcasing the economic importance of Kingdom Fungi.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Biological Classification",
+    summary: "A study of the classification systems of living organisms, including kingdoms like Monera, Protista, and Fungi.",
+    detailedExplanation: "This chapter delves into the classification of organisms into five kingdoms: Monera, Protista, Fungi, Plantae, and Animalia, based on cell structure, nutrition, and reproduction. It discusses the characteristics of each kingdom, including bacteria (Monera), protozoans (Protista), and fungi. The chapter covers viruses, viroids, and lichens as unique entities. It also explores the evolution of classification systems from two-kingdom to five-kingdom models.",
+    keyTopics: ["Five Kingdom Classification", "Monera", "Protista", "Fungi", "Viruses and Viroids", "Lichens"],
+    realWorldExample: "Penicillin, derived from the fungus Penicillium, is used as an antibiotic to treat bacterial infections.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=F38BmgPcZ_I',
-      'https://www.ucmp.berkeley.edu/alllife/threedomains.html',
-      'https://bio.libretexts.org/Bookshelves/Introductory_and_General_Biology/Book%3A_General_Biology_(Boundless)/20%3A_Phylogenies_and_the_History_of_Life/20.02%3A_The_Five_Kingdoms'
+      "https://www.youtube.com/watch?v=6mWqla7rZqs",
+      "https://www.britannica.com/science/biological-classification",
+      "https://www.khanacademy.org/science/biology/biodiversity"
     ],
     resourceLinks: [
-      { title: 'Amoeba Sisters: The Six Kingdoms', url: 'https://www.youtube.com/watch?v=F38BmgPcZ_I' },
-      { title: 'UC Berkeley: The Five Kingdoms of Life', url: 'https://ucmp.berkeley.edu/alllife/threedomains.html' }
+      { title: "Amoeba Sisters: Biological Classification", url: "https://www.youtube.com/watch?v=6mWqla7rZqs" },
+      { title: "BYJU'S: Biological Classification", url: "https://byjus.com/biology/biological-classification/" }
     ],
     quiz: [
-      { question: 'The five-kingdom classification was proposed by:', options: ['C. Linnaeus', 'R.H. Whittaker', 'Aristotle', 'T.O. Diener'], correct: 'R.H. Whittaker' },
-      { question: 'The cell wall of fungi is made of:', options: ['Cellulose', 'Chitin', 'Peptidoglycan', 'Hemicellulose'], correct: 'Chitin' },
+      { question: "Which kingdom includes bacteria?", options: ["Monera", "Protista", "Fungi", "Plantae"], correct: "Monera" },
+      { question: "Fungi are characterized by:", options: ["Photosynthesis", "Heterotrophic nutrition", "Autotrophic nutrition", "No cell wall"], correct: "Heterotrophic nutrition" },
+      { question: "Viruses are considered:", options: ["Living organisms", "Non-living outside hosts", "Always parasitic", "Autotrophic"], correct: "Non-living outside hosts" },
+      { question: "Which organism forms a symbiotic association in lichens?", options: ["Bacteria and fungi", "Algae and fungi", "Protozoa and algae", "Fungi and plants"], correct: "Algae and fungi" },
+      { question: "The five-kingdom classification was proposed by:", options: ["Linnaeus", "Whittaker", "Darwin", "Mendel"], correct: "Whittaker" },
+      { question: "Protista includes:", options: ["Unicellular eukaryotes", "Multicellular plants", "Bacteria", "Fungi"], correct: "Unicellular eukaryotes" },
+      { question: "Which is a characteristic of Monera?", options: ["Nucleus present", "Cell wall absent", "Prokaryotic cells", "Multicellular"], correct: "Prokaryotic cells" },
+      { question: "Viroids differ from viruses by lacking:", options: ["DNA", "Protein coat", "RNA", "Host dependency"], correct: "Protein coat" },
+      { question: "Which fungus is used in bread making?", options: ["Penicillium", "Yeast", "Aspergillus", "Rhizopus"], correct: "Yeast" },
+      { question: "The cell wall of fungi is made of:", options: ["Cellulose", "Chitin", "Peptidoglycan", "Lignin"], correct: "Chitin" },
     ]
   },
   {
     id: 3,
-    title: 'Plant Kingdom',
-    summary: 'A detailed survey of the major groups within the plant kingdom, from simple algae to complex flowering plants, highlighting their life cycles.',
-    detailedExplanation: "This chapter provides a comprehensive tour of the plant kingdom. It starts with the simplest plants, the algae, and moves progressively to more complex groups: bryophytes (the 'amphibians' of the plant kingdom), pteridophytes (the first terrestrial plants with vascular tissue), gymnosperms (plants with 'naked' seeds like pines), and finally, the most advanced group, the angiosperms (flowering plants). The key characteristics, economic importance, and life cycles of each group are discussed, with a focus on the concept of alternation of generations between the gametophyte and sporophyte phases.",
-    keyTopics: ['Algae', 'Bryophytes', 'Pteridophytes', 'Gymnosperms', 'Angiosperms', 'Alternation of Generations'],
-    realWorldExample: 'Pine trees, which produce cones instead of flowers, are common examples of gymnosperms.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Plant Kingdom",
+    summary: "An exploration of the classification and characteristics of plants, from algae to angiosperms.",
+    detailedExplanation: "This chapter classifies plants into major groups: algae, bryophytes, pteridophytes, gymnosperms, and angiosperms, based on structure, reproduction, and life cycles. It discusses the characteristics of each group, such as the presence of vascular tissues or seeds. Alternation of generations, economic importance (e.g., food, medicine), and evolutionary trends in plant complexity are covered. The chapter also highlights adaptations like xylem in pteridophytes and flowers in angiosperms.",
+    keyTopics: ["Algae", "Bryophytes", "Pteridophytes", "Gymnosperms", "Angiosperms", "Alternation of Generations"],
+    realWorldExample: "Rice, an angiosperm, is a staple food for millions, showcasing the economic importance of plants.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=X4L3r_XJ0vY',
-      'https://www.britannica.com/science/plant',
-      'https://bio.libretexts.org/Bookshelves/Botany'
+      "https://www.youtube.com/watch?v=7pR7TNzJ_pA",
+      "https://www.britannica.com/science/plant",
+      "https://bio.libretexts.org/Bookshelves/Botany"
     ],
     resourceLinks: [
-      { title: 'Crash Course Biology: The Plant Kingdom', url: 'https://www.youtube.com/watch?v=X4L3r_XJ0vY' },
-      { title: 'Khan Academy: Introduction to plants', url: 'https://www.khanacademy.org/science/biology/plant-biology' }
+      { title: "Khan Academy: Plant Kingdom", url: "https://www.khanacademy.org/science/biology/plant-biology" },
+      { title: "BYJU'S: Plant Kingdom", url: "https://byjus.com/biology/plant-kingdom/" }
     ],
     quiz: [
-      { question: 'Which group of plants is known as "amphibians of the plant kingdom"?', options: ['Algae', 'Bryophytes', 'Pteridophytes', 'Gymnosperms'], correct: 'Bryophytes' },
-      { question: 'Double fertilization is a characteristic feature of:', options: ['Algae', 'Fungi', 'Gymnosperms', 'Angiosperms'], correct: 'Angiosperms' },
+      { question: "Which plant group lacks vascular tissues?", options: ["Algae", "Bryophytes", "Pteridophytes", "Gymnosperms"], correct: "Bryophytes" },
+      { question: "Angiosperms are characterized by:", options: ["Naked seeds", "Flowers", "No roots", "No leaves"], correct: "Flowers" },
+      { question: "Alternation of generations involves:", options: ["Only sporophyte", "Only gametophyte", "Both sporophyte and gametophyte", "No reproduction"], correct: "Both sporophyte and gametophyte" },
+      { question: "Which plant group produces seeds?", options: ["Bryophytes", "Pteridophytes", "Gymnosperms", "Algae"], correct: "Gymnosperms" },
+      { question: "Algae are primarily:", options: ["Terrestrial", "Aquatic", "Parasitic", "Symbiotic"], correct: "Aquatic" },
+      { question: "The first plants with vascular tissues are:", options: ["Bryophytes", "Pteridophytes", "Algae", "Angiosperms"], correct: "Pteridophytes" },
+      { question: "Which is an example of a gymnosperm?", options: ["Moss", "Fern", "Pine", "Wheat"], correct: "Pine" },
+      { question: "Bryophytes are called amphibians of the plant kingdom because:", options: ["They live in water", "They need water for reproduction", "They have roots", "They produce seeds"], correct: "They need water for reproduction" },
+      { question: "Which plant group is used in agar production?", options: ["Algae", "Bryophytes", "Pteridophytes", "Gymnosperms"], correct: "Algae" },
+      { question: "Angiosperms are divided into:", options: ["Monocots and dicots", "Ferns and mosses", "Algae and fungi", "Gymnosperms and pteridophytes"], correct: "Monocots and dicots" },
     ]
   },
   {
     id: 4,
-    title: 'Animal Kingdom',
-    summary: 'A comprehensive classification of animals, from simple sponges to complex mammals, based on key structural and developmental characteristics.',
-    detailedExplanation: "This chapter systematically classifies the vast diversity of the animal kingdom. It begins by explaining the basis of classification, such as levels of organization, symmetry, and the nature of the coelom. It then proceeds phylum by phylum, from the simplest invertebrates like Porifera (sponges) and Cnidaria (jellyfish) up to the complex Chordata. Key characteristics, unique features (like the water vascular system in Echinoderms), and representative examples are provided for each phylum, culminating in a detailed look at the classes of vertebrates, including fish, amphibians, reptiles, birds, and mammals.",
-    keyTopics: ['Basis of Classification', 'Phylum Porifera to Echinodermata', 'Phylum Chordata', 'Classes Cyclostomata to Mammalia'],
-    realWorldExample: 'Insects, belonging to Phylum Arthropoda, are the most diverse group of animals and play crucial roles as pollinators and decomposers.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Animal Kingdom",
+    summary: "A study of the classification and characteristics of animals, from sponges to chordates.",
+    detailedExplanation: "This chapter classifies animals based on body organization, symmetry, germ layers, and other features. It covers major phyla: Porifera, Cnidaria, Ctenophora, Platyhelminthes, Aschelminthes, Annelida, Arthropoda, Mollusca, Echinodermata, and Chordata. Key characteristics like coelom, segmentation, and notochord are discussed. The chapter highlights diversity in structure, habitat, and adaptations, such as exoskeletons in arthropods and endoskeletons in chordates.",
+    keyTopics: ["Basis of Classification", "Major Animal Phyla", "Body Organization", "Symmetry and Coelom", "Chordates and Non-chordates"],
+    realWorldExample: "The hard exoskeleton of insects like beetles (Arthropoda) protects them from predators and environmental stress.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=tkq33-1s-lU',
-      'https://www.animaldiversity.org/',
-      'https://www.britannica.com/animal/animal'
+      "https://www.youtube.com/watch?v=xi3I6WFOqsg",
+      "https://animaldiversity.org/",
+      "https://www.britannica.com/science/animal"
     ],
     resourceLinks: [
-      { title: 'Crash Course Biology: Animal Kingdom', url: 'https://www.youtube.com/watch?v=tkq33-1s-lU' },
-      { title: 'Animal Diversity Web (University of Michigan)', url: 'https://animaldiversity.org/' }
+      { title: "Amoeba Sisters: Animal Kingdom", url: "https://www.youtube.com/watch?v=xi3I6WFOqsg" },
+      { title: "BYJU'S: Animal Kingdom", url: "https://byjus.com/biology/animal-kingdom/" }
     ],
     quiz: [
-      { question: 'Which phylum is characterized by the presence of a water canal system?', options: ['Coelenterata', 'Porifera', 'Platyhelminthes', 'Annelida'], correct: 'Porifera' },
-      { question: 'Which is the largest phylum in the animal kingdom?', options: ['Mollusca', 'Arthropoda', 'Annelida', 'Chordata'], correct: 'Arthropoda' },
+      { question: "Which phylum includes animals with a notochord?", options: ["Arthropoda", "Chordata", "Mollusca", "Porifera"], correct: "Chordata" },
+      { question: "Sponges belong to:", options: ["Cnidaria", "Porifera", "Platyhelminthes", "Echinodermata"], correct: "Porifera" },
+      { question: "Which feature is characteristic of Arthropoda?", options: ["Soft body", "Exoskeleton", "Notochord", "Radial symmetry"], correct: "Exoskeleton" },
+      { question: "The body cavity in Annelida is:", options: ["Acoelomate", "Pseudocoelomate", "Coelomate", "No cavity"], correct: "Coelomate" },
+      { question: "Which phylum shows radial symmetry?", options: ["Cnidaria", "Annelida", "Arthropoda", "Chordata"], correct: "Cnidaria" },
+      { question: "Flatworms belong to:", options: ["Platyhelminthes", "Aschelminthes", "Mollusca", "Echinodermata"], correct: "Platyhelminthes" },
+      { question: "Which animal group has a water vascular system?", options: ["Porifera", "Cnidaria", "Echinodermata", "Chordata"], correct: "Echinodermata" },
+      { question: "The largest phylum in the animal kingdom is:", options: ["Chordata", "Arthropoda", "Mollusca", "Annelida"], correct: "Arthropoda" },
+      { question: "Which feature distinguishes chordates?", options: ["Exoskeleton", "Notochord", "Segmentation", "Radial symmetry"], correct: "Notochord" },
+      { question: "Cnidarians have:", options: ["Stinging cells", "Segmented body", "Hard shell", "Vertebral column"], correct: "Stinging cells" },
     ]
   },
   {
     id: 5,
-    title: 'Morphology of Flowering Plants',
-    summary: 'A study of the external forms and structures of various plant parts like roots, stems, leaves, flowers, and fruits.',
-    detailedExplanation: "Morphology is the study of the external features of organisms. This chapter focuses on the diverse forms of flowering plants. It describes the structure and modifications of the root, stem, and leaf, showing how they are adapted for functions like storage, support, and protection. The chapter then details the structure of the flower, the arrangement of flowers (inflorescence), and the processes leading to the formation of fruits and seeds. It concludes by describing the key morphological features of important plant families like Fabaceae and Solanaceae.",
-    keyTopics: ['The Root', 'The Stem', 'The Leaf', 'The Inflorescence', 'The Flower', 'The Fruit and Seed', 'Description of Important Families'],
-    realWorldExample: 'A potato is a modified stem (tuber) that stores food, while a carrot is a modified root.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Morphology of Flowering Plants",
+    summary: "A study of the external structure and modifications of roots, stems, leaves, flowers, and fruits in flowering plants.",
+    detailedExplanation: "This chapter examines the external morphology of flowering plants, focusing on roots (taproot, fibrous, adventitious), stems (herbaceous, woody), leaves (simple, compound), flowers (structure and symmetry), and fruits. It discusses modifications like root tubers, climbing stems, and phyllodes for adaptation. The chapter also covers inflorescence types and the role of flowers in reproduction, emphasizing their structural diversity.",
+    keyTopics: ["Root Morphology", "Stem Morphology", "Leaf Morphology", "Flower Structure", "Fruit and Seed Morphology"],
+    realWorldExample: "The tendrils of pea plants (modified stems) help them climb, aiding in sunlight access for photosynthesis.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=j3y-Uo9-u5E',
-      'https://www.proprofs.com/quiz-school/story.php?title=morphology-of-flowering-plants-quiz-1',
-      'https://bio.libretexts.org/Bookshelves/Botany/Botany_(Ha_Morrow_and_Al-Rowaily)/05%3A_Plant_Form_and_Function'
+      "https://www.youtube.com/watch?v=3y2iQvgl07Q",
+      "https://bio.libretexts.org/Bookshelves/Botany",
+      "https://www.britannica.com/science/plant-anatomy"
     ],
     resourceLinks: [
-      { title: 'Khan Academy: Plant structures', url: 'https://www.khanacademy.org/science/biology/plant-biology/plant-structures/a/plant-parts-and-functions' },
-      { title: 'BYJU\'S: Morphology of Flowering Plants', url: 'https://byjus.com/biology/morphology-of-flowering-plants/' }
+      { title: "Khan Academy: Plant Morphology", url: "https://www.khanacademy.org/science/biology/plant-biology/plant-structures" },
+      { title: "BYJU'S: Morphology of Flowering Plants", url: "https://byjus.com/biology/morphology-of-flowering-plants/" }
     ],
     quiz: [
-      { question: 'The arrangement of flowers on the floral axis is termed as:', options: ['Venation', 'Phyllotaxy', 'Aestivation', 'Inflorescence'], correct: 'Inflorescence' },
-      { question: 'Which part of the flower develops into a fruit?', options: ['Ovary', 'Ovule', 'Stamen', 'Petal'], correct: 'Ovary' },
+      { question: "Which root system is found in monocots?", options: ["Taproot", "Fibrous", "Adventitious", "Prop root"], correct: "Fibrous" },
+      { question: "The main function of leaves is:", options: ["Storage", "Photosynthesis", "Support", "Reproduction"], correct: "Photosynthesis" },
+      { question: "Tendrils are modifications of:", options: ["Roots", "Stems", "Leaves", "Flowers"], correct: "Stems" },
+      { question: "The reproductive part of a plant is:", options: ["Root", "Stem", "Leaf", "Flower"], correct: "Flower" },
+      { question: "Which part of the flower becomes the fruit?", options: ["Ovary", "Stamen", "Petal", "Sepal"], correct: "Ovary" },
+      { question: "Compound leaves are found in:", options: ["Mango", "Neem", "Grass", "Wheat"], correct: "Neem" },
+      { question: "Prop roots are characteristic of:", options: ["Banyan", "Maize", "Pea", "Carrot"], correct: "Banyan" },
+      { question: "The arrangement of leaves on a stem is called:", options: ["Venation", "Phyllotaxy", "Inflorescence", "Aestivation"], correct: "Phyllotaxy" },
+      { question: "Which fruit type is derived from a single flower?", options: ["Aggregate", "Multiple", "Simple", "Composite"], correct: "Simple" },
+      { question: "The main axis of a flower is called:", options: ["Pedicel", "Thalamus", "Petiole", "Stigma"], correct: "Thalamus" },
     ]
   },
   {
     id: 6,
-    title: 'Anatomy of Flowering Plants',
-    summary: 'An exploration of the internal tissue organization of roots, stems, and leaves in monocots and dicots, including secondary growth.',
-    detailedExplanation: "This chapter takes a look inside the plant, studying its internal structure or anatomy. It introduces the different types of plant tissues: meristematic (for growth) and permanent (for specific functions). It then describes how these tissues are organized into three systems: epidermal, ground, and vascular. The chapter provides a comparative anatomy of the root, stem, and leaf for both dicotyledonous and monocotyledonous plants. A key section is dedicated to secondary growth, the process responsible for the increase in girth of woody plants, leading to the formation of wood and bark.",
-    keyTopics: ['The Tissues (Meristematic and Permanent)', 'The Tissue System', 'Anatomy of Dicot and Monocot Plants', 'Secondary Growth'],
-    realWorldExample: 'The annual rings in a tree trunk, used to determine its age, are a result of secondary growth in the vascular tissues.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Anatomy of Flowering Plants",
+    summary: "An exploration of the internal tissue organization of roots, stems, and leaves in monocots and dicots, including secondary growth.",
+    detailedExplanation: "This chapter examines the internal structure of flowering plants, focusing on tissues: meristematic (for growth) and permanent (for specific functions). It describes the tissue systems: epidermal, ground, and vascular, and compares the anatomy of dicot and monocot roots, stems, and leaves. Secondary growth, responsible for the increase in girth in woody plants, is detailed, including the formation of wood and bark via cambium activity.",
+    keyTopics: ["Meristematic and Permanent Tissues", "Tissue Systems", "Dicot and Monocot Anatomy", "Secondary Growth"],
+    realWorldExample: "Tree rings, formed by secondary growth, indicate a tree’s age and environmental conditions over time.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=O-V-f9_35YI',
-      'https://www.biologydiscussion.com/plant-anatomy/anatomy-of-flowering-plants-notes/53123',
-      'https://bio.libretexts.org/Bookshelves/Botany/Botany_(Ha_Morrow_and_Al-Rowaily)/05%3A_Plant_Form_and_Function'
+      "https://www.youtube.com/watch?v=3y2iQvgl07Q",
+      "https://bio.libretexts.org/Bookshelves/Botany",
+      "https://www.britannica.com/science/plant-anatomy"
     ],
     resourceLinks: [
-      { title: 'BYJU\'S: Anatomy of Flowering Plants', url: 'https://byjus.com/biology/anatomy-of-flowering-plants/' },
-      { title: 'Easy Biology Class: Plant Tissues', url: 'https://www.easybiologyclass.com/plant-tissues-lecture-notes-ppt/' }
+      { title: "Khan Academy: Plant Anatomy", url: "https://www.khanacademy.org/science/biology/plant-biology/plant-structures" },
+      { title: "BYJU'S: Anatomy of Flowering Plants", url: "https://byjus.com/biology/anatomy-of-flowering-plants/" }
     ],
     quiz: [
-      { question: 'Which tissue is responsible for the growth in length of a plant?', options: ['Apical meristem', 'Lateral meristem', 'Intercalary meristem', 'Permanent tissue'], correct: 'Apical meristem' },
-      { question: 'Secondary growth in dicot stems is due to the activity of:', options: ['Apical meristem', 'Vascular cambium and cork cambium', 'Intercalary meristem', 'Epidermis'], correct: 'Vascular cambium and cork cambium' },
+      { question: "Which tissue is responsible for growth in plants?", options: ["Parenchyma", "Collenchyma", "Meristematic", "Sclerenchyma"], correct: "Meristematic" },
+      { question: "Vascular bundles in a monocot stem are:", options: ["Arranged in a ring", "Scattered", "Clustered at the center", "Absent"], correct: "Scattered" },
+      { question: "The main function of xylem is:", options: ["Food transport", "Water transport", "Support", "Photosynthesis"], correct: "Water transport" },
+      { question: "Which tissue provides mechanical support in young stems?", options: ["Parenchyma", "Collenchyma", "Sclerenchyma", "Xylem"], correct: "Collenchyma" },
+      { question: "Secondary growth occurs due to:", options: ["Apical meristem", "Lateral meristem", "Intercalary meristem", "Ground meristem"], correct: "Lateral meristem" },
+      { question: "The epidermis of leaves contains:", options: ["Stomata", "Vascular bundles", "Cambium", "Pith"], correct: "Stomata" },
+      { question: "Which tissue system includes xylem and phloem?", options: ["Epidermal", "Ground", "Vascular", "Meristematic"], correct: "Vascular" },
+      { question: "In dicot roots, vascular bundles are:", options: ["Scattered", "Radial", "Conjoint", "Collateral"], correct: "Radial" },
+      { question: "What forms the bark in woody plants?", options: ["Cork cambium", "Vascular cambium", "Pith", "Xylem"], correct: "Cork cambium" },
+      { question: "Which cells are dead at maturity?", options: ["Parenchyma", "Collenchyma", "Sclerenchyma", "Companion cells"], correct: "Sclerenchyma" },
     ]
   },
   {
     id: 7,
-    title: 'Structural Organisation in Animals',
-    summary: 'A focus on the four primary types of animal tissues—epithelial, connective, muscular, and neural—and how they form organ systems.',
-    detailedExplanation: "This chapter examines how cells are organized into tissues, and tissues into organs and organ systems in animals. It provides a detailed description of the structure, location, and function of the four basic types of animal tissues: epithelial (for covering and lining), connective (for support and linking), muscular (for movement), and neural (for control and coordination). The chapter also illustrates how these tissues come together to form the organ systems of representative animals like the earthworm and cockroach, providing a complete picture of their anatomy.",
-    keyTopics: ['Animal Tissues (Epithelial, Connective, Muscular, Neural)', 'Organ and Organ System', 'Anatomy of Earthworm and Cockroach'],
-    realWorldExample: 'The human skin is an organ composed of epithelial tissue for protection, connective tissue for support, and neural tissue for sensation.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Structural Organisation in Animals",
+    summary: "A study of the tissue-level organization in animals, focusing on epithelial, connective, muscular, and nervous tissues, and the anatomy of earthworm, cockroach, and frog.",
+    detailedExplanation: "This chapter explores the structural organization in animals at the tissue level, covering epithelial (covering/lining), connective (support), muscular (movement), and nervous (coordination) tissues. It details the morphology and anatomy of earthworm (Annelida), cockroach (Arthropoda), and frog (Chordata), focusing on their organ systems (digestive, circulatory, respiratory, reproductive). The chapter highlights adaptations like the tracheal system in cockroaches and moist skin in frogs.",
+    keyTopics: ["Animal Tissues", "Earthworm Anatomy", "Cockroach Anatomy", "Frog Anatomy"],
+    realWorldExample: "The earthworm’s segmented body aids movement through soil, a practical adaptation for burrowing.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=buy1-azQ9CE',
-      'https://www.visiblebody.com/learn/anatomy/tissue-types',
-      'https://www.biologydiscussion.com/animals-2/structural-organisation-in-animals-with-diagram/15873'
+      "https://www.youtube.com/watch?v=1sla0iZ0DKE",
+      "https://animaldiversity.org/",
+      "https://www.britannica.com/science/animal-tissue"
     ],
     resourceLinks: [
-      { title: 'Visible Body: Learn Tissue Types', url: 'https://www.visiblebody.com/learn/anatomy/tissue-types' },
-      { title: 'Khan Academy: Tissues', url: 'https://www.khanacademy.org/science/high-school-biology/hs-human-body-systems/hs-body-structure-and-homeostasis/a/tissues-organs-organ-systems' }
+      { title: "Amoeba Sisters: Animal Tissues", url: "https://www.youtube.com/watch?v=1sla0iZ0DKE" },
+      { title: "BYJU'S: Structural Organisation in Animals", url: "https://byjus.com/biology/structural-organisation-animals/" }
     ],
     quiz: [
-      { question: 'Which tissue covers the outer surface of the body and lines internal organs?', options: ['Connective', 'Muscular', 'Epithelial', 'Neural'], correct: 'Epithelial' },
-      { question: 'Blood is a type of:', options: ['Epithelial tissue', 'Connective tissue', 'Muscular tissue', 'Neural tissue'], correct: 'Connective tissue' },
+      { question: "Which tissue lines the inner surface of organs?", options: ["Connective", "Epithelial", "Muscular", "Nervous"], correct: "Epithelial" },
+      { question: "The respiratory system of a cockroach consists of:", options: ["Lungs", "Tracheae", "Gills", "Book lungs"], correct: "Tracheae" },
+      { question: "Which tissue is responsible for movement?", options: ["Epithelial", "Connective", "Muscular", "Nervous"], correct: "Muscular" },
+      { question: "The earthworm’s circulatory system is:", options: ["Open", "Closed", "Absent", "Mixed"], correct: "Closed" },
+      { question: "Which animal has moist skin for respiration?", options: ["Earthworm", "Cockroach", "Frog", "All of these"], correct: "Frog" },
+      { question: "The structural unit of the nervous system is:", options: ["Neuron", "Nephron", "Osteon", "Myocyte"], correct: "Neuron" },
+      { question: "The excretory organ in cockroaches is:", options: ["Nephridia", "Malpighian tubules", "Kidneys", "Green glands"], correct: "Malpighian tubules" },
+      { question: "Which tissue connects bones to muscles?", options: ["Cartilage", "Tendon", "Ligament", "Adipose"], correct: "Tendon" },
+      { question: "The earthworm belongs to which phylum?", options: ["Arthropoda", "Annelida", "Chordata", "Mollusca"], correct: "Annelida" },
+      { question: "Which muscle type is involuntary and striated?", options: ["Skeletal", "Smooth", "Cardiac", "Visceral"], correct: "Cardiac" },
     ]
   },
   {
     id: 8,
-    title: 'Cell: The Unit of Life',
-    summary: 'A detailed tour of the cell, exploring the structure and function of its organelles and highlighting the key differences between prokaryotic and eukaryotic cells.',
-    detailedExplanation: "This chapter explores the fundamental unit of all living organisms: the cell. It begins with the history of cell discovery and the formulation of the Cell Theory. A detailed overview of both prokaryotic cells (lacking a nucleus) and eukaryotic cells is provided. The chapter then takes a deep dive into the eukaryotic cell, describing the structure and function of the cell membrane, cell wall (in plants), and various cell organelles like the nucleus (the control center), mitochondria (the powerhouse), endoplasmic reticulum, Golgi apparatus, and ribosomes (protein factories).",
-    keyTopics: ['Cell Theory', 'Overview of Cell', 'Prokaryotic Cells', 'Eukaryotic Cells', 'Cell Membrane and Wall', 'Cell Organelles'],
-    realWorldExample: 'Mitochondria, the "powerhouses" of the cell, are responsible for generating the energy (ATP) that powers all our bodily functions.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Cell: The Unit of Life",
+    summary: "An exploration of the cell as the basic structural and functional unit of life, covering cell theory, prokaryotic and eukaryotic cells, and organelles.",
+    detailedExplanation: "This chapter establishes the cell as the fundamental unit of life, as per the cell theory. It compares prokaryotic (e.g., bacteria) and eukaryotic (e.g., plant, animal) cells, focusing on structural differences. Key organelles like the nucleus, endoplasmic reticulum, Golgi apparatus, mitochondria, plastids, and lysosomes are detailed. The roles of the cell membrane, cell wall, cilia, flagella, and cytoskeleton are also discussed, emphasizing cellular functions.",
+    keyTopics: ["Cell Theory", "Prokaryotic Cells", "Eukaryotic Cells", "Cell Organelles", "Cell Membrane and Wall"],
+    realWorldExample: "Mitochondria power muscle contraction during exercise by producing ATP, the cell’s energy currency.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=URUJD5NEXC8',
-      'https://www.visiblebody.com/learn/biology/cells/cell-overview',
-      'https://phet.colorado.edu/en/simulations/cell-structure'
+      "https://www.youtube.com/watch?v=URUJD5NEXC8",
+      "https://phet.colorado.edu/en/simulations/build-a-cell",
+      "https://www.cellsalive.com/"
     ],
     resourceLinks: [
-      { title: 'Amoeba Sisters: Introduction to Cells', url: 'https://www.youtube.com/watch?v=8IlzKri08kk' },
-      { title: 'Visible Body: Learn Cell Anatomy', url: 'https://www.visiblebody.com/learn/biology/cells/cell-overview' }
+      { title: "Amoeba Sisters: Introduction to Cells", url: "https://www.youtube.com/watch?v=URUJD5NEXC8" },
+      { title: "Cells Alive: Cell Models", url: "https://www.cellsalive.com/" }
     ],
     quiz: [
-      { question: 'The "powerhouse" of the cell is the:', options: ['Nucleus', 'Mitochondrion', 'Ribosome', 'Endoplasmic reticulum'], correct: 'Mitochondrion' },
-      { question: 'Which organelle is responsible for protein synthesis?', options: ['Mitochondrion', 'Lysosome', 'Ribosome', 'Golgi apparatus'], correct: 'Ribosome' },
+      { question: "Who proposed the cell theory?", options: ["Hooke and Leeuwenhoek", "Schleiden and Schwann", "Virchow and Pasteur", "Watson and Crick"], correct: "Schleiden and Schwann" },
+      { question: "Which organelle is the powerhouse of the cell?", options: ["Nucleus", "Mitochondria", "Golgi apparatus", "Lysosome"], correct: "Mitochondria" },
+      { question: "Prokaryotic cells lack:", options: ["Cell wall", "Nucleus", "Cytoplasm", "Plasma membrane"], correct: "Nucleus" },
+      { question: "Which organelle is involved in protein synthesis?", options: ["Ribosome", "Lysosome", "Vacuole", "Centrosome"], correct: "Ribosome" },
+      { question: "The cell wall in plants is made of:", options: ["Chitin", "Peptidoglycan", "Cellulose", "Lignin"], correct: "Cellulose" },
+      { question: "Which organelle stores genetic information?", options: ["Mitochondria", "Nucleus", "Golgi apparatus", "Endoplasmic reticulum"], correct: "Nucleus" },
+      { question: "Lysosomes are responsible for:", options: ["Photosynthesis", "Intracellular digestion", "Protein synthesis", "Energy production"], correct: "Intracellular digestion" },
+      { question: "The cell membrane controls:", options: ["DNA replication", "Entry and exit of substances", "Cell division", "Protein synthesis"], correct: "Entry and exit of substances" },
+      { question: "Plastids are found in:", options: ["Animal cells", "Plant cells", "Bacterial cells", "Fungal cells"], correct: "Plant cells" },
+      { question: "Which organelle packages proteins?", options: ["Mitochondria", "Golgi apparatus", "Endoplasmic reticulum", "Ribosome"], correct: "Golgi apparatus" },
     ]
   },
   {
     id: 9,
-    title: 'Biomolecules',
-    summary: 'An investigation into the chemical building blocks of life, including the structure and function of proteins, carbohydrates, lipids, and nucleic acids.',
-    detailedExplanation: "This chapter delves into the chemistry of life by studying the molecules that constitute cells. It explains how to analyze the chemical composition of living tissues. The four major classes of biomacromolecules are explored in detail: proteins (polymers of amino acids with diverse functions), polysaccharides (complex carbohydrates for energy storage and structure), lipids (fats and oils), and nucleic acids (DNA and RNA, the carriers of genetic information). A significant focus is placed on the structure of proteins (primary, secondary, tertiary, quaternary) and the nature of enzymes as biological catalysts.",
-    keyTopics: ['Chemical Composition Analysis', 'Primary and Secondary Metabolites', 'Proteins', 'Polysaccharides', 'Nucleic Acids', 'Structure of Proteins', 'Enzymes'],
-    realWorldExample: 'Enzymes in laundry detergents are biomolecules that help break down protein and fat stains.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Biomolecules",
+    summary: "A study of organic molecules critical to life, including carbohydrates, proteins, lipids, nucleic acids, and enzymes.",
+    detailedExplanation: "This chapter explores biomolecules essential for life: carbohydrates (energy and structure), proteins (enzymes, structural roles), lipids (membranes, energy storage), and nucleic acids (DNA, RNA). It emphasizes enzymes as biological catalysts, detailing their mechanism, factors affecting activity (pH, temperature), and classification. Metabolic pathways and the dynamic state of body constituents are discussed, highlighting the chemical basis of life processes.",
+    keyTopics: ["Carbohydrates", "Proteins", "Lipids", "Nucleic Acids", "Enzymes", "Metabolic Pathways"],
+    realWorldExample: "Amylase in saliva breaks down starch into sugars, aiding digestion in the mouth.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=F3crf2aA-u0',
-      'https://molview.org/',
-      'https://www.rcsb.org/'
+      "https://www.youtube.com/watch?v=H8WJ2KENlAo",
+      "https://phet.colorado.edu/en/simulations/molecules-and-light",
+      "https://www.rcsb.org/3d-view"
     ],
     resourceLinks: [
-      { title: 'Crash Course Biology: Biomolecules', url: 'https://www.youtube.com/watch?v=H8WJ2KENlK0' },
-      { title: 'Khan Academy: Macromolecules', url: 'https://www.khanacademy.org/science/biology/macromolecules' }
+      { title: "Amoeba Sisters: Biomolecules", url: "https://www.youtube.com/watch?v=H8WJ2KENlAo" },
+      { title: "Khan Academy: Biomolecules", url: "https://www.khanacademy.org/science/biology/macromolecules" }
     ],
     quiz: [
-      { question: 'The building blocks of proteins are:', options: ['Monosaccharides', 'Fatty acids', 'Amino acids', 'Nucleotides'], correct: 'Amino acids' },
-      { question: 'Enzymes are biological catalysts that are chemically:', options: ['Carbohydrates', 'Lipids', 'Proteins', 'Nucleic acids'], correct: 'Proteins' },
+      { question: "Which biomolecule is the primary energy source?", options: ["Proteins", "Carbohydrates", "Lipids", "Nucleic acids"], correct: "Carbohydrates" },
+      { question: "The building blocks of proteins are:", options: ["Amino acids", "Fatty acids", "Monosaccharides", "Nucleotides"], correct: "Amino acids" },
+      { question: "Enzymes are primarily:", options: ["Carbohydrates", "Proteins", "Lipids", "Nucleic acids"], correct: "Proteins" },
+      { question: "Which biomolecule stores genetic information?", options: ["Carbohydrates", "Proteins", "Lipids", "Nucleic acids"], correct: "Nucleic acids" },
+      { question: "The bond linking amino acids is:", options: ["Glycosidic", "Peptide", "Ester", "Hydrogen"], correct: "Peptide" },
+      { question: "Which molecule forms cell membranes?", options: ["Carbohydrates", "Proteins", "Phospholipids", "Nucleotides"], correct: "Phospholipids" },
+      { question: "Enzymes function by:", options: ["Storing energy", "Catalyzing reactions", "Transporting oxygen", "Providing structure"], correct: "Catalyzing reactions" },
+      { question: "Which is a disaccharide?", options: ["Glucose", "Fructose", "Sucrose", "Cellulose"], correct: "Sucrose" },
+      { question: "What does not affect enzyme activity?", options: ["Temperature", "pH", "Substrate concentration", "Color"], correct: "Color" },
+      { question: "Which biomolecule is insoluble in water?", options: ["Carbohydrates", "Proteins", "Lipids", "Nucleic acids"], correct: "Lipids" },
     ]
   },
   {
     id: 10,
-    title: 'Cell Cycle and Cell Division',
-    summary: 'An exploration of the life cycle of a cell, detailing the processes of mitosis (for growth and repair) and meiosis (for sexual reproduction).',
-    detailedExplanation: "This chapter describes the sequence of events by which a cell duplicates its genome and divides into two daughter cells, known as the cell cycle. It details the phases of interphase (G1, S, G2) and the M phase. The process of mitosis (equational division) is explained step-by-step (prophase, metaphase, anaphase, telophase), highlighting its role in growth and repair. The chapter then covers meiosis (reductional division), the specialized cell division that produces haploid gametes, explaining how it generates genetic variation through processes like crossing over.",
-    keyTopics: ['Cell Cycle (Interphase and M Phase)', 'Mitosis', 'Significance of Mitosis', 'Meiosis (Meiosis I and Meiosis II)', 'Significance of Meiosis'],
-    realWorldExample: 'The healing of a wound involves mitosis, where cells divide to replace the damaged ones.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Cell Cycle and Cell Division",
+    summary: "An examination of the cell cycle, mitosis, meiosis, and their significance in growth and reproduction.",
+    detailedExplanation: "This chapter details the cell cycle, including interphase (G1, S, G2) and the division phase (mitosis or meiosis). Mitosis (prophase, metaphase, anaphase, telophase) produces two identical daughter cells for growth and repair. Meiosis, with two divisions, produces gametes with half the chromosome number for sexual reproduction. The chapter emphasizes the role of these processes in maintaining chromosome numbers and genetic diversity.",
+    keyTopics: ["Cell Cycle", "Mitosis", "Meiosis", "Significance of Cell Division"],
+    realWorldExample: "Meiosis in human reproductive cells ensures genetic variation in offspring, like diverse traits in siblings.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=Q6ucKWIIFmg',
-      'https://www.visiblebody.com/learn/biology/cells/mitosis-and-meiosis',
-      'https://phet.colorado.edu/en/simulations/cell-division'
+      "https://www.youtube.com/watch?v=Q6ucKWIIFmg",
+      "https://phet.colorado.edu/en/simulations/cell-division",
+      "https://www.cellsalive.com/mitosis.htm"
     ],
     resourceLinks: [
-      { title: 'Amoeba Sisters: Mitosis', url: 'https://www.youtube.com/watch?v=f-ldPgEfAHI' },
-      { title: 'Khan Academy: Cell cycle and mitosis', url: 'https://www.khanacademy.org/science/biology/cellular-molecular-biology/mitosis/a/cell-cycle-phases' }
+      { title: "Amoeba Sisters: Mitosis vs. Meiosis", url: "https://www.youtube.com/watch?v=Q6ucKWIIFmg" },
+      { title: "Cells Alive: Mitosis", url: "https://www.cellsalive.com/mitosis.htm" }
     ],
     quiz: [
-      { question: 'In which phase of the cell cycle does DNA replication occur?', options: ['G1 phase', 'S phase', 'G2 phase', 'M phase'], correct: 'S phase' },
-      { question: 'Meiosis results in the formation of:', options: ['Two diploid cells', 'Four haploid cells', 'Two haploid cells', 'Four diploid cells'], correct: 'Four haploid cells' },
+      { question: "DNA replication occurs in which phase?", options: ["G1 phase", "S phase", "G2 phase", "M phase"], correct: "S phase" },
+      { question: "Mitosis produces how many daughter cells?", options: ["One", "Two", "Four", "Eight"], correct: "Two" },
+      { question: "Meiosis results in:", options: ["Diploid cells", "Haploid cells", "Triploid cells", "Tetraploid cells"], correct: "Haploid cells" },
+      { question: "Chromosomes align at the equator in:", options: ["Prophase", "Metaphase", "Anaphase", "Telophase"], correct: "Metaphase" },
+      { question: "Crossing over occurs in:", options: ["Prophase I", "Metaphase I", "Anaphase I", "Telophase I"], correct: "Prophase I" },
+      { question: "The significance of meiosis is:", options: ["Growth", "Repair", "Genetic diversity", "Cell replacement"], correct: "Genetic diversity" },
+      { question: "Cell cycle regulation involves:", options: ["Checkpoints", "Enzymes", "Hormones", "Vitamins"], correct: "Checkpoints" },
+      { question: "The phase following mitosis is:", options: ["G1 phase", "S phase", "Cytokinesis", "G2 phase"], correct: "Cytokinesis" },
+      { question: "Meiosis involves how many divisions?", options: ["One", "Two", "Three", "Four"], correct: "Two" },
+      { question: "What pulls chromosomes apart in anaphase?", options: ["Centrioles", "Spindle fibers", "Nuclear envelope", "Centromere"], correct: "Spindle fibers" },
     ]
   },
   {
     id: 11,
-    title: 'Transport in Plants',
-    summary: 'A study of the mechanisms by which plants absorb and transport water, nutrients, and food throughout their body.',
-    detailedExplanation: "This chapter explores the physiology of transport in plants. It covers short-distance transport mechanisms like diffusion, facilitated diffusion, and active transport. It then delves into plant-water relations, explaining concepts like water potential and osmosis. The majority of the chapter is dedicated to long-distance transport. The cohesion-tension theory is explained as the mechanism for the ascent of sap through the xylem (transpiration pull). The pressure-flow hypothesis is presented to explain the translocation of sugars (food) from source to sink through the phloem.",
-    keyTopics: ['Means of Transport', 'Plant-Water Relations (Water Potential, Osmosis)', 'Long Distance Transport of Water (Transpiration)', 'Transport of Mineral Nutrients', 'Phloem Transport (Source to Sink)'],
-    realWorldExample: 'The process of transpiration, the loss of water vapor from leaves, is what pulls water up from the roots to the top of the tallest trees.',
-    keyEquation: 'Ψw = Ψs + Ψp',
-    icon: 'dna',
+    title: "Transport in Plants",
+    summary: "A study of how plants transport water, minerals, and food through diffusion, osmosis, and transpiration.",
+    detailedExplanation: "This chapter explains the transport mechanisms in plants, including passive processes (diffusion, osmosis) and active transport for ions. Xylem transports water and minerals via transpiration pull, while phloem translocates food through the pressure flow hypothesis. The role of stomata in transpiration and gas exchange is discussed, along with factors affecting transport, such as water potential and environmental conditions.",
+    keyTopics: ["Diffusion and Osmosis", "Plant-Water Relations", "Xylem Transport", "Phloem Transport", "Transpiration"],
+    realWorldExample: "Transpiration cools plants and drives water uptake, like water moving up a tree’s xylem on a hot day.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=9gbykltq94I',
-      'https://www.biologydiscussion.com/plants/transport-in-plants/transport-in-plants-meaning-and-importance-botany/69888',
-      'https://bio.libretexts.org/Bookshelves/Botany/Botany_(Ha_Morrow_and_Al-Rowaily)/06%3A_Plant_Physiology/6.02%3A_Water_and_Solute_Transport'
+      "https://www.youtube.com/watch?v=bsY8j8f54I0",
+      "https://phet.colorado.edu/en/simulations/membrane-channels",
+      "https://www.britannica.com/science/plant-physiology"
     ],
     resourceLinks: [
-      { title: 'Khan Academy: Plant transport', url: 'https://www.khanacademy.org/science/biology/plant-biology/plant-structures/a/xylem-and-phloem' },
-      { title: 'Crash Course Biology: Plant Transport', url: 'https://www.youtube.com/watch?v=9gbykltq94I' }
+      { title: "Amoeba Sisters: Plant Transport", url: "https://www.youtube.com/watch?v=bsY8j8f54I0" },
+      { title: "Khan Academy: Transport in Plants", url: "https://www.khanacademy.org/science/biology/plant-biology/plant-transport" }
     ],
     quiz: [
-      { question: 'The transport of food in plants occurs through the:', options: ['Xylem', 'Phloem', 'Cortex', 'Epidermis'], correct: 'Phloem' },
-      { question: 'The loss of water in the form of vapor from the leaves is known as:', options: ['Guttation', 'Transpiration', 'Bleeding', 'Evaporation'], correct: 'Transpiration' },
+      { question: "Water movement through a semi-permeable membrane is:", options: ["Diffusion", "Osmosis", "Active transport", "Transpiration"], correct: "Osmosis" },
+      { question: "Transpiration occurs mainly through:", options: ["Roots", "Stomata", "Bark", "Xylem"], correct: "Stomata" },
+      { question: "Which tissue transports water?", options: ["Phloem", "Xylem", "Parenchyma", "Collenchyma"], correct: "Xylem" },
+      { question: "The pressure flow hypothesis explains transport in:", options: ["Xylem", "Phloem", "Epidermis", "Cambium"], correct: "Phloem" },
+      { question: "What drives water movement in xylem?", options: ["Root pressure", "Transpiration pull", "Capillary action", "All of these"], correct: "All of these" },
+      { question: "Which process is passive?", options: ["Active transport", "Diffusion", "Osmosis", "Both b and c"], correct: "Both b and c" },
+      { question: "The main source of water loss in plants is:", options: ["Respiration", "Transpiration", "Photosynthesis", "Absorption"], correct: "Transpiration" },
+      { question: "Stomata opening is controlled by:", options: ["Guard cells", "Companion cells", "Sieve cells", "Parenchyma cells"], correct: "Guard cells" },
+      { question: "Water movement due to concentration gradients is:", options: ["Osmosis", "Diffusion", "Active transport", "Translocation"], correct: "Diffusion" },
+      { question: "Which factor increases transpiration?", options: ["High humidity", "Low temperature", "Wind", "Closed stomata"], correct: "Wind" },
     ]
   },
   {
     id: 12,
-    title: 'Mineral Nutrition',
-    summary: 'An examination of the essential minerals required for plant growth, their specific roles, deficiency symptoms, and the nitrogen cycle.',
-    detailedExplanation: "This chapter focuses on how plants obtain and use mineral nutrients from the soil. It explains the criteria for the essentiality of an element and classifies them into macronutrients and micronutrients. The specific roles of these nutrients and the visible symptoms that appear in plants when they are deficient are described. The chapter also discusses the mechanism of mineral absorption by roots and provides a detailed account of the metabolism of nitrogen, a crucial macronutrient, including the process of biological nitrogen fixation by microorganisms like Rhizobium.",
-    keyTopics: ['Essential Mineral Elements', 'Role of Macro- and Micronutrients', 'Deficiency Symptoms', 'Mechanism of Absorption', 'Metabolism of Nitrogen'],
-    realWorldExample: 'Farmers use fertilizers containing nitrogen (N), phosphorus (P), and potassium (K) to provide essential macronutrients to crops.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Mineral Nutrition",
+    summary: "An exploration of essential minerals for plants, their roles, deficiency symptoms, and nitrogen fixation.",
+    detailedExplanation: "This chapter covers essential mineral nutrients for plant growth, classified as macro- and micronutrients. It details their roles in photosynthesis, enzyme function, and cell structure, and describes deficiency symptoms. The uptake and active transport of minerals are explained, with a focus on nitrogen metabolism, including nitrogen fixation by bacteria and ammonia formation for protein synthesis.",
+    keyTopics: ["Macro- and Micronutrients", "Roles of Minerals", "Deficiency Symptoms", "Mineral Absorption", "Nitrogen Fixation"],
+    realWorldExample: "Nitrogen-fixing bacteria in legume roots enhance soil fertility by converting N₂ to usable compounds.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=leCjpr-Y-94',
-      'https://www.cropnutrition.com/nutrient-knowledge',
-      'https://bio.libretexts.org/Bookshelves/Botany/Botany_(Ha_Morrow_and_Al-Rowaily)/06%3A_Plant_Physiology/6.03%3A_Plant_Nutrition'
+      "https://www.youtube.com/watch?v=3iU4K8M5j1s",
+      "https://www.britannica.com/science/plant-nutrition",
+      "https://bio.libretexts.org/Bookshelves/Botany"
     ],
     resourceLinks: [
-      { title: 'BYJU\'S: Mineral Nutrition in Plants', url: 'https://byjus.com/biology/mineral-nutrition-in-plants/' },
-      { title: 'Khan Academy: Plant mineral nutrition', url: 'https://www.khanacademy.org/science/biology/plant-biology/plant-nutrition-and-transport/a/plant-mineral-nutrition' }
+      { title: "Khan Academy: Mineral Nutrition", url: "https://www.khanacademy.org/science/biology/plant-biology/mineral-nutrition" },
+      { title: "BYJU'S: Mineral Nutrition in Plants", url: "https://byjus.com/biology/mineral-nutrition-in-plants/" }
     ],
     quiz: [
-      { question: 'Which element is a component of chlorophyll?', options: ['Iron', 'Magnesium', 'Manganese', 'Calcium'], correct: 'Magnesium' },
-      { question: 'The conversion of atmospheric nitrogen to ammonia is called:', options: ['Nitrification', 'Denitrification', 'Nitrogen fixation', 'Ammonification'], correct: 'Nitrogen fixation' },
+      { question: "Which is a macronutrient?", options: ["Iron", "Nitrogen", "Zinc", "Molybdenum"], correct: "Nitrogen" },
+      { question: "Nitrogen fixation is performed by:", options: ["Fungi", "Bacteria", "Algae", "Viruses"], correct: "Bacteria" },
+      { question: "Chlorosis is caused by a deficiency of:", options: ["Calcium", "Magnesium", "Potassium", "Sulfur"], correct: "Magnesium" },
+      { question: "Which process converts N₂ to ammonia?", options: ["Nitrification", "Denitrification", "Nitrogen fixation", "Ammonification"], correct: "Nitrogen fixation" },
+      { question: "Which nutrient is essential for chlorophyll?", options: ["Potassium", "Magnesium", "Calcium", "Phosphorus"], correct: "Magnesium" },
+      { question: "Micronutrients are needed in:", options: ["Large quantities", "Trace amounts", "Equal amounts", "No amounts"], correct: "Trace amounts" },
+      { question: "Which nutrient activates enzymes?", options: ["Nitrogen", "Potassium", "Iron", "Sulfur"], correct: "Potassium" },
+      { question: "Phosphorus deficiency causes:", options: ["Yellow leaves", "Stunted growth", "Wilting", "Root rot"], correct: "Stunted growth" },
+      { question: "Symbiotic bacteria in legumes are:", options: ["Rhizobium", "Nitrosomonas", "Pseudomonas", "Bacillus"], correct: "Rhizobium" },
+      { question: "Which nutrient is part of amino acids?", options: ["Calcium", "Sulfur", "Manganese", "Boron"], correct: "Sulfur" },
     ]
   },
   {
     id: 13,
-    title: 'Photosynthesis in Higher Plants',
-    summary: 'A detailed molecular explanation of how plants use sunlight, water, and carbon dioxide to create their own food and release oxygen.',
-    detailedExplanation: "This chapter unravels the process of photosynthesis. It begins with early experiments that helped shape our understanding. The structure of the chloroplast, the site of photosynthesis, is detailed. The process is broken down into two main stages: the light-dependent reactions, where light energy is captured by pigments like chlorophyll to produce ATP and NADPH; and the light-independent reactions (the Calvin cycle), where this chemical energy is used to fix CO₂ into sugar. The chapter also discusses alternative pathways like the C4 pathway and the wasteful process of photorespiration.",
-    keyTopics: ['Site of Photosynthesis', 'Pigments involved', 'Light Reaction and Electron Transport', 'The Calvin Cycle (C3)', 'The C4 Pathway', 'Photorespiration', 'Factors affecting Photosynthesis'],
-    realWorldExample: 'All the food we eat is a direct or indirect product of photosynthesis, the process plants use to convert sunlight into chemical energy.',
-    keyEquation: '6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂',
-    icon: 'dna',
+    title: "Photosynthesis in Higher Plants",
+    summary: "A study of photosynthesis, the process converting light energy into chemical energy, including its biochemical pathways.",
+    detailedExplanation: "This chapter explores photosynthesis, the process producing oxygen and glucose. It details chloroplasts, chlorophyll, and the two phases: light-dependent reactions (producing ATP and NADPH) and the Calvin cycle (CO₂ fixation). The C3 and C4 pathways for carbon fixation are compared, and factors like light intensity and CO₂ concentration affecting photosynthesis are discussed, emphasizing its role in sustaining life.",
+    keyTopics: ["Chloroplasts", "Photosynthetic Pigments", "Light-dependent Reactions", "Calvin Cycle", "C4 Pathway", "Factors Affecting Photosynthesis"],
+    realWorldExample: "C4 plants like maize efficiently photosynthesize in hot climates, optimizing CO₂ use.",
+    keyEquation: "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=K_9z_wI3v1Q',
-      'https://phet.colorado.edu/en/simulations/photosynthesis',
-      'https://www.rsc.org/educatiion/resource/res00000455/photosynthesis.html'
+      "https://www.youtube.com/watch?v=eY-4anwAKcY",
+      "https://phet.colorado.edu/en/simulations/photosynthesis",
+      "https://www.britannica.com/science/photosynthesis"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: Photosynthesis', url: 'https://phet.colorado.edu/en/simulations/photosynthesis' },
-      { title: 'Khan Academy: Photosynthesis', url: 'https://www.khanacademy.org/science/biology/photosynthesis-in-plants' }
+      { title: "Amoeba Sisters: Photosynthesis", url: "https://www.youtube.com/watch?v=eY-4anwAKcY" },
+      { title: "Khan Academy: Photosynthesis", url: "https://www.khanacademy.org/science/biology/photosynthesis-in-plants" }
     ],
     quiz: [
-      { question: 'The light-dependent reactions of photosynthesis produce:', options: ['ATP and NADPH', 'Glucose and oxygen', 'CO₂ and water', 'ADP and NADP⁺'], correct: 'ATP and NADPH' },
-      { question: 'In which part of the chloroplast does the Calvin cycle take place?', options: ['Thylakoid membrane', 'Stroma', 'Grana', 'Outer membrane'], correct: 'Stroma' },
+      { question: "Photosynthesis occurs in:", options: ["Mitochondria", "Chloroplasts", "Nucleus", "Vacuole"], correct: "Chloroplasts" },
+      { question: "The primary photosynthetic pigment is:", options: ["Carotene", "Chlorophyll", "Xanthophyll", "Anthocyanin"], correct: "Chlorophyll" },
+      { question: "Light-dependent reactions produce:", options: ["Glucose and O₂", "ATP and NADPH", "CO₂ and H₂O", "ADP and NADP⁺"], correct: "ATP and NADPH" },
+      { question: "The Calvin cycle occurs in the:", options: ["Thylakoid membrane", "Stroma", "Grana", "Cytoplasm"], correct: "Stroma" },
+      { question: "Which pathway is efficient in hot climates?", options: ["C3 pathway", "C4 pathway", "CAM pathway", "Both b and c"], correct: "Both b and c" },
+      { question: "The gas released during photosynthesis is:", options: ["CO₂", "O₂", "N₂", "H₂"], correct: "O₂" },
+      { question: "Which factor least affects photosynthesis?", options: ["Light intensity", "CO₂ concentration", "Temperature", "Soil pH"], correct: "Soil pH" },
+      { question: "The Calvin cycle fixes:", options: ["O₂", "CO₂", "H₂O", "N₂"], correct: "CO₂" },
+      { question: "Chlorophyll is located in:", options: ["Stroma", "Thylakoid membrane", "Outer membrane", "Intermembrane space"], correct: "Thylakoid membrane" },
+      { question: "The primary product of photosynthesis is:", options: ["Glucose", "Starch", "Sucrose", "Fructose"], correct: "Glucose" },
     ]
   },
   {
     id: 14,
-    title: 'Respiration in Plants',
-    summary: 'An exploration of how plants break down glucose to release stored energy through glycolysis, the Krebs cycle, and oxidative phosphorylation.',
-    detailedExplanation: "This chapter explains how plants, like animals, perform cellular respiration to generate ATP, the energy currency of the cell. It details the step-by-step breakdown of glucose through glycolysis in the cytoplasm. It then follows the product, pyruvate, into the mitochondria for the Krebs cycle (aerobic respiration). The chapter culminates in the electron transport system and oxidative phosphorylation, where the majority of ATP is synthesized using oxygen as the final electron acceptor. Anaerobic respiration (fermentation) is also discussed as an alternative pathway in the absence of oxygen.",
-    keyTopics: ['Glycolysis', 'Fermentation', 'Aerobic Respiration', 'The Krebs’s Cycle', 'Electron Transport System (ETS)', 'The Respiratory Balance Sheet', 'Respiratory Quotient (RQ)'],
-    realWorldExample: 'The fermentation process, used to make wine and beer, is a form of anaerobic respiration carried out by yeast.',
-    keyEquation: 'C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + Energy (ATP)',
-    icon: 'dna',
+    title: "Respiration in Plants",
+    summary: "An exploration of how plants break down glucose for energy via glycolysis, Krebs cycle, and electron transport chain.",
+    detailedExplanation: "This chapter details cellular respiration in plants, converting glucose to ATP. It covers glycolysis (cytoplasm), Krebs cycle (mitochondria), and the electron transport chain, producing energy in aerobic respiration. Anaerobic respiration (fermentation) is discussed, along with the respiratory quotient (RQ) for substrate identification. The amphibolic nature of respiration, linking to other metabolic pathways, is highlighted.",
+    keyTopics: ["Glycolysis", "Krebs Cycle", "Electron Transport Chain", "Aerobic and Anaerobic Respiration", "Respiratory Quotient"],
+    realWorldExample: "Yeast fermentation producing ethanol is used in brewing and baking industries.",
+    keyEquation: "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + Energy",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=00jbG_cfGuQ',
-      'https://bio.libretexts.org/Bookshelves/Introductory_and_General_Biology/Book%3A_General_Biology_(Boundless)/07%3A_Cellular_Respiration',
-      'https://www.khanacademy.org/science/biology/cellular-respiration-and-fermentation'
+      "https://www.youtube.com/watch?v=3aZrkdzrd04",
+      "https://phet.colorado.edu/en/simulations/cellular-respiration",
+      "https://www.britannica.com/science/cellular-respiration"
     ],
     resourceLinks: [
-      { title: 'Khan Academy: Cellular Respiration', url: 'https://www.khanacademy.org/science/biology/cellular-respiration-and-fermentation' },
-      { title: 'Amoeba Sisters: Cellular Respiration', url: 'https://www.youtube.com/watch?v=4Eo7JtQlgq4' }
+      { title: "Amoeba Sisters: Cellular Respiration", url: "https://www.youtube.com/watch?v=3aZrkdzrd04" },
+      { title: "Khan Academy: Cellular Respiration", url: "https://www.khanacademy.org/science/biology/cellular-respiration-and-fermentation" }
     ],
     quiz: [
-      { question: 'Glycolysis occurs in the:', options: ['Mitochondrial matrix', 'Cytoplasm', 'Inner mitochondrial membrane', 'Chloroplast'], correct: 'Cytoplasm' },
-      { question: 'What is the final electron acceptor in the electron transport system?', options: ['Water', 'Oxygen', 'Cytochrome', 'NAD⁺'], correct: 'Oxygen' },
+      { question: "Glycolysis occurs in:", options: ["Mitochondria", "Cytoplasm", "Chloroplast", "Nucleus"], correct: "Cytoplasm" },
+      { question: "The Krebs cycle produces:", options: ["ATP, NADH, FADH₂", "Glucose, O₂", "CO₂, H₂O", "NADPH, ATP"], correct: "ATP, NADH, FADH₂" },
+      { question: "The final electron acceptor in aerobic respiration is:", options: ["NAD⁺", "FAD", "O₂", "Glucose"], correct: "O₂" },
+      { question: "Anaerobic respiration in plants produces:", options: ["Lactic acid", "Ethanol", "Acetyl CoA", "Pyruvate"], correct: "Ethanol" },
+      { question: "The RQ for carbohydrates is:", options: ["0.7", "1.0", "0.9", "0.5"], correct: "1.0" },
+      { question: "Glucose is broken down to pyruvate in:", options: ["Krebs cycle", "Glycolysis", "Electron transport chain", "Fermentation"], correct: "Glycolysis" },
+      { question: "Aerobic respiration yields how many ATP per glucose?", options: ["2", "4", "36–38", "12"], correct: "36–38" },
+      { question: "The Krebs cycle occurs in:", options: ["Cytoplasm", "Mitochondrial matrix", "Thylakoid", "Nucleus"], correct: "Mitochondrial matrix" },
+      { question: "Anaerobic respiration in yeast produces:", options: ["Lactic acid", "Ethanol and CO₂", "Acetyl CoA", "Water"], correct: "Ethanol and CO₂" },
+      { question: "Respiration is a:", options: ["Anabolic pathway", "Catabolic pathway", "Synthetic pathway", "Neutral pathway"], correct: "Catabolic pathway" },
     ]
   },
   {
     id: 15,
-    title: 'Plant Growth and Development',
-    summary: 'An overview of the entire life process of a plant from seed to maturity, focusing on the role of plant hormones (PGRs) in controlling these events.',
-    detailedExplanation: "This chapter covers the journey of a plant's life. It defines growth, differentiation, and development. The core of the chapter is the study of Plant Growth Regulators (PGRs) or plant hormones. It details the functions of the five major types: auxins (for growth and rooting), gibberellins (for stem elongation), cytokinins (for cell division), abscisic acid (the 'stress hormone'), and ethylene (a gaseous hormone for ripening). It also explains how external factors, specifically light (photoperiodism) and temperature (vernalisation), can influence flowering.",
-    keyTopics: ['Growth and Development', 'Differentiation', 'Plant Growth Regulators (PGRs)', 'Auxins, Gibberellins, Cytokinins, Ethylene, ABA', 'Photoperiodism', 'Vernalisation'],
-    realWorldExample: 'Spraying fruit with ethylene, a plant hormone, is a common practice to artificially ripen them for the market.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Plant Growth and Development",
+    summary: "A study of plant growth, differentiation, and the role of hormones in development and flowering.",
+    detailedExplanation: "This chapter explores plant growth through cell division, elongation, and differentiation. It discusses plant hormones (auxins, gibberellins, cytokinins, abscisic acid, ethylene) and their roles in processes like seed germination and fruit ripening. Growth phases (meristematic, elongation, maturation) and external factors (light, temperature) are covered. Photoperiodism and vernalization, controlling flowering, are also explained.",
+    keyTopics: ["Growth Phases", "Plant Hormones", "Photoperiodism", "Vernalization", "Factors Affecting Growth"],
+    realWorldExample: "Gibberellins promote seedless grape growth in agriculture, enhancing fruit size.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=F2n_24yGH5Y',
-      'https://www.biologydiscussion.com/plants/plant-physiology-plants/plant-growth-and-development-meaning-phases-and-measurement/69904',
-      'https://bio.libretexts.org/Bookshelves/Botany/Botany_(Ha_Morrow_and_Al-Rowaily)/06%3A_Plant_Physiology/6.04%3A_Plant_Growth_and_Development'
+      "https://www.youtube.com/watch?v=ApB5tkN1W3g",
+      "https://www.britannica.com/science/plant-development",
+      "https://bio.libretexts.org/Bookshelves/Botany"
     ],
     resourceLinks: [
-      { title: 'Khan Academy: Plant hormones and tropisms', url: 'https://www.khanacademy.org/science/biology/plant-biology/plant-responses-and-hormones/a/plant-hormones' },
-      { title: 'BYJU\'S: Plant Growth and Development', url: 'https://byjus.com/biology/plant-growth-and-development/' }
+      { title: "Amoeba Sisters: Plant Growth", url: "https://www.youtube.com/watch?v=ApB5tkN1W3g" },
+      { title: "Khan Academy: Plant Growth", url: "https://www.khanacademy.org/science/biology/plant-biology/plant-growth" }
     ],
     quiz: [
-      { question: 'Which plant hormone is responsible for apical dominance?', options: ['Auxin', 'Gibberellin', 'Cytokinin', 'Ethylene'], correct: 'Auxin' },
-      { question: 'The phenomenon of flowering in response to day length is called:', options: ['Phototropism', 'Photoperiodism', 'Vernalisation', 'Dormancy'], correct: 'Photoperiodism' },
+      { question: "Which hormone promotes cell elongation?", options: ["Auxin", "Gibberellin", "Cytokinin", "Abscisic acid"], correct: "Auxin" },
+      { question: "Differentiation leads to:", options: ["Cell division", "Cell specialization", "Cell elongation", "Cell death"], correct: "Cell specialization" },
+      { question: "Which hormone induces seed dormancy?", options: ["Auxin", "Gibberellin", "Abscisic acid", "Ethylene"], correct: "Abscisic acid" },
+      { question: "Photoperiodism affects:", options: ["Seed germination", "Flowering", "Root growth", "Leaf fall"], correct: "Flowering" },
+      { question: "Which hormone promotes fruit ripening?", options: ["Auxin", "Cytokinin", "Ethylene", "Gibberellin"], correct: "Ethylene" },
+      { question: "Vernalization is related to:", options: ["Temperature", "Light", "Water", "Nutrients"], correct: "Temperature" },
+      { question: "Cell division occurs in which phase?", options: ["Meristematic", "Elongation", "Maturation", "Senescence"], correct: "Meristematic" },
+      { question: "Which hormone promotes cell division?", options: ["Auxin", "Gibberellin", "Cytokinin", "Abscisic acid"], correct: "Cytokinin" },
+      { question: "Gibberellins promote:", options: ["Seed dormancy", "Seed germination", "Inhibited growth", "Senescence"], correct: "Seed germination" },
+      { question: "Which factor least affects plant growth?", options: ["Light", "Temperature", "Soil color", "Water"], correct: "Soil color" },
     ]
   },
   {
     id: 16,
-    title: 'Digestion and Absorption',
-    summary: 'A journey through the human digestive system, explaining how food is mechanically and chemically broken down and how nutrients are absorbed.',
-    detailedExplanation: "This chapter details the process by which complex food substances are converted into simple absorbable forms. It describes the anatomy of the human alimentary canal (from mouth to anus) and the associated digestive glands (salivary glands, liver, pancreas). The chapter then explains the digestion of major biomolecules—carbohydrates, proteins, and fats—through the action of various enzymes at different parts of the digestive tract. Finally, it covers the process of absorption of these digested products in the small intestine and discusses common disorders of the digestive system.",
-    keyTopics: ['Digestive System', 'Alimentary Canal and Glands', 'Digestion of Food', 'Absorption of Digested Products', 'Disorders of Digestive System'],
-    realWorldExample: 'Lactose intolerance is a common disorder where the body cannot produce enough lactase enzyme to digest the sugar in milk.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Digestion and Absorption",
+    summary: "An examination of the human digestive system, digestion process, and nutrient absorption.",
+    detailedExplanation: "This chapter covers the human digestive system, including organs like the mouth, stomach, small intestine, and large intestine. It describes digestion, where enzymes break down complex food into simpler molecules, and nutrient absorption, primarily in the small intestine. The role of villi in increasing absorption surface area is highlighted, along with disorders like jaundice and diarrhea.",
+    keyTopics: ["Digestive System", "Digestive Enzymes", "Digestion Process", "Nutrient Absorption", "Digestive Disorders"],
+    realWorldExample: "Villi in the small intestine enhance nutrient absorption, like glucose uptake for energy.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=zrffA6y29zg',
-      'https://www.visiblebody.com/learn/digestive',
-      'https://bio.libretexts.org/Bookshelves/Human_Biology/Book%3A_Human_Biology_(Wakim_and_Grewal)/21%3A_Digestive_System'
+      "https://www.youtube.com/watch?v=s06XzaKqELk",
+      "https://www.visiblebody.com/learn/digestive/digestive-overview",
+      "https://www.britannica.com/science/human-digestive-system"
     ],
     resourceLinks: [
-      { title: 'Visible Body: Learn The Digestive System', url: 'https://www.visiblebody.com/learn/digestive' },
-      { title: 'Crash Course A&P: Digestive System', url: 'https://www.youtube.com/watch?v=y3zw-p8MB1w' }
+      { title: "Amoeba Sisters: Digestion", url: "https://www.youtube.com/watch?v=s06XzaKqELk" },
+      { title: "Khan Academy: Digestive System", url: "https://www.khanacademy.org/science/biology/human-biology/digestive-system" }
     ],
     quiz: [
-      { question: 'The digestion of proteins begins in the:', options: ['Mouth', 'Stomach', 'Small intestine', 'Large intestine'], correct: 'Stomach' },
-      { question: 'Bile is produced by the:', options: ['Pancreas', 'Gallbladder', 'Liver', 'Stomach'], correct: 'Liver' },
+      { question: "Which enzyme digests starch in the mouth?", options: ["Pepsin", "Amylase", "Lipase", "Trypsin"], correct: "Amylase" },
+      { question: "Most nutrient absorption occurs in:", options: ["Stomach", "Small intestine", "Large intestine", "Esophagus"], correct: "Small intestine" },
+      { question: "Bile is produced by:", options: ["Pancreas", "Liver", "Gallbladder", "Stomach"], correct: "Liver" },
+      { question: "Pepsin digests:", options: ["Carbohydrates", "Proteins", "Fats", "Nucleic acids"], correct: "Proteins" },
+      { question: "Villi increase the surface area in:", options: ["Stomach", "Small intestine", "Large intestine", "Mouth"], correct: "Small intestine" },
+      { question: "Undigested waste is stored in:", options: ["Stomach", "Small intestine", "Large intestine", "Rectum"], correct: "Large intestine" },
+      { question: "Bile’s function is to:", options: ["Digest proteins", "Emulsify fats", "Break carbohydrates", "Neutralize acid"], correct: "Emulsify fats" },
+      { question: "Which enzyme is active in the stomach?", options: ["Trypsin", "Lipase", "Pepsin", "Amylase"], correct: "Pepsin" },
+      { question: "A common digestive disorder is:", options: ["Jaundice", "Asthma", "Arthritis", "Hypertension"], correct: "Jaundice" },
+      { question: "Chyme is formed in:", options: ["Mouth", "Stomach", "Small intestine", "Large intestine"], correct: "Stomach" },
     ]
   },
   {
     id: 17,
-    title: 'Breathing and Exchange of Gases',
-    summary: 'An exploration of the human respiratory system, the mechanics of breathing, and how gases are exchanged in the lungs and transported in the blood.',
-    detailedExplanation: "This chapter covers the process of gaseous exchange. It describes the human respiratory system, including the lungs and the air passages. The mechanism of breathing (inhalation and exhalation) is explained based on the pressure gradients created by the diaphragm and intercostal muscles. The chapter details the exchange of O₂ and CO₂ at the alveoli and tissues, driven by partial pressure differences. It also explains how these gases are transported in the blood, focusing on the role of hemoglobin. The neural regulation of respiration and common respiratory disorders are also discussed.",
-    keyTopics: ['Respiratory Organs', 'Mechanism of Breathing', 'Exchange of Gases', 'Transport of Gases (O₂ and CO₂)', 'Regulation of Respiration', 'Disorders of Respiratory System'],
-    realWorldExample: 'Asthma is a respiratory disorder characterized by inflammation of the airways, making breathing difficult.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Breathing and Exchange of Gases",
+    summary: "A study of the human respiratory system, breathing mechanism, and gas exchange processes.",
+    detailedExplanation: "This chapter explores the human respiratory system, including lungs, trachea, and alveoli. It describes breathing mechanics (inspiration, expiration) driven by pressure differences. Gas exchange in alveoli, where oxygen enters the blood and carbon dioxide is expelled, is detailed. Oxygen transport via hemoglobin and carbon dioxide transport as bicarbonate ions are covered, along with disorders like asthma and emphysema.",
+    keyTopics: ["Respiratory Organs", "Breathing Mechanism", "Gas Exchange", "Gas Transport", "Respiratory Disorders"],
+    realWorldExample: "During exercise, increased breathing supplies oxygen to muscles via hemoglobin, enhancing performance.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=kacyaEXqVhs',
-      'https://www.visiblebody.com/learn/respiratory',
-      'https://bio.libretexts.org/Bookshelves/Human_Biology/Book%3A_Human_Biology_(Wakim_and_Grewal)/22%3A_Respiratory_System'
+      "https://www.youtube.com/watch?v=hc1YtXc_84A",
+      "https://www.visiblebody.com/learn/respiratory/overview",
+      "https://www.britannica.com/science/respiratory-system"
     ],
     resourceLinks: [
-      { title: 'Visible Body: Learn The Respiratory System', url: 'https://www.visiblebody.com/learn/respiratory' },
-      { title: 'Khan Academy: The respiratory system', url: 'https://www.khanacademy.org/science/health-and-medicine/human-anatomy-and-physiology/respiratory-system-introduction/a/the-respiratory-system' }
+      { title: "Amoeba Sisters: Respiratory System", url: "https://www.youtube.com/watch?v=hc1YtXc_84A" },
+      { title: "Khan Academy: Respiratory System", url: "https://www.khanacademy.org/science/biology/human-biology/respiratory-system" }
     ],
     quiz: [
-      { question: 'The primary site of gas exchange in the lungs is the:', options: ['Trachea', 'Bronchi', 'Bronchioles', 'Alveoli'], correct: 'Alveoli' },
-      { question: 'Most of the oxygen in the blood is transported by:', options: ['Dissolving in plasma', 'Binding to hemoglobin', 'Converting to bicarbonate', 'Binding to WBCs'], correct: 'Binding to hemoglobin' },
+      { question: "Gas exchange occurs in:", options: ["Trachea", "Bronchi", "Alveoli", "Diaphragm"], correct: "Alveoli" },
+      { question: "Hemoglobin transports:", options: ["CO₂", "O₂", "N₂", "H₂"], correct: "O₂" },
+      { question: "Breathing in is called:", options: ["Expiration", "Inspiration", "Ventilation", "Diffusion"], correct: "Inspiration" },
+      { question: "The muscle aiding breathing is:", options: ["Biceps", "Diaphragm", "Quadriceps", "Pectoralis"], correct: "Diaphragm" },
+      { question: "A common respiratory disorder is:", options: ["Diabetes", "Asthma", "Arthritis", "Hypertension"], correct: "Asthma" },
+      { question: "CO₂ is mainly transported as:", options: ["Oxyhemoglobin", "Carbaminohemoglobin", "Bicarbonate ions", "Dissolved gas"], correct: "Bicarbonate ions" },
+      { question: "Gas exchange in alveoli is driven by:", options: ["Active transport", "Diffusion", "Osmosis", "Facilitated diffusion"], correct: "Diffusion" },
+      { question: "The nasal cavity:", options: ["Warms and filters air", "Produces mucus", "Exchanges gases", "Stores air"], correct: "Warms and filters air" },
+      { question: "Normal respiratory rate at rest is:", options: ["6–8 breaths/min", "12–20 breaths/min", "25–30 breaths/min", "40–50 breaths/min"], correct: "12–20 breaths/min" },
+      { question: "Emphysema affects:", options: ["Trachea", "Alveoli", "Bronchi", "Larynx"], correct: "Alveoli" },
     ]
   },
   {
     id: 18,
-    title: 'Body Fluids and Circulation',
-    summary: 'A detailed look at the human circulatory system, including the components of blood, the structure and function of the heart, and the cardiac cycle.',
-    detailedExplanation: "This chapter describes the transport system of the body. It details the composition and functions of blood (plasma and formed elements) and lymph. The structure of the human heart is explained in detail, along with the pathway of blood through the four chambers (double circulation). The chapter explains the cardiac cycle, heart sounds, and how the electrical activity of the heart is recorded using an ECG. It also covers the regulation of cardiac activity and common circulatory disorders like hypertension and coronary artery disease.",
-    keyTopics: ['Blood and Lymph', 'Circulatory Pathways', 'Human Circulatory System', 'Cardiac Cycle', 'Electrocardiograph (ECG)', 'Double Circulation', 'Disorders of Circulatory System'],
-    realWorldExample: 'An electrocardiogram (ECG) is a medical test that records the electrical activity of the heart, helping to diagnose heart problems.',
-    keyEquation: 'Cardiac Output = Stroke Volume × Heart Rate',
-    icon: 'dna',
+    title: "Body Fluids and Circulation",
+    summary: "An exploration of blood, lymph, and the human circulatory system, including the heart and cardiac cycle.",
+    detailedExplanation: "This chapter covers blood (plasma, RBCs, WBCs, platelets), lymph, and the circulatory system, including the heart, arteries, veins, and capillaries. The cardiac cycle (systole, diastole) and its regulation are explained, along with double circulation (pulmonary and systemic). Disorders like hypertension and coronary artery disease are discussed, emphasizing the system’s role in transport and homeostasis.",
+    keyTopics: ["Blood and Lymph", "Circulatory System", "Heart Structure", "Cardiac Cycle", "Circulatory Disorders"],
+    realWorldExample: "A heart attack results from blocked blood flow to the heart, often due to coronary artery disease.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=gnj2_8-aV-c',
-      'https://www.visiblebody.com/learn/circulatory',
-      'https://bio.libretexts.org/Bookshelves/Human_Biology/Book%3A_Human_Biology_(Wakim_and_Grewal)/23%3A_Circulatory_System'
+      "https://www.youtube.com/watch?v=x9-QsBRwpQ0",
+      "https://www.visiblebody.com/learn/circulatory/circulatory-overview",
+      "https://www.britannica.com/science/circulatory-system"
     ],
     resourceLinks: [
-      { title: 'Visible Body: Learn The Circulatory System', url: 'https://www.visiblebody.com/learn/circulatory' },
-      { title: 'Crash Course A&P: The Heart', url: 'https://www.youtube.com/watch?v=CWFyxn0qDEU' }
+      { title: "Amoeba Sisters: Circulatory System", url: "https://www.youtube.com/watch?v=x9-QsBRwpQ0" },
+      { title: "Khan Academy: Circulatory System", url: "https://www.khanacademy.org/science/biology/human-biology/circulatory-pulmonary" }
     ],
     quiz: [
-      { question: 'The "pacemaker" of the heart is the:', options: ['AV node', 'SA node', 'Purkinje fibers', 'Bundle of His'], correct: 'SA node' },
-      { question: 'Which blood vessels carry blood away from the heart?', options: ['Arteries', 'Veins', 'Capillaries', 'Venuoles'], correct: 'Arteries' },
+      { question: "Blood clotting is due to:", options: ["RBCs", "WBCs", "Platelets", "Plasma"], correct: "Platelets" },
+      { question: "The human heart has:", options: ["Two chambers", "Three chambers", "Four chambers", "Five chambers"], correct: "Four chambers" },
+      { question: "Oxygenated blood is carried by:", options: ["Veins", "Arteries", "Capillaries", "Vena cava"], correct: "Arteries" },
+      { question: "Heart contraction is called:", options: ["Diastole", "Systole", "Atrial phase", "Ventricular phase"], correct: "Systole" },
+      { question: "Lymph is involved in:", options: ["Oxygen transport", "Immune response", "Clotting", "Nutrient transport"], correct: "Immune response" },
+      { question: "Pulmonary circulation involves:", options: ["Lungs", "Heart", "Body tissues", "Brain"], correct: "Lungs" },
+      { question: "A common circulatory disorder is:", options: ["Asthma", "Hypertension", "Diabetes", "Arthritis"], correct: "Hypertension" },
+      { question: "The left ventricle pumps blood into:", options: ["Pulmonary artery", "Aorta", "Vena cava", "Pulmonary vein"], correct: "Aorta" },
+      { question: "The septum separates:", options: ["Left and right heart", "Atria and ventricles", "Arteries and veins", "Heart and lungs"], correct: "Left and right heart" },
+      { question: "WBCs are responsible for:", options: ["Oxygen transport", "Fighting infections", "Clotting", "Nutrient transport"], correct: "Fighting infections" },
     ]
   },
   {
     id: 19,
-    title: 'Excretory Products and their Elimination',
-    summary: 'An exploration of the human urinary system, the process of urine formation, and the kidney\'s role in regulating water and salt balance.',
-    detailedExplanation: "This chapter focuses on the elimination of metabolic wastes from the body. It describes the structure of the human excretory system, with a focus on the kidneys and their functional units, the nephrons. The three main steps of urine formation—glomerular filtration, tubular reabsorption, and tubular secretion—are explained in detail. The chapter also covers the counter-current mechanism for concentrating urine. The hormonal regulation of kidney function (by ADH and RAAS) and disorders related to the excretory system are also discussed.",
-    keyTopics: ['Human Excretory System', 'Urine Formation', 'Function of the Tubules', 'Mechanism of Concentration of Filtrate', 'Regulation of Kidney Function', 'Disorders of the Excretory System'],
-    realWorldExample: 'Kidney dialysis is a medical procedure that artificially filters waste products from the blood when the kidneys fail.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Excretory Products and Their Elimination",
+    summary: "A study of the human excretory system, urine formation, and waste elimination.",
+    detailedExplanation: "This chapter explores the excretory system, including kidneys, ureters, bladder, and urethra. The nephron, the kidney’s functional unit, is detailed, along with urine formation (filtration, reabsorption, secretion, concentration). Regulation of kidney function by hormones like ADH and RAAS is discussed, as are disorders like kidney stones and uremia, emphasizing waste elimination and homeostasis.",
+    keyTopics: ["Excretory Organs", "Nephron Structure", "Urine Formation", "Kidney Regulation", "Excretory Disorders"],
+    realWorldExample: "Dialysis mimics nephron filtration to remove waste in patients with kidney failure.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=oCQ-5g60-pE',
-      'https://www.visiblebody.com/learn/urinary',
-      'https://bio.libretexts.org/Bookshelves/Human_Biology/Book%3A_Human_Biology_(Wakim_and_Grewal)/24%3A_Urinary_System'
+      "https://www.youtube.com/watch?v=v2DyRmuT66U",
+      "https://www.visiblebody.com/learn/urinary/urinary-overview",
+      "https://www.britannica.com/science/human-renal-system"
     ],
     resourceLinks: [
-      { title: 'Visible Body: Learn The Urinary System', url: 'https://www.visiblebody.com/learn/urinary' },
-      { title: 'Khan Academy: The kidney and nephron', url: 'https://www.khanacademy.org/science/health-and-medicine/human-anatomy-and-physiology/urinary-system/a/the-kidney-and-nephron' }
+      { title: "Amoeba Sisters: Excretory System", url: "https://www.youtube.com/watch?v=v2DyRmuT66U" },
+      { title: "Khan Academy: Excretory System", url: "https://www.khanacademy.org/science/biology/human-biology/kidney" }
     ],
     quiz: [
-      { question: 'The functional unit of the kidney is the:', options: ['Neuron', 'Nephron', 'Alveolus', 'Villus'], correct: 'Nephron' },
-      { question: 'The first step in urine formation is:', options: ['Tubular secretion', 'Tubular reabsorption', 'Glomerular filtration', 'Micturition'], correct: 'Glomerular filtration' },
+      { question: "The functional unit of the kidney is:", options: ["Neuron", "Nephron", "Alveolus", "Glomerulus"], correct: "Nephron" },
+      { question: "Urine formation begins with:", options: ["Reabsorption", "Filtration", "Secretion", "Concentration"], correct: "Filtration" },
+      { question: "The main nitrogenous waste is:", options: ["Urea", "Ammonia", "Uric acid", "Creatinine"], correct: "Urea" },
+      { question: "Urine is stored in:", options: ["Kidney", "Ureter", "Bladder", "Urethra"], correct: "Bladder" },
+      { question: "Kidney function is regulated by:", options: ["ADH and RAAS", "Insulin", "Thyroxine", "Adrenaline"], correct: "ADH and RAAS" },
+      { question: "Blood filtration occurs in:", options: ["Proximal tubule", "Loop of Henle", "Glomerulus", "Collecting duct"], correct: "Glomerulus" },
+      { question: "A common excretory disorder is:", options: ["Kidney stones", "Asthma", "Hypertension", "Diabetes"], correct: "Kidney stones" },
+      { question: "Water and nutrients are reabsorbed in:", options: ["Filtration", "Reabsorption", "Secretion", "Excretion"], correct: "Reabsorption" },
+      { question: "The Loop of Henle is responsible for:", options: ["Filtration", "Urine concentration", "Protein digestion", "Gas exchange"], correct: "Urine concentration" },
+      { question: "Which hormone increases water reabsorption?", options: ["Insulin", "ADH", "Cortisol", "Thyroxine"], correct: "ADH" },
     ]
   },
   {
     id: 20,
-    title: 'Locomotion and Movement',
-    summary: 'A study of the human musculoskeletal system, including the structure of bones and joints, and the mechanism of muscle contraction.',
-    detailedExplanation: "This chapter covers the systems responsible for movement. It describes the human skeletal system, including the axial and appendicular skeletons, and classifies the different types of joints. The main focus is on the muscular system. It details the structure of a skeletal muscle, down to the level of the sarcomere. The sliding filament theory is explained as the mechanism for muscle contraction, outlining the roles of actin, myosin, and calcium ions. The chapter concludes with a discussion of common disorders of the muscular and skeletal systems like arthritis and osteoporosis.",
-    keyTopics: ['Types of Movement', 'Muscle and Muscle Contraction', 'Sliding Filament Theory', 'Skeletal System', 'Joints', 'Disorders of Muscular and Skeletal System'],
-    realWorldExample: 'Weightlifting causes muscle hypertrophy, an increase in the size of muscle cells, which is a direct application of understanding muscle physiology.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Locomotion and Movement",
+    summary: "An exploration of the human muscular and skeletal systems, muscle contraction, and types of movements.",
+    detailedExplanation: "This chapter covers the skeletal system (bones, joints) and muscular system (skeletal, smooth, cardiac muscles). The sliding filament theory explains muscle contraction, involving actin, myosin, and calcium ions. Types of movement (amoeboid, ciliary, muscular) are discussed, along with disorders like arthritis and muscular dystrophy, highlighting the systems’ role in locomotion and support.",
+    keyTopics: ["Skeletal System", "Muscular System", "Muscle Contraction", "Types of Movement", "Locomotor Disorders"],
+    realWorldExample: "Running involves coordinated muscle contractions and joint movements for efficient locomotion.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=I80s6i97L10',
-      'https://www.visiblebody.com/learn/musculoskeletal',
-      'https://bio.libretexts.org/Bookshelves/Human_Biology/Book%3A_Human_Biology_(Wakim_and_Grewal)/19%3A_Muscular_System'
+      "https://www.youtube.com/watch?v=jimyxT5VfiQ",
+      "https://www.visiblebody.com/learn/muscular/muscle-movement",
+      "https://www.britannica.com/science/muscle"
     ],
     resourceLinks: [
-      { title: 'Visible Body: Learn The Musculoskeletal System', url: 'https://www.visiblebody.com/learn/musculoskeletal' },
-      { title: 'Crash Course A&P: The Skeletal System', url: 'https://www.youtube.com/watch?v=r-d2h4_s-0I' }
+      { title: "Amoeba Sisters: Muscular System", url: "https://www.youtube.com/watch?v=jimyxT5VfiQ" },
+      { title: "Khan Academy: Muscular System", url: "https://www.khanacademy.org/science/biology/human-biology/muscles" }
     ],
     quiz: [
-      { question: 'The contractile proteins of a muscle fiber are:', options: ['Actin and myosin', 'Troponin and tropomyosin', 'Collagen and elastin', 'Keratin and melanin'], correct: 'Actin and myosin' },
-      { question: 'The longest and strongest bone in the human body is the:', options: ['Humerus', 'Tibia', 'Femur', 'Vertebral column'], correct: 'Femur' },
+      { question: "Which muscle type is voluntary?", options: ["Skeletal", "Smooth", "Cardiac", "All of these"], correct: "Skeletal" },
+      { question: "The sliding filament theory explains:", options: ["Bone formation", "Muscle contraction", "Joint movement", "Blood flow"], correct: "Muscle contraction" },
+      { question: "Muscle contraction is triggered by:", options: ["Sodium", "Potassium", "Calcium", "Magnesium"], correct: "Calcium" },
+      { question: "Which joint allows maximum movement?", options: ["Hinge", "Ball and socket", "Pivot", "Fixed"], correct: "Ball and socket" },
+      { question: "A common locomotor disorder is:", options: ["Arthritis", "Diabetes", "Asthma", "Hypertension"], correct: "Arthritis" },
+      { question: "Which protein slides in muscle contraction?", options: ["Actin", "Myosin", "Collagen", "Keratin"], correct: "Actin" },
+      { question: "The skeletal system provides:", options: ["Support", "Movement", "Protection", "All of these"], correct: "All of these" },
+      { question: "White blood cells show which movement?", options: ["Ciliary", "Amoeboid", "Muscular", "Flagellar"], correct: "Amoeboid" },
+      { question: "Muscles are connected to bones by:", options: ["Ligament", "Tendon", "Cartilage", "Fascia"], correct: "Tendon" },
+      { question: "Cardiac muscle is found in:", options: ["Skeletal system", "Heart", "Intestines", "Blood vessels"], correct: "Heart" },
     ]
   },
   {
     id: 21,
-    title: 'Neural Control and Coordination',
-    summary: 'A deep dive into the human nervous system, from the structure of a neuron and nerve impulse transmission to the functions of the brain and sensory organs.',
-    detailedExplanation: "This chapter explains the body's rapid control and coordination system. It describes the structure of a neuron, the functional unit of the nervous system. The generation and conduction of a nerve impulse (action potential) along an axon and its transmission across a synapse via neurotransmitters are detailed. The chapter provides an overview of the human neural system, differentiating between the central (CNS) and peripheral (PNS) systems. It outlines the major parts of the brain and their functions, the reflex arc, and concludes with the anatomy and physiology of the eye and ear.",
-    keyTopics: ['Neuron and Nerve Impulse', 'Synapse', 'Central Neural System (Brain and Spinal Cord)', 'Reflex Action and Reflex Arc', 'Sensory Reception (Eye and Ear)'],
-    realWorldExample: 'The reflex action of quickly pulling your hand away from a hot object is a protective mechanism coordinated by the spinal cord.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Neural Control and Coordination",
+    summary: "A study of the human nervous system, neuron structure, and coordination of body activities.",
+    detailedExplanation: "This chapter explores the nervous system, coordinating body activities via electrical and chemical signals. It details neuron structure and impulse transmission through synapses. The central nervous system (brain, spinal cord) and peripheral nervous system are discussed, along with reflex arcs. Sense organs, particularly the eye and ear, and disorders like Parkinson’s disease are covered, emphasizing sensory and motor functions.",
+    keyTopics: ["Neuron Structure", "Central Nervous System", "Peripheral Nervous System", "Reflex Action", "Sense Organs"],
+    realWorldExample: "A reflex action, like pulling a hand from a hot surface, is a rapid response mediated by the spinal cord.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=xRkPN-2G9lo',
-      'https://www.visiblebody.com/learn/nervous',
-      'https://bio.libretexts.org/Bookshelves/Human_Biology/Book%3A_Human_Biology_(Wakim_and_Grewal)/18%3A_Nervous_System'
+      "https://www.youtube.com/watch?v=x4PPZCLnVkA",
+      "https://www.visiblebody.com/learn/nervous/nervous-system",
+      "https://www.britannica.com/science/nervous-system"
     ],
     resourceLinks: [
-      { title: 'Visible Body: Learn The Nervous System', url: 'https://www.visiblebody.com/learn/nervous' },
-      { title: 'Khan Academy: Human nervous system', url: 'https://www.khanacademy.org/science/biology/human-biology/neuron-nervous-system/a/overview-of-the-nervous-system' }
+      { title: "Amoeba Sisters: Nervous System", url: "https://www.youtube.com/watch?v=x4PPZCLnVkA" },
+      { title: "Khan Academy: Nervous System", url: "https://www.khanacademy.org/science/biology/human-biology/neuron-nervous-system" }
     ],
     quiz: [
-      { question: 'The part of the neuron that receives signals is the:', options: ['Axon', 'Dendrite', 'Soma', 'Myelin sheath'], correct: 'Dendrite' },
-      { question: 'The part of the human brain responsible for balance and coordination is the:', options: ['Cerebrum', 'Cerebellum', 'Medulla oblongata', 'Pons'], correct: 'Cerebellum' },
+      { question: "The functional unit of the nervous system is:", options: ["Nephron", "Neuron", "Alveolus", "Osteon"], correct: "Neuron" },
+      { question: "Balance is controlled by:", options: ["Cerebrum", "Cerebellum", "Medulla", "Hypothalamus"], correct: "Cerebellum" },
+      { question: "Nerve impulses are transmitted via:", options: ["Dendrites", "Axon", "Synapse", "Myelin sheath"], correct: "Synapse" },
+      { question: "A reflex arc involves:", options: ["Brain only", "Spinal cord only", "Brain and spinal cord", "Spinal cord and sensory neurons"], correct: "Spinal cord and sensory neurons" },
+      { question: "The sense organ for light is:", options: ["Ear", "Eye", "Skin", "Tongue"], correct: "Eye" },
+      { question: "The myelin sheath:", options: ["Transmits impulses", "Insulates axons", "Produces neurotransmitters", "Protects dendrites"], correct: "Insulates axons" },
+      { question: "Involuntary actions are controlled by:", options: ["Somatic system", "Autonomic system", "Central system", "Peripheral system"], correct: "Autonomic system" },
+      { question: "The retina contains:", options: ["Rods and cones", "Cochlea", "Semicircular canals", "Taste buds"], correct: "Rods and cones" },
+      { question: "A common neural disorder is:", options: ["Parkinson’s disease", "Diabetes", "Hypertension", "Arthritis"], correct: "Parkinson’s disease" },
+      { question: "Breathing is regulated by:", options: ["Cerebrum", "Cerebellum", "Medulla oblongata", "Thalamus"], correct: "Medulla oblongata" },
     ]
   },
   {
     id: 22,
-    title: 'Chemical Coordination and Integration',
-    summary: 'An exploration of the endocrine system, the ductless glands that secrete hormones to regulate long-term processes like growth, metabolism, and reproduction.',
-    detailedExplanation: "This chapter covers the body's other control system, which uses chemical messengers called hormones. It describes the major endocrine glands of the human body, including the hypothalamus, pituitary (the 'master gland'), thyroid, adrenal glands, and pancreas. For each gland, the hormones they secrete and their specific functions are detailed. The chapter explains the mechanism of hormone action, distinguishing between how protein-based and steroid-based hormones interact with target cells. Disorders related to hormonal imbalances, such as diabetes and goitre, are also discussed.",
-    keyTopics: ['Endocrine Glands and Hormones', 'Human Endocrine System', 'Hormones of Heart, Kidney and GI Tract', 'Mechanism of Hormone Action'],
-    realWorldExample: 'Diabetes mellitus is a disorder of the endocrine system caused by a deficiency of the hormone insulin, which regulates blood sugar.',
-    keyEquation: '',
-    icon: 'dna',
+    title: "Chemical Coordination and Integration",
+    summary: "An exploration of the endocrine system and hormones regulating body functions.",
+    detailedExplanation: "This chapter covers the endocrine system, using hormones to regulate physiological processes. Major glands (pituitary, thyroid, adrenal, pancreas) and their hormones (insulin, thyroxine, adrenaline) are discussed. Hormone action, feedback regulation, and comparison with the nervous system are explained. Disorders like diabetes and goiter due to hormonal imbalances are highlighted, emphasizing chemical coordination.",
+    keyTopics: ["Endocrine Glands", "Hormones", "Hormone Action", "Feedback Regulation", "Endocrine Disorders"],
+    realWorldExample: "Insulin regulates blood sugar; its deficiency causes diabetes, affecting millions worldwide.",
+    keyEquation: "",
+    icon: "dna",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=vLdNX5Te1Xo',
-      'https://www.visiblebody.com/learn/endocrine',
-      'https://bio.libretexts.org/Bookshelves/Human_Biology/Book%3A_Human_Biology_(Wakim_and_Grewal)/20%3A_Endocrine_System'
+      "https://www.youtube.com/watch?v=WVrlHH14q3o",
+      "https://www.visiblebody.com/learn/endocrine/endocrine-overview",
+      "https://www.britannica.com/science/endocrine-system"
     ],
     resourceLinks: [
-      { title: 'Visible Body: Learn The Endocrine System', url: 'https://www.visiblebody.com/learn/endocrine' },
-      { title: 'Crash Course A&P: Endocrine System', url: 'https://www.youtube.com/watch?v=vLdNX5Te1Xo' }
+      { title: "Amoeba Sisters: Endocrine System", url: "https://www.youtube.com/watch?v=WVrlHH14q3o" },
+      { title: "Khan Academy: Endocrine System", url: "https://www.khanacademy.org/science/biology/human-biology/endocrine-system" }
     ],
     quiz: [
-      { question: 'Which gland is known as the "master gland"?', options: ['Thyroid', 'Adrenal', 'Pituitary', 'Pancreas'], correct: 'Pituitary' },
-      { question: 'Which hormone is secreted by the adrenal medulla in response to stress?', options: ['Cortisol', 'Aldosterone', 'Adrenaline (Epinephrine)', 'Insulin'], correct: 'Adrenaline (Epinephrine)' },
+      { question: "The master gland is:", options: ["Thyroid", "Pituitary", "Adrenal", "Pancreas"], correct: "Pituitary" },
+      { question: "Blood sugar is regulated by:", options: ["Thyroxine", "Insulin", "Adrenaline", "Cortisol"], correct: "Insulin" },
+      { question: "The thyroid gland produces:", options: ["Insulin", "Thyroxine", "Adrenaline", "Oxytocin"], correct: "Thyroxine" },
+      { question: "The stress response hormone is:", options: ["Insulin", "Thyroxine", "Adrenaline", "Prolactin"], correct: "Adrenaline" },
+      { question: "Iodine deficiency causes:", options: ["Diabetes", "Goiter", "Addison’s disease", "Cushing’s syndrome"], correct: "Goiter" },
+      { question: "The adrenal glands are located:", options: ["In the brain", "Above the kidneys", "In the neck", "In the pancreas"], correct: "Above the kidneys" },
+      { question: "Hormones are transported by:", options: ["Blood", "Lymph", "Nerves", "Air"], correct: "Blood" },
+      { question: "Uterine contractions are promoted by:", options: ["Oxytocin", "Prolactin", "Estrogen", "Testosterone"], correct: "Oxytocin" },
+      { question: "Hormone action is:", options: ["Electrical", "Chemical", "Mechanical", "Thermal"], correct: "Chemical" },
+      { question: "Insulin deficiency causes:", options: ["Goiter", "Diabetes", "Cushing’s syndrome", "Acromegaly"], correct: "Diabetes" },
     ]
   }
 ];
-
-// =================================================================================
-//                            PHYSICS CLASS 11
-// =================================================================================
-export const physicsXI = [
+export const chemistryXI = [
   {
     id: 1,
-    title: 'Physical World',
-    summary: 'An introduction to the nature of physics, its scope and excitement, the fundamental forces, and the nature of physical laws.',
-    detailedExplanation: "This introductory chapter sets the stage for the study of physics. It defines what physics is and explores its vast scope, from the microscopic world of particles to the macroscopic universe of galaxies. It highlights the relationship between physics, technology, and society. The chapter introduces the four fundamental forces of nature—gravitational, weak nuclear, electromagnetic, and strong nuclear—which govern all phenomena in the universe. It concludes by discussing the nature of physical laws and the importance of conservation principles in physics.",
-    keyTopics: ['What is Physics?', 'Scope and Excitement of Physics', 'Fundamental Forces in Nature', 'Nature of Physical Laws'],
-    realWorldExample: "The principles of gravity, a fundamental force, explain why planets orbit the sun and how satellites stay in orbit.",
-    keyEquation: '',
-    icon: 'atom',
+    title: "Some Basic Concepts of Chemistry",
+    summary: "An introduction to the fundamental concepts of chemistry, including matter, its classification, and basic chemical calculations.",
+    detailedExplanation: "This chapter lays the foundation for chemistry by exploring the nature of matter and its classification into elements, compounds, and mixtures. It introduces physical and chemical properties, the mole concept, molar mass, and stoichiometry. Key calculations like percentage composition, empirical and molecular formulas, and concentration terms (molarity, molality) are discussed. The chapter emphasizes the importance of precision in measurements and significant figures in chemical calculations.",
+    keyTopics: ["Nature of Matter", "Classification of Matter", "Mole Concept", "Stoichiometry", "Concentration Terms", "Significant Figures"],
+    realWorldExample: "Baking soda (NaHCO₃) decomposing into sodium carbonate, water, and CO₂ during baking is a practical application of stoichiometry.",
+    keyEquation: "Molarity (M) = moles of solute / volume of solution (L)",
+    icon: "atom",
     visualizationLinks: [
-      'https://www.youtube.com/watch?v=B6li3q6oH94',
-      'https://www.fnal.gov/pub/science/particle-physics-101/the-four-forces.html',
-      'https://phet.colorado.edu/',
+      "https://www.youtube.com/watch?v=8k-8a3fZGus",
+      "https://phet.colorado.edu/en/simulations/molarity",
+      "https://www.britannica.com/science/chemistry"
     ],
     resourceLinks: [
-      { title: 'Fermilab: The Four Forces', url: 'https://www.fnal.gov/pub/science/particle-physics-101/the-four-forces.html' },
-      { title: 'Khan Academy: Introduction to Physics', url: 'https://www.khanacademy.org/science/physics/one-dimensional-motion/introduction-to-physics-sc/v/introduction-to-physics' }
+      { title: "Khan Academy: Basic Concepts of Chemistry", url: "https://www.khanacademy.org/science/chemistry/introduction-to-chemistry" },
+      { title: "BYJU'S: Some Basic Concepts of Chemistry", url: "https://byjus.com/chemistry/some-basic-concepts-of-chemistry/" }
     ],
     quiz: [
-      { question: 'Which is the weakest fundamental force in nature?', options: ['Gravitational Force', 'Electromagnetic Force', 'Strong Nuclear Force', 'Weak Nuclear Force'], correct: 'Gravitational Force' },
-      { question: 'Which fundamental force is responsible for holding the nucleus together?', options: ['Gravitational', 'Electromagnetic', 'Strong Nuclear', 'Weak Nuclear'], correct: 'Strong Nuclear' },
+      { question: "What is the SI unit of amount of substance?", options: ["Gram", "Mole", "Kilogram", "Liter"], correct: "Mole" },
+      { question: "Which is a physical property of a substance?", options: ["Reactivity", "Flammability", "Density", "Toxicity"], correct: "Density" },
+      { question: "The empirical formula of a compound shows:", options: ["Exact molecular mass", "Simplest ratio of atoms", "Structural arrangement", "Total number of atoms"], correct: "Simplest ratio of atoms" },
+      { question: "What is the molarity of a solution with 2 moles of solute in 500 mL?", options: ["2 M", "4 M", "1 M", "0.5 M"], correct: "4 M" },
+      { question: "How many significant figures are in 0.00450?", options: ["2", "3", "4", "5"], correct: "3" },
+      { question: "A mixture can be separated by:", options: ["Chemical methods only", "Physical methods", "Both physical and chemical methods", "No methods"], correct: "Physical methods" },
+      { question: "What is the mass of 1 mole of water (H₂O)?", options: ["16 g", "18 g", "20 g", "22 g"], correct: "18 g" },
+      { question: "Molality is expressed as:", options: ["Moles per liter", "Moles per kg of solvent", "Grams per liter", "Moles per kg of solution"], correct: "Moles per kg of solvent" },
+      { question: "Which is a compound?", options: ["Air", "Salt (NaCl)", "Brass", "Steel"], correct: "Salt (NaCl)" },
+      { question: "Stoichiometry deals with:", options: ["Energy changes", "Reaction mechanisms", "Quantitative relationships", "Molecular structures"], correct: "Quantitative relationships" },
     ]
   },
   {
     id: 2,
-    title: 'Units and Measurement',
-    summary: 'A foundational chapter on the international system of units (SI), techniques for measurement, and the crucial analysis of errors and significant figures.',
-    detailedExplanation: "Physics is a quantitative science, making measurement essential. This chapter introduces the International System of Units (SI), defining the seven fundamental units. It discusses methods for measuring length, mass, and time. A key focus is on the concepts of accuracy and precision, and the analysis of errors in measurement. The rules for determining significant figures are outlined to ensure proper representation of measurement precision. The chapter concludes with dimensional analysis, a powerful tool for checking the consistency of equations and deriving relationships between physical quantities.",
-    keyTopics: ['The International System of Units (SI)', 'Measurement of Length, Mass and Time', 'Accuracy, Precision and Errors', 'Significant Figures', 'Dimensions of Physical Quantities', 'Dimensional Analysis'],
-    realWorldExample: 'GPS systems rely on extremely precise time measurements from atomic clocks to determine your location accurately.',
-    keyEquation: 'Error (%) = (Δa / a_mean) * 100',
-    icon: 'atom',
+    title: "Structure of Atom",
+    summary: "A study of atomic structure, including subatomic particles, atomic models, and quantum mechanics.",
+    detailedExplanation: "This chapter explores the structure of the atom, starting with the discovery of electrons, protons, and neutrons. It covers historical atomic models (Thomson, Rutherford, Bohr) and introduces quantum mechanics, including the quantum mechanical model of the atom. Concepts like atomic number, mass number, isotopes, and electronic configurations are discussed. The chapter also explains quantum numbers, orbital shapes, and the Aufbau principle for electron distribution.",
+    keyTopics: ["Subatomic Particles", "Atomic Models", "Quantum Numbers", "Electronic Configuration", "Isotopes"],
+    realWorldExample: "Isotopes like Carbon-14 are used in radiocarbon dating to determine the age of ancient artifacts.",
+    keyEquation: "E = -13.6/n² eV (Bohr’s model for hydrogen)",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/ruler',
-      'https://www.npl.co.uk/si-units',
-      'https://www.youtube.com/watch?v=hQpQ0hxVNTg'
+      "https://www.youtube.com/watch?v=thnDxFdkzZs",
+      "https://phet.colorado.edu/en/simulations/build-an-atom",
+      "https://www.britannica.com/science/atom"
     ],
     resourceLinks: [
-      { title: 'Khan Academy: Units and Measurement', url: 'https://www.khanacademy.org/science/physics/one-dimensional-motion/units-and-measurements/v/working-with-units-word-problem' },
-      { title: 'NIST: The International System of Units (SI)', url: 'https://www.nist.gov/pml/weights-and-measures/metric-si/si-units' }
+      { title: "Khan Academy: Atomic Structure", url: "https://www.khanacademy.org/science/chemistry/atomic-structure-and-properties" },
+      { title: "ChemLibre: Atomic Structure", url: "https://chem.libretexts.org/Bookshelves/General_Chemistry" }
     ],
     quiz: [
-      { question: 'What is the SI unit for electric current?', options: ['Volt', 'Ohm', 'Ampere', 'Watt'], correct: 'Ampere' },
-      { question: 'The dimensional formula for Force is:', options: ['[MLT⁻²]', '[ML²T⁻²]', '[ML⁻¹T⁻²]', '[MLT⁻¹]'], correct: '[MLT⁻²]' },
+      { question: "Which particle determines the atomic number?", options: ["Electron", "Proton", "Neutron", "Nucleus"], correct: "Proton" },
+      { question: "Bohr’s model is applicable to:", options: ["Multi-electron atoms", "Hydrogen-like atoms", "All atoms", "Molecules"], correct: "Hydrogen-like atoms" },
+      { question: "The quantum number that describes orbital shape is:", options: ["Principal", "Azimuthal", "Magnetic", "Spin"], correct: "Azimuthal" },
+      { question: "Isotopes differ in the number of:", options: ["Protons", "Electrons", "Neutrons", "Nuclei"], correct: "Neutrons" },
+      { question: "The maximum number of electrons in an orbital is:", options: ["1", "2", "3", "4"], correct: "2" },
+      { question: "Which principle governs electron filling in orbitals?", options: ["Heisenberg", "Aufbau", "Pauli Exclusion", "Hund’s Rule"], correct: "Aufbau" },
+      { question: "The shape of a p-orbital is:", options: ["Spherical", "Dumbbell", "Double dumbbell", "Complex"], correct: "Dumbbell" },
+      { question: "Who proposed the planetary model of the atom?", options: ["Thomson", "Rutherford", "Bohr", "Dalton"], correct: "Rutherford" },
+      { question: "The spin quantum number has values:", options: ["0, 1", "+½, -½", "1, 2", "Any integer"], correct: "+½, -½" },
+      { question: "The energy of an electron in the nth orbit is given by:", options: ["E = nhν", "E = -13.6/n² eV", "E = mc²", "E = h/mv"], correct: "E = -13.6/n² eV" },
     ]
   },
   {
     id: 3,
-    title: 'Motion in a Straight Line',
-    summary: 'An introduction to kinematics, describing the motion of objects along a straight line using concepts of displacement, velocity, and acceleration.',
-    detailedExplanation: "This chapter lays the foundation for describing motion. It distinguishes between scalar quantities like distance and speed, and vector quantities like displacement and velocity. The concept of acceleration as the rate of change of velocity is introduced. A central part of the chapter is the derivation and application of the three kinematic equations for uniformly accelerated motion, which allow us to predict the position and velocity of an object at any time. The concept of relative velocity is also explored to describe motion as seen from different frames of reference.",
-    keyTopics: ['Position, Displacement, and Path Length', 'Average and Instantaneous Velocity', 'Acceleration', 'Kinematic Equations for Uniformly Accelerated Motion', 'Relative Velocity'],
-    realWorldExample: 'A car accelerating from rest on a straight road can be described using the kinematic equations of motion.',
-    keyEquation: 's = ut + ½at²',
-    icon: 'atom',
+    title: "Classification of Elements and Periodicity in Properties",
+    summary: "A study of the periodic table, periodic trends, and the classification of elements based on their properties.",
+    detailedExplanation: "This chapter traces the development of the periodic table from Mendeleev’s to the modern version. It discusses the periodic law and the arrangement of elements based on atomic number. Periodic trends like atomic radius, ionization energy, electronegativity, and electron gain enthalpy are explained, along with their variations across periods and groups. The chapter also covers the classification of elements into s, p, d, and f blocks and their characteristic properties.",
+    keyTopics: ["Periodic Table", "Periodic Law", "Periodic Trends", "s, p, d, f Block Elements", "Electronegativity"],
+    realWorldExample: "The reactivity of alkali metals like sodium increases down the group, explaining why potassium reacts more vigorously with water.",
+    keyEquation: "",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/moving-man',
-      'https://ophysics.com/k.html',
-      'https://www.youtube.com/watch?v=r2d36_K2B_c'
+      "https://www.youtube.com/watch?v=0RRVV4Diomg",
+      "https://phet.colorado.edu/en/simulations/build-a-molecule",
+      "https://www.ptable.com/"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: The Moving Man', url: 'https://phet.colorado.edu/en/simulations/moving-man' },
-      { title: 'The Physics Classroom: 1-D Kinematics', url: 'https://www.physicsclassroom.com/class/1DKin' }
+      { title: "Khan Academy: Periodic Table", url: "https://www.khanacademy.org/science/chemistry/periodic-table" },
+      { title: "RSC: Periodic Table", url: "https://www.rsc.org/periodic-table" }
     ],
     quiz: [
-      { question: 'The slope of a position-time graph gives:', options: ['Acceleration', 'Displacement', 'Velocity', 'Speed'], correct: 'Velocity' },
-      { question: 'The area under a velocity-time graph represents:', options: ['Acceleration', 'Displacement', 'Jerk', 'Average velocity'], correct: 'Displacement' },
+      { question: "Who developed the modern periodic table?", options: ["Dalton", "Mendeleev", "Mosley", "Newlands"], correct: "Mosley" },
+      { question: "Ionization energy increases across a period due to:", options: ["Increasing atomic radius", "Decreasing nuclear charge", "Increasing nuclear charge", "Decreasing electronegativity"], correct: "Increasing nuclear charge" },
+      { question: "Which block contains transition elements?", options: ["s-block", "p-block", "d-block", "f-block"], correct: "d-block" },
+      { question: "Electronegativity is highest for:", options: ["Alkali metals", "Halogens", "Noble gases", "Transition metals"], correct: "Halogens" },
+      { question: "Atomic radius decreases across a period because of:", options: ["Increased shielding", "Increased nuclear charge", "Decreased electron count", "Increased electron shells"], correct: "Increased nuclear charge" },
+      { question: "Which group contains noble gases?", options: ["Group 1", "Group 2", "Group 17", "Group 18"], correct: "Group 18" },
+      { question: "Which element has the highest ionization energy?", options: ["Fluorine", "Oxygen", "Nitrogen", "Neon"], correct: "Neon" },
+      { question: "s-block elements include:", options: ["Halogens", "Alkali metals", "Transition metals", "Lanthanides"], correct: "Alkali metals" },
+      { question: "The periodic law is based on:", options: ["Atomic mass", "Atomic number", "Mass number", "Neutron count"], correct: "Atomic number" },
+      { question: "Which property increases down a group?", options: ["Ionization energy", "Electronegativity", "Atomic radius", "Electron affinity"], correct: "Atomic radius" },
     ]
   },
   {
     id: 4,
-    title: 'Motion in a Plane',
-    summary: 'Extending kinematics to two dimensions by introducing vector analysis to describe projectile motion and uniform circular motion.',
-    detailedExplanation: "This chapter expands the study of motion to two dimensions. It begins with a thorough introduction to vectors and their operations (addition, subtraction, and resolution into components). These tools are then applied to analyze motion in a plane. Two key examples are studied in detail: projectile motion, where an object moves under the influence of gravity, following a parabolic path; and uniform circular motion, where an object moves in a circle at a constant speed, experiencing a constant centripetal acceleration towards the center.",
-    keyTopics: ['Scalars and Vectors', 'Vector Operations', 'Resolution of Vectors', 'Motion in a Plane', 'Projectile Motion', 'Uniform Circular Motion'],
-    realWorldExample: 'A javelin thrown by an athlete follows a parabolic path, which is an example of projectile motion.',
-    keyEquation: 'a_c = v²/r',
-    icon: 'atom',
+    title: "Chemical Bonding and Molecular Structure",
+    summary: "An exploration of chemical bonds, including ionic, covalent, and metallic bonds, and molecular structures like VSEPR and hybridization.",
+    detailedExplanation: "This chapter examines how atoms combine to form molecules through chemical bonds. It covers ionic bonds (electrostatic attraction), covalent bonds (electron sharing), and metallic bonds. The Valence Shell Electron Pair Repulsion (VSEPR) theory is used to predict molecular shapes. Hybridization and molecular orbital theory explain bond formation in complex molecules. Concepts like bond parameters (bond length, bond angle) and dipole moment are also discussed.",
+    keyTopics: ["Ionic Bonding", "Covalent Bonding", "VSEPR Theory", "Hybridization", "Molecular Orbital Theory", "Bond Parameters"],
+    realWorldExample: "The bent shape of water molecules (H₂O) due to VSEPR theory explains its polarity and ability to dissolve salts.",
+    keyEquation: "",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/projectile-motion',
-      'https://phet.colorado.edu/en/simulations/vector-addition',
-      'https://www.falstad.com/vectormath/'
+      "https://www.youtube.com/watch?v=7DjsD7Hcd9U",
+      "https://phet.colorado.edu/en/simulations/molecule-shapes",
+      "https://chem.libretexts.org/Bookshelves/General_Chemistry"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: Projectile Motion', url: 'https://phet.colorado.edu/en/simulations/projectile-motion' },
-      { title: 'Khan Academy: Two-dimensional motion', url: 'https://www.khanacademy.org/science/physics/two-dimensional-motion' }
+      { title: "Khan Academy: Chemical Bonding", url: "https://www.khanacademy.org/science/chemistry/chemical-bonds" },
+      { title: "ChemGuide: Chemical Bonding", url: "https://www.chemguide.co.uk/atoms/bondingmenu.html" }
     ],
     quiz: [
-      { question: 'The trajectory of a projectile is a:', options: ['Circle', 'Straight line', 'Parabola', 'Ellipse'], correct: 'Parabola' },
-      { question: 'In uniform circular motion, which quantity is constant?', options: ['Velocity', 'Speed', 'Acceleration', 'Force'], correct: 'Speed' },
+      { question: "Which bond involves electron sharing?", options: ["Ionic", "Covalent", "Metallic", "Hydrogen"], correct: "Covalent" },
+      { question: "The shape of a water molecule is:", options: ["Linear", "Bent", "Tetrahedral", "Trigonal planar"], correct: "Bent" },
+      { question: "Hybridization in methane (CH₄) is:", options: ["sp", "sp²", "sp³", "dsp²"], correct: "sp³" },
+      { question: "Which molecule has a dipole moment?", options: ["CO₂", "H₂O", "CCl₄", "N₂"], correct: "H₂O" },
+      { question: "Ionic bonds form between:", options: ["Two metals", "Two non-metals", "Metal and non-metal", "Two noble gases"], correct: "Metal and non-metal" },
+      { question: "VSEPR theory predicts:", options: ["Bond strength", "Molecular shape", "Bond length", "Ionization energy"], correct: "Molecular shape" },
+      { question: "Which bond is characteristic of metals?", options: ["Ionic", "Covalent", "Metallic", "Hydrogen"], correct: "Metallic" },
+      { question: "The bond angle in ammonia (NH₃) is closest to:", options: ["180°", "120°", "109.5°", "90°"], correct: "109.5°" },
+      { question: "Molecular orbital theory explains:", options: ["Ionic bonding", "Covalent bonding", "Metallic bonding", "Hydrogen bonding"], correct: "Covalent bonding" },
+      { question: "Which molecule is non-polar?", options: ["HCl", "H₂O", "CO₂", "NH₃"], correct: "CO₂" },
     ]
   },
   {
     id: 5,
-    title: 'Laws of Motion',
-    summary: 'A cornerstone of classical mechanics, this chapter introduces Newton\'s three laws of motion, inertia, momentum, and the concept of friction.',
-    detailedExplanation: "This chapter delves into the causes of motion, introducing Newton's three fundamental laws. The First Law defines inertia. The Second Law provides a quantitative relationship between force, mass, and acceleration (F=ma). The Third Law describes the nature of action-reaction forces. The concept of momentum and the principle of its conservation are discussed, which are crucial for analyzing collisions and systems like rockets. The chapter also provides a detailed look at friction, distinguishing between static and kinetic friction, and explores the dynamics of circular motion, applying Newton's laws to find the necessary centripetal force.",
-    keyTopics: ['Newton’s First Law (Inertia)', 'Newton’s Second Law (F=ma)', 'Newton’s Third Law (Action-Reaction)', 'Conservation of Momentum', 'Friction', 'Dynamics of Circular Motion'],
-    realWorldExample: 'When a car suddenly stops, passengers lurch forward due to inertia, as described by Newton\'s First Law.',
-    keyEquation: 'F = ma',
-    icon: 'atom',
+    title: "States of Matter",
+    summary: "A study of the properties of solids, liquids, and gases, and the intermolecular forces governing their behavior.",
+    detailedExplanation: "This chapter explores the three states of matter—solids, liquids, and gases—and their properties. It discusses intermolecular forces (van der Waals, dipole-dipole, hydrogen bonding) and their impact on physical properties like boiling and melting points. The gas laws (Boyle’s, Charles’s, Avogadro’s, and the ideal gas equation) are explained, along with the kinetic theory of gases. The behavior of real gases and their deviation from ideal behavior are also covered.",
+    keyTopics: ["Intermolecular Forces", "Gas Laws", "Kinetic Theory of Gases", "Ideal and Real Gases", "Properties of Liquids and Solids"],
+    realWorldExample: "The high boiling point of water compared to similar molecules is due to strong hydrogen bonding.",
+    keyEquation: "PV = nRT",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/forces-and-motion-basics',
-      'https://phet.colorado.edu/en/simulations/friction',
-      'https://ophysics.com/f.html'
+      "https://www.youtube.com/watch?v=gbZh7f6q4yk",
+      "https://phet.colorado.edu/en/simulations/states-of-matter",
+      "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: Forces and Motion Basics', url: 'https://phet.colorado.edu/en/simulations/forces-and-motion-basics' },
-      { title: 'Crash Course Physics: Newton\'s Laws', url: 'https://www.youtube.com/watch?v=kKKM8Y-u7ds' }
+      { title: "Khan Academy: States of Matter", url: "https://www.khanacademy.org/science/chemistry/states-of-matter-and-intermolecular-forces" },
+      { title: "ChemGuide: States of Matter", url: "https://www.chemguide.co.uk/physical/states.html" }
     ],
     quiz: [
-      { question: 'Newton\'s first law of motion is also known as the law of:', options: ['Action-Reaction', 'Inertia', 'Momentum', 'Force'], correct: 'Inertia' },
-      { question: 'A rocket works on the principle of:', options: ['Conservation of energy', 'Conservation of mass', 'Conservation of momentum', 'Newton\'s first law'], correct: 'Conservation of momentum' },
+      { question: "Which gas law relates pressure and volume?", options: ["Boyle’s Law", "Charles’s Law", "Avogadro’s Law", "Dalton’s Law"], correct: "Boyle’s Law" },
+      { question: "The ideal gas equation is:", options: ["PV = nRT", "P = nRT/V", "V = nRT/P", "All of these"], correct: "PV = nRT" },
+      { question: "Which force is strongest in water?", options: ["Van der Waals", "Dipole-dipole", "Hydrogen bonding", "London dispersion"], correct: "Hydrogen bonding" },
+      { question: "Real gases deviate from ideal behavior at:", options: ["High temperature", "Low pressure", "High pressure", "Low volume"], correct: "High pressure" },
+      { question: "The kinetic theory assumes gas particles:", options: ["Have significant volume", "Are in constant random motion", "Attract each other strongly", "Are stationary"], correct: "Are in constant random motion" },
+      { question: "Which state of matter has a definite shape?", options: ["Gas", "Liquid", "Solid", "Plasma"], correct: "Solid" },
+      { question: "Charles’s Law relates:", options: ["Pressure and temperature", "Volume and temperature", "Volume and moles", "Pressure and moles"], correct: "Volume and temperature" },
+      { question: "The boiling point of a liquid depends on:", options: ["Intermolecular forces", "Molecular weight", "Pressure", "All of these"], correct: "All of these" },
+      { question: "Which gas law states equal volumes of gases contain equal moles?", options: ["Boyle’s", "Charles’s", "Avogadro’s", "Ideal Gas Law"], correct: "Avogadro’s" },
+      { question: "Liquids have:", options: ["Definite shape and volume", "Definite volume but no shape", "No shape or volume", "Definite shape but no volume"], correct: "Definite volume but no shape" },
     ]
   },
   {
     id: 6,
-    title: 'Work, Energy and Power',
-    summary: 'Defining the concepts of work, kinetic and potential energy, and power, and establishing the fundamental principle of conservation of energy.',
-    detailedExplanation: "This chapter introduces the crucial concepts of work and energy. Work is defined as the product of force and displacement. The chapter introduces kinetic energy (the energy of motion) and potential energy (stored energy due to position or configuration). The powerful Work-Energy Theorem connects the work done on an object to the change in its kinetic energy. The principle of conservation of mechanical energy is established for conservative forces. The chapter also defines power as the rate at which work is done and analyzes different types of collisions (elastic and inelastic) using the principles of conservation of momentum and energy.",
-    keyTopics: ['Work', 'Kinetic Energy', 'Potential Energy', 'The Work-Energy Theorem', 'Conservation of Mechanical Energy', 'Power', 'Collisions'],
-    realWorldExample: 'A roller coaster demonstrates the conversion between potential energy (at the top of a hill) and kinetic energy (at the bottom).',
-    keyEquation: 'W = ΔKE',
-    icon: 'atom',
+    title: "Thermodynamics",
+    summary: "An exploration of energy changes in chemical and physical processes, including the laws of thermodynamics and their applications.",
+    detailedExplanation: "This chapter introduces thermodynamics, the study of energy transformations. It covers the first law (energy conservation), second law (entropy and spontaneity), and the concept of thermodynamic systems (open, closed, isolated). Key terms like internal energy, enthalpy, and Gibbs free energy are explained. The chapter discusses heat, work, and state functions, and applies thermodynamics to chemical reactions, including Hess’s law and bond enthalpy calculations.",
+    keyTopics: ["Laws of Thermodynamics", "Internal Energy and Enthalpy", "Entropy and Gibbs Free Energy", "Hess’s Law", "Thermodynamic Systems"],
+    realWorldExample: "A refrigerator uses thermodynamic principles to transfer heat from a cold interior to a warmer exterior.",
+    keyEquation: "ΔU = q + w",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/energy-skate-park-basics',
-      'https://phet.colorado.edu/en/simulations/work-energy-and-power',
-      'https://ophysics.com/e.html'
+      "https://www.youtube.com/watch?v=8N1BxHgsoOw",
+      "https://phet.colorado.edu/en/simulations/energy-forms-and-changes",
+      "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: Energy Skate Park', url: 'https://phet.colorado.edu/en/simulations/energy-skate-park-basics' },
-      { title: 'Khan Academy: Work and Energy', url: 'https://www.khanacademy.org/science/physics/work-and-energy' }
+      { title: "Khan Academy: Thermodynamics", url: "https://www.khanacademy.org/science/chemistry/thermodynamics-chemistry" },
+      { title: "ChemGuide: Thermodynamics", url: "https://www.chemguide.co.uk/physical/thermodynamics.html" }
     ],
     quiz: [
-      { question: 'The work-energy theorem states that the work done is equal to the change in an object\'s:', options: ['Potential energy', 'Kinetic energy', 'Momentum', 'Velocity'], correct: 'Kinetic energy' },
-      { question: 'In an elastic collision, which of the following is conserved?', options: ['Kinetic energy only', 'Momentum only', 'Both kinetic energy and momentum', 'Neither'], correct: 'Both kinetic energy and momentum' },
+      { question: "The first law of thermodynamics is related to:", options: ["Entropy", "Energy conservation", "Spontaneity", "Equilibrium"], correct: "Energy conservation" },
+      { question: "What does ΔU represent?", options: ["Enthalpy", "Internal energy", "Gibbs free energy", "Work"], correct: "Internal energy" },
+      { question: "A process is spontaneous if ΔG is:", options: ["Positive", "Negative", "Zero", "Undefined"], correct: "Negative" },
+      { question: "Hess’s law is used to calculate:", options: ["Entropy", "Enthalpy", "Work", "Internal energy"], correct: "Enthalpy" },
+      { question: "Which is a state function?", options: ["Heat", "Work", "Enthalpy", "Temperature change"], correct: "Enthalpy" },
+      { question: "The second law of thermodynamics introduces:", options: ["Energy", "Entropy", "Enthalpy", "Work"], correct: "Entropy" },
+      { question: "In an isolated system, ΔU is:", options: ["Zero", "Positive", "Negative", "Constant"], correct: "Zero" },
+      { question: "What is the unit of enthalpy?", options: ["Joule", "Pascal", "Kelvin", "Mole"], correct: "Joule" },
+      { question: "Which process involves heat absorbed at constant pressure?", options: ["Internal energy change", "Enthalpy change", "Entropy change", "Work done"], correct: "Enthalpy change" },
+      { question: "Gibbs free energy determines:", options: ["Reaction rate", "Spontaneity", "Equilibrium constant", "Bond energy"], correct: "Spontaneity" },
     ]
   },
   {
     id: 7,
-    title: 'System of Particles and Rotational Motion',
-    summary: 'Extending mechanics from point masses to extended bodies, introducing center of mass, torque, moment of inertia, and angular momentum.',
-    detailedExplanation: "This chapter moves from the motion of single particles to the motion of rigid bodies. It introduces the concept of the center of mass to describe the overall motion of a system. The chapter then dives into rotational motion, defining rotational analogues for displacement (angle), velocity (angular velocity), and acceleration (angular acceleration). The concepts of torque (the rotational equivalent of force) and moment of inertia (the rotational equivalent of mass) are introduced. A key focus is the law of conservation of angular momentum, which explains phenomena like a spinning ice skater changing their speed.",
-    keyTopics: ['Centre of Mass', 'Moment of Inertia', 'Theorems of Perpendicular and Parallel Axes', 'Torque and Angular Momentum', 'Conservation of Angular Momentum', 'Rolling Motion'],
-    realWorldExample: 'An ice skater spins faster by pulling their arms in, demonstrating the conservation of angular momentum.',
-    keyEquation: 'τ = Iα',
-    icon: 'atom',
+    title: "Equilibrium",
+    summary: "A study of chemical and physical equilibria, including Le Chatelier’s principle and acid-base concepts.",
+    detailedExplanation: "This chapter explores the concept of equilibrium in physical processes (e.g., phase changes) and chemical reactions (reversible reactions). It discusses dynamic equilibrium, the equilibrium constant (K), and Le Chatelier’s principle, which predicts how changes in concentration, pressure, or temperature affect equilibrium. Acid-base equilibria, including pH, buffer solutions, and the ionization of weak acids/bases, are covered, along with the solubility product for sparingly soluble salts.",
+    keyTopics: ["Dynamic Equilibrium", "Equilibrium Constant", "Le Chatelier’s Principle", "Acid-Base Equilibria", "Solubility Product"],
+    realWorldExample: "Ammonia production in the Haber process optimizes yield by adjusting pressure and temperature based on Le Chatelier’s principle.",
+    keyEquation: "K = [Products]/[Reactants]",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/torque',
-      'https://ophysics.com/r.html',
-      'https://www.myphysicslab.com/rigid-body/rolling-disc-en.html'
+      "https://www.youtube.com/watch?v=dBAbYuaNtc8",
+      "https://phet.colorado.edu/en/simulations/reversible-reactions",
+      "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: Torque', url: 'https://phet.colorado.edu/en/simulations/torque' },
-      { title: 'The Physics Classroom: Rotation and Moment of Inertia', url: 'https://www.physicsclassroom.com/class/rotation' }
+      { title: "Khan Academy: Chemical Equilibrium", url: "https://www.khanacademy.org/science/chemistry/chemical-equilibrium" },
+      { title: "ChemGuide: Equilibrium", url: "https://www.chemguide.co.uk/physical/equilibriamenu.html" }
     ],
     quiz: [
-      { question: 'The rotational analogue of force is:', options: ['Moment of inertia', 'Angular momentum', 'Torque', 'Angular velocity'], correct: 'Torque' },
-      { question: 'The law of conservation of angular momentum states that if no external torque acts, the total angular momentum is:', options: ['Zero', 'Constant', 'Increasing', 'Decreasing'], correct: 'Constant' },
+      { question: "Dynamic equilibrium occurs when:", options: ["Reactants are consumed", "Rates of forward and reverse reactions are equal", "Products are formed", "Reaction stops"], correct: "Rates of forward and reverse reactions are equal" },
+      { question: "Le Chatelier’s principle predicts the effect of:", options: ["Catalyst", "Pressure change", "Reaction rate", "Bond energy"], correct: "Pressure change" },
+      { question: "The pH of a neutral solution is:", options: ["0", "7", "14", "1"], correct: "7" },
+      { question: "A buffer solution resists changes in:", options: ["Temperature", "pH", "Volume", "Pressure"], correct: "pH" },
+      { question: "The equilibrium constant K is unitless for:", options: ["Gaseous reactions", "Reactions with equal moles on both sides", "Aqueous reactions", "All reactions"], correct: "Reactions with equal moles on both sides" },
+      { question: "Increasing pressure shifts equilibrium towards:", options: ["More moles of gas", "Fewer moles of gas", "No change", "Catalyst side"], correct: "Fewer moles of gas" },
+      { question: "The solubility product applies to:", options: ["Soluble salts", "Sparingly soluble salts", "Gases", "Acids"], correct: "Sparingly soluble salts" },
+      { question: "A strong acid:", options: ["Partially ionizes", "Fully ionizes", "Does not ionize", "Forms a buffer"], correct: "Fully ionizes" },
+      { question: "What shifts equilibrium to the right in an exothermic reaction?", options: ["Increasing temperature", "Decreasing temperature", "Increasing pressure", "Adding catalyst"], correct: "Decreasing temperature" },
+      { question: "The expression for K involves:", options: ["Reactants only", "Products only", "Products over reactants", "Catalysts"], correct: "Products over reactants" },
     ]
   },
   {
     id: 8,
-    title: 'Gravitation',
-    summary: 'A study of the universal force of gravity, from Kepler\'s laws of planetary motion to the dynamics of satellites and the concept of escape velocity.',
-    detailedExplanation: "This chapter explores one of the fundamental forces of nature. It begins with Kepler's empirical laws of planetary motion. Newton's Universal Law of Gravitation is then introduced, providing a physical explanation for Kepler's observations. The chapter discusses the acceleration due to gravity (g) and how it varies with altitude and depth. The concepts of gravitational potential energy, escape velocity (the speed needed to escape a planet's gravitational pull), and the orbital mechanics of Earth satellites, including geostationary satellites, are covered in detail.",
-    keyTopics: ['Kepler’s Laws', 'Universal Law of Gravitation', 'Acceleration due to Gravity', 'Gravitational Potential Energy', 'Escape Speed', 'Earth Satellites'],
-    realWorldExample: 'Communication satellites orbit the Earth in geostationary orbits, a direct application of gravitational principles.',
-    keyEquation: 'F = G * (m1*m2) / r²',
-    icon: 'atom',
+    title: "Redox Reactions",
+    summary: "An exploration of oxidation-reduction reactions, including electron transfer, oxidation numbers, and balancing redox equations.",
+    detailedExplanation: "This chapter covers redox reactions, where oxidation (loss of electrons) and reduction (gain of electrons) occur simultaneously. It introduces oxidation numbers to identify redox processes and explains how to balance redox reactions using the half-reaction method. The chapter discusses types of redox reactions (combination, decomposition, displacement, disproportionation) and their applications in electrochemistry, like galvanic cells and corrosion.",
+    keyTopics: ["Oxidation and Reduction", "Oxidation Numbers", "Balancing Redox Reactions", "Types of Redox Reactions", "Electrochemical Cells"],
+    realWorldExample: "Rusting of iron is a redox reaction where iron oxidizes and oxygen is reduced, forming iron oxide.",
+    keyEquation: "",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/gravity-and-orbits',
-      'https://phet.colorado.edu/en/simulations/gravity-force-lab',
-      'https://www.myphysicslab.com/engine2D/gravity-pendulum-en.html'
+      "https://www.youtube.com/watch?v=IXmz16-J8q8",
+      "https://phet.colorado.edu/en/simulations/battery-voltage",
+      "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: Gravity and Orbits', url: 'https://phet.colorado.edu/en/simulations/gravity-and-orbits' },
-      { title: 'Khan Academy: Gravitation', url: 'https://www.khanacademy.org/science/physics/gravitation-newtonian' }
+      { title: "Khan Academy: Redox Reactions", url: "https://www.khanacademy.org/science/chemistry/oxidation-reduction" },
+      { title: "ChemGuide: Redox Reactions", url: "https://www.chemguide.co.uk/inorganic/redoxmenu.html" }
     ],
     quiz: [
-      { question: 'Kepler\'s first law states that planets move in:', options: ['Circular orbits', 'Elliptical orbits', 'Parabolic orbits', 'Hyperbolic orbits'], correct: 'Elliptical orbits' },
-      { question: 'The escape velocity from the Earth\'s surface is approximately:', options: ['7.9 km/s', '11.2 km/s', '9.8 km/s', '1.6 km/s'], correct: '11.2 km/s' },
+      { question: "Oxidation involves:", options: ["Gain of electrons", "Loss of electrons", "No electron transfer", "Gain of protons"], correct: "Loss of electrons" },
+      { question: "The oxidation number of oxygen in H₂O is:", options: ["+2", "-2", "0", "+1"], correct: "-2" },
+      { question: "Which is a redox reaction?", options: ["Neutralization", "Precipitation", "Rusting", "Dissolution"], correct: "Rusting" },
+      { question: "The reducing agent:", options: ["Gains electrons", "Loses electrons", "Remains unchanged", "Increases oxidation number"], correct: "Loses electrons" },
+      { question: "In a galvanic cell, oxidation occurs at:", options: ["Anode", "Cathode", "Electrolyte", "Salt bridge"], correct: "Anode" },
+      { question: "The oxidation number of hydrogen in NaH is:", options: ["+1", "-1", "0", "+2"], correct: "-1" },
+      { question: "Which method balances redox reactions?", options: ["Ion-electron method", "Mole method", "Mass balance method", "Stoichiometric method"], correct: "Ion-electron method" },
+      { question: "A disproportionation reaction involves:", options: ["Only oxidation", "Only reduction", "Both oxidation and reduction of the same species", "No electron transfer"], correct: "Both oxidation and reduction of the same species" },
+      { question: "The oxidation number of chlorine in Cl₂ is:", options: ["+1", "-1", "0", "+2"], correct: "0" },
+      { question: "Redox reactions are important in:", options: ["Electrolysis", "Neutralization", "Precipitation", "Filtration"], correct: "Electrolysis" },
     ]
   },
   {
     id: 9,
-    title: 'Mechanical Properties of Solids',
-    summary: 'An exploration of how solid materials deform under external forces, introducing the concepts of stress, strain, and elasticity.',
-    detailedExplanation: "This chapter deals with the elastic properties of solid materials. It defines stress as the internal restoring force per unit area and strain as the fractional deformation. Hooke's Law is introduced, which states that for small deformations, stress is proportional to strain. The proportionality constant is the modulus of elasticity. The chapter discusses different types of moduli—Young's modulus (for length), Bulk modulus (for volume), and Shear modulus (for shape). The stress-strain curve for a material is analyzed to understand its elastic and plastic behavior.",
-    keyTopics: ['Elasticity and Plasticity', 'Stress and Strain', 'Hooke’s Law', 'Stress-strain Curve', 'Elastic Moduli (Young\'s, Bulk, Shear)'],
-    realWorldExample: 'The design of bridges and buildings relies on understanding the stress and strain limits of materials like steel and concrete.',
-    keyEquation: 'Stress = Y × Strain',
-    icon: 'atom',
+    title: "Hydrogen",
+    summary: "A study of hydrogen’s unique properties, its isotopes, preparation, and compounds like hydrides and water.",
+    detailedExplanation: "This chapter focuses on hydrogen, the simplest element, and its unique position in the periodic table. It discusses its isotopes (protium, deuterium, tritium), preparation methods (e.g., electrolysis of water), and properties. The chapter covers hydrogen’s compounds, including hydrides (ionic, covalent, metallic), water, and hydrogen peroxide. Industrial applications like the Haber process and hydrogen’s role in fuel cells are also explored.",
+    keyTopics: ["Position of Hydrogen", "Isotopes of Hydrogen", "Preparation and Properties", "Hydrides", "Water and Hydrogen Peroxide"],
+    realWorldExample: "Hydrogen fuel cells power electric vehicles by combining hydrogen and oxygen to produce electricity and water.",
+    keyEquation: "",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/masses-and-springs',
-      'https://www.youtube.com/watch?v=Gk3-22wA2i4',
-      'https://demonstrations.wolfram.com/StressAndStrain/'
+      "https://www.youtube.com/watch?v=uxV3O5bE9mQ",
+      "https://phet.colorado.edu/en/simulations/hydrogen-atom",
+      "https://chem.libretexts.org/Bookshelves/Inorganic_Chemistry"
     ],
     resourceLinks: [
-      { title: 'The Physics Classroom: Elasticity', url: 'https://www.physicsclassroom.com/class/statics/Lesson-4/Elasticity-and-Hooke-s-Law' },
-      { title: 'PhET Simulation: Masses & Springs', url: 'https://phet.colorado.edu/en/simulations/masses-and-springs-basics' }
+      { title: "Khan Academy: Hydrogen", url: "https://www.khanacademy.org/science/chemistry/hydrogen" },
+      { title: "ChemGuide: Hydrogen", url: "https://www.chemguide.co.uk/inorganic/hydrogen.html" }
     ],
     quiz: [
-      { question: 'The ratio of stress to strain within the elastic limit is called:', options: ['Poisson\'s ratio', 'Modulus of elasticity', 'Bulk modulus', 'Shear modulus'], correct: 'Modulus of elasticity' },
-      { question: 'Which of the following is the most elastic?', options: ['Rubber', 'Glass', 'Steel', 'Wood'], correct: 'Steel' },
+      { question: "How many isotopes does hydrogen have?", options: ["1", "2", "3", "4"], correct: "3" },
+      { question: "The most abundant isotope of hydrogen is:", options: ["Protium", "Deuterium", "Tritium", "None"], correct: "Protium" },
+      { question: "Hydrogen is prepared industrially by:", options: ["Electrolysis of water", "Burning methane", "Dissolving salts", "Neutralization"], correct: "Electrolysis of water" },
+      { question: "Which hydride is ionic?", options: ["CH₄", "NH₃", "NaH", "H₂O"], correct: "NaH" },
+      { question: "Hydrogen peroxide is used as:", options: ["Fuel", "Oxidizing agent", "Reducing agent", "Both b and c"], correct: "Both b and c" },
+      { question: "Heavy water contains:", options: ["Protium", "Deuterium", "Tritium", "Both b and c"], correct: "Deuterium" },
+      { question: "Hydrogen’s position in the periodic table is unique due to its:", options: ["High reactivity", "Single electron", "Metallic properties", "Inert nature"], correct: "Single electron" },
+      { question: "Which compound is used in the Haber process?", options: ["Water", "Hydrogen peroxide", "Ammonia", "Hydride"], correct: "Ammonia" },
+      { question: "The boiling point of water is high due to:", options: ["Covalent bonding", "Hydrogen bonding", "Ionic bonding", "Metallic bonding"], correct: "Hydrogen bonding" },
+      { question: "Hydrogen fuel cells produce:", options: ["CO₂", "Water", "N₂", "SO₂"], correct: "Water" },
     ]
   },
   {
     id: 10,
-    title: 'Mechanical Properties of Fluids',
-    summary: 'A study of fluids at rest (hydrostatics) and in motion (hydrodynamics), covering pressure, buoyancy, viscosity, and Bernoulli\'s principle.',
-    detailedExplanation: "This chapter covers the behavior of fluids (liquids and gases). It starts with hydrostatics, introducing pressure, Pascal's law (the basis for hydraulic lifts), and Archimedes' principle (which explains buoyancy). It then explores fluid properties like surface tension (which causes droplets to be spherical) and viscosity (resistance to flow). The second part of the chapter deals with fluid dynamics, introducing the equation of continuity and the famous Bernoulli's principle, which relates pressure, velocity, and height for a moving fluid and explains phenomena like the lift of an airplane wing.",
-    keyTopics: ['Pressure and Pascal’s Law', 'Archimedes’ Principle and Buoyancy', 'Viscosity and Stokes’ Law', 'Surface Tension', 'Fluid Dynamics and Bernoulli’s principle'],
-    realWorldExample: 'Airplanes generate lift based on Bernoulli\'s principle, where faster-moving air over the wing creates lower pressure.',
-    keyEquation: 'P + ½ρv² + ρgh = constant',
-    icon: 'atom',
+    title: "The s-Block Elements",
+    summary: "A study of the alkali and alkaline earth metals, their properties, compounds, and applications.",
+    detailedExplanation: "This chapter covers the s-block elements, Groups 1 (alkali metals) and 2 (alkaline earth metals). It discusses their electronic configurations, physical and chemical properties (e.g., low ionization energy, high reactivity), and trends like increasing reactivity down the group. Important compounds like sodium chloride, calcium carbonate, and magnesium sulfate are explored, along with their uses. Anomalous behavior of lithium and beryllium due to their small size is also highlighted.",
+    keyTopics: ["Alkali Metals", "Alkaline Earth Metals", "Physical and Chemical Properties", "Important Compounds", "Anomalous Behavior"],
+    realWorldExample: "Sodium chloride (table salt) is widely used in food preservation and seasoning, derived from alkali metal chemistry.",
+    keyEquation: "",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/under-pressure',
-      'https://phet.colorado.edu/en/simulations/fluid-pressure-and-flow',
-      'https://ophysics.com/fl.html'
+      "https://www.youtube.com/watch?v=1xSQlwWGT8M",
+      "https://www.rsc.org/periodic-table/element/11/sodium",
+      "https://chem.libretexts.org/Bookshelves/Inorganic_Chemistry"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: Fluid Pressure and Flow', url: 'https://phet.colorado.edu/en/simulations/fluid-pressure-and-flow' },
-      { title: 'NASA: Bernoulli\'s Principle', url: 'https://www.grc.nasa.gov/www/k-12/airplane/bern.html' }
+      { title: "Khan Academy: s-Block Elements", url: "https://www.khanacademy.org/science/chemistry/s-block-elements" },
+      { title: "ChemGuide: s-Block Elements", url: "https://www.chemguide.co.uk/inorganic/group1and2menu.html" }
     ],
     quiz: [
-      { question: 'The working of a hydraulic lift is based on:', options: ['Bernoulli\'s principle', 'Pascal\'s law', 'Archimedes\' principle', 'Stokes\' law'], correct: 'Pascal\'s law' },
-      { question: 'Raindrops are spherical due to:', options: ['Viscosity', 'Gravity', 'Atmospheric pressure', 'Surface tension'], correct: 'Surface tension' },
+      { question: "Which group contains alkali metals?", options: ["Group 1", "Group 2", "Group 17", "Group 18"], correct: "Group 1" },
+      { question: "Which element is an alkaline earth metal?", options: ["Sodium", "Magnesium", "Chlorine", "Potassium"], correct: "Magnesium" },
+      { question: "The reactivity of alkali metals:", options: ["Decreases down the group", "Increases down the group", "Remains constant", "Is zero"], correct: "Increases down the group" },
+      { question: "Which compound is used in cement?", options: ["NaCl", "CaCO₃", "MgSO₄", "KOH"], correct: "CaCO₃" },
+      { question: "Lithium shows anomalous behavior due to its:", options: ["High ionization energy", "Large size", "High density", "Low reactivity"], correct: "High ionization energy" },
+      { question: "Which s-block element is stored under kerosene?", options: ["Magnesium", "Sodium", "Calcium", "Beryllium"], correct: "Sodium" },
+      { question: "The electronic configuration of s-block elements ends in:", options: ["ns¹⁻²", "np¹⁻⁶", "nd¹⁻¹⁰", "nf¹⁻¹⁴"], correct: "ns¹⁻²" },
+      { question: "Which compound is known as washing soda?", options: ["NaCl", "Na₂CO₃", "NaOH", "NaHCO₃"], correct: "Na₂CO₃" },
+      { question: "Beryllium differs from other alkaline earth metals due to:", options: ["Small size", "High reactivity", "Low melting point", "High density"], correct: "Small size" },
+      { question: "Which element is essential for bone formation?", options: ["Sodium", "Potassium", "Calcium", "Lithium"], correct: "Calcium" },
     ]
   },
   {
     id: 11,
-    title: 'Thermal Properties of Matter',
-    summary: 'A detailed look at heat, temperature, thermal expansion, specific heat, changes of state, and the mechanisms of heat transfer.',
-    detailedExplanation: "This chapter explores how matter responds to heat. It defines temperature and introduces different temperature scales. The concepts of thermal expansion of solids, liquids, and gases are discussed. The chapter then delves into calorimetry, defining specific heat capacity and latent heat to quantify the energy required for temperature changes and phase transitions (melting, boiling). Finally, it covers the three modes of heat transfer: conduction (through direct contact), convection (through fluid motion), and radiation (through electromagnetic waves).",
-    keyTopics: ['Temperature and Heat', 'Thermal Expansion', 'Specific Heat Capacity', 'Calorimetry', 'Change of State and Latent Heat', 'Heat Transfer (Conduction, Convection, Radiation)'],
-    realWorldExample: 'A thermos flask minimizes heat transfer by using a vacuum (to stop conduction/convection) and silvered surfaces (to stop radiation).',
-    keyEquation: 'Q = mcΔT',
-    icon: 'atom',
+    title: "The p-Block Elements",
+    summary: "An exploration of the p-block elements, their properties, and important compounds, focusing on Groups 13 to 18.",
+    detailedExplanation: "This chapter covers the p-block elements (Groups 13–18), focusing on their diverse properties due to varying electronic configurations. It discusses trends in physical and chemical properties, such as electronegativity and oxidation states. Key compounds like borax, aluminium oxide, carbon dioxide, and ammonia are explored, along with their preparation and uses. The chapter highlights the unique behavior of elements like boron and noble gases and their applications in industry and technology.",
+    keyTopics: ["Group 13–18 Elements", "Physical and Chemical Properties", "Important Compounds", "Anomalous Behavior", "Industrial Applications"],
+    realWorldExample: "Ammonia (NH₃) from Group 15 is used in fertilizers, supporting global agriculture.",
+    keyEquation: "",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/states-of-matter-basics',
-      'https://phet.colorado.edu/en/simulations/energy-forms-and-changes',
-      'https://ophysics.com/t.html'
+      "https://www.youtube.com/watch?v=2zqQvmXI5hY",
+      "https://www.rsc.org/periodic-table/element/13/aluminium",
+      "https://chem.libretexts.org/Bookshelves/Inorganic_Chemistry"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: States of Matter', url: 'https://phet.colorado.edu/en/simulations/states-of-matter-basics' },
-      { title: 'Khan Academy: Thermal physics', url: 'https://www.khanacademy.org/science/physics/thermodynamics' }
+      { title: "Khan Academy: p-Block Elements", url: "https://www.khanacademy.org/science/chemistry/p-block-elements" },
+      { title: "ChemGuide: p-Block Elements", url: "https://www.chemguide.co.uk/inorganic/group13to18menu.html" }
     ],
     quiz: [
-      { question: 'The process of heat transfer that does not require a medium is:', options: ['Conduction', 'Convection', 'Radiation', 'Advection'], correct: 'Radiation' },
-      { question: 'The heat required to change a substance from solid to liquid without any change in temperature is called:', options: ['Specific heat', 'Latent heat of fusion', 'Latent heat of vaporization', 'Heat of sublimation'], correct: 'Latent heat of fusion' },
+      { question: "Which group contains halogens?", options: ["Group 13", "Group 15", "Group 17", "Group 18"], correct: "Group 17" },
+      { question: "Boron belongs to:", options: ["Group 13", "Group 14", "Group 15", "Group 16"], correct: "Group 13" },
+      { question: "Which compound is used as a bleaching agent?", options: ["CO₂", "Cl₂", "NH₃", "SO₂"], correct: "Cl₂" },
+      { question: "The noble gases are in:", options: ["Group 13", "Group 15", "Group 17", "Group 18"], correct: "Group 18" },
+      { question: "Which element shows catenation prominently?", options: ["Boron", "Carbon", "Nitrogen", "Fluorine"], correct: "Carbon" },
+      { question: "Ammonia is prepared by:", options: ["Haber process", "Contact process", "Ostwald process", "Solvay process"], correct: "Haber process" },
+      { question: "Which p-block element is a metalloid?", options: ["Aluminium", "Boron", "Carbon", "Nitrogen"], correct: "Boron" },
+      { question: "The oxidation state of nitrogen in NH₃ is:", options: ["+3", "-3", "0", "+5"], correct: "-3" },
+      { question: "Which gas is used in advertising signs?", options: ["Helium", "Neon", "Argon", "Krypton"], correct: "Neon" },
+      { question: "Aluminium oxide is:", options: ["Acidic", "Basic", "Amphoteric", "Neutral"], correct: "Amphoteric" },
     ]
   },
   {
     id: 12,
-    title: 'Thermodynamics',
-    summary: 'Introducing the fundamental laws governing heat and work, defining concepts like internal energy and entropy, and exploring heat engines.',
-    detailedExplanation: "This chapter establishes the fundamental laws that govern energy transformations involving heat and work. It starts with the Zeroth Law, which defines temperature. The First Law is a statement of the conservation of energy, introducing the concept of internal energy. The chapter explores various thermodynamic processes (isothermal, adiabatic, isochoric, isobaric). The Second Law introduces the concept of entropy and sets limits on the efficiency of converting heat into work, explaining why perpetual motion machines are impossible. The working of heat engines and refrigerators, including the idealized Carnot engine, is also discussed.",
-    keyTopics: ['Zeroth Law of Thermodynamics', 'First Law of Thermodynamics', 'Heat, Internal Energy and Work', 'Thermodynamic Processes', 'Second Law of Thermodynamics', 'Heat Engines and Refrigerators'],
-    realWorldExample: 'A car engine is a heat engine that converts the chemical energy of fuel into mechanical work, governed by the laws of thermodynamics.',
-    keyEquation: 'ΔU = Q - W',
-    icon: 'atom',
+    title: "Organic Chemistry – Some Basic Principles and Techniques",
+    summary: "An introduction to organic chemistry, including nomenclature, isomerism, and purification techniques.",
+    detailedExplanation: "This chapter introduces organic chemistry, focusing on carbon’s unique ability to form diverse compounds. It covers the classification of organic compounds, IUPAC nomenclature, and types of isomerism (structural, geometrical, optical). Fundamental concepts like hybridization, sigma and pi bonds, and resonance are discussed. The chapter also explores purification techniques (crystallization, distillation, chromatography) and qualitative and quantitative analysis of organic compounds.",
+    keyTopics: ["Classification of Organic Compounds", "IUPAC Nomenclature", "Isomerism", "Hybridization and Bonding", "Purification Techniques"],
+    realWorldExample: "Aspirin’s structure (C₉H₈O₄) is named using IUPAC rules, ensuring standardized communication in pharmaceuticals.",
+    keyEquation: "",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/gas-properties',
-      'https://phet.colorado.edu/en/simulations/reversible-reactions',
-      'https://ophysics.com/t.html'
+      "https://www.youtube.com/watch?v=n5VjC0-6_HQ",
+      "https://phet.colorado.edu/en/simulations/molecule-shapes",
+      "https://chem.libretexts.org/Bookshelves/Organic_Chemistry"
     ],
     resourceLinks: [
-      { title: 'Crash Course Physics: Thermodynamics', url: 'https://www.youtube.com/watch?v=z2-zP8YyIeE' },
-      { title: 'NASA: What is Thermodynamics?', url: 'https://www.grc.nasa.gov/www/k-12/airplane/thermo.html' }
+      { title: "Khan Academy: Organic Chemistry Basics", url: "https://www.khanacademy.org/science/organic-chemistry" },
+      { title: "ChemGuide: Organic Chemistry", url: "https://www.chemguide.co.uk/organicprops.html" }
     ],
     quiz: [
-      { question: 'The first law of thermodynamics is a statement of the conservation of:', options: ['Energy', 'Mass', 'Momentum', 'Charge'], correct: 'Energy' },
-      { question: 'In an adiabatic process, what is zero?', options: ['Change in internal energy (ΔU)', 'Work done (W)', 'Heat exchange (Q)', 'Change in temperature (ΔT)'], correct: 'Heat exchange (Q)' },
+      { question: "The functional group in alcohols is:", options: ["-CHO", "-OH", "-COOH", "-NH₂"], correct: "-OH" },
+      { question: "IUPAC name of CH₃CH₂OH is:", options: ["Methanol", "Ethanol", "Propanol", "Butanol"], correct: "Ethanol" },
+      { question: "Which type of isomerism involves mirror images?", options: ["Structural", "Geometrical", "Optical", "Chain"], correct: "Optical" },
+      { question: "Carbon forms multiple bonds due to:", options: ["Catenation", "Hybridization", "Resonance", "All of these"], correct: "All of these" },
+      { question: "Which technique separates liquids based on boiling points?", options: ["Crystallization", "Distillation", "Chromatography", "Sublimation"], correct: "Distillation" },
+      { question: "The hybridization of carbon in ethene (C₂H₄) is:", options: ["sp", "sp²", "sp³", "dsp²"], correct: "sp²" },
+      { question: "Resonance occurs in molecules with:", options: ["Single bonds only", "Delocalized electrons", "Ionic bonds", "No bonds"], correct: "Delocalized electrons" },
+      { question: "Which method detects nitrogen in organic compounds?", options: ["Lassaigne’s test", "Kjeldahl’s method", "Duma’s method", "Both a and c"], correct: "Both a and c" },
+      { question: "Geometrical isomerism is seen in:", options: ["Alkanes", "Alkenes", "Alkynes", "Alcohols"], correct: "Alkenes" },
+      { question: "The general formula for alkanes is:", options: ["CₙH₂ₙ₊₂", "CₙH₂ₙ", "CₙH₂ₙ₋₂", "CₙHₙ"], correct: "CₙH₂ₙ₊₂" },
     ]
   },
   {
     id: 13,
-    title: 'Kinetic Theory',
-    summary: 'A microscopic view of gases, linking macroscopic properties like pressure and temperature to the average motion of their constituent molecules.',
-    detailedExplanation: "This chapter provides a microscopic model to explain the macroscopic behavior of gases. It is based on the idea that a gas consists of a large number of molecules in constant, random motion. The theory derives an expression for the pressure exerted by a gas based on molecular collisions and shows that the absolute temperature of a gas is a measure of the average kinetic energy of its molecules. It also introduces the law of equipartition of energy to discuss the specific heats of gases and the concept of the mean free path, the average distance a molecule travels between collisions.",
-    keyTopics: ['Molecular Nature of Matter', 'Behaviour of Gases', 'Kinetic Theory of an Ideal Gas', 'Law of Equipartition of Energy', 'Specific Heat Capacity', 'Mean Free Path'],
-    realWorldExample: 'The pressure inside a tire increases on a hot day because the gas molecules inside move faster and collide more forcefully with the tire walls.',
-    keyEquation: 'KE_avg = (3/2)kT',
-    icon: 'atom',
+    title: "Hydrocarbons",
+    summary: "A study of hydrocarbons, their classification, properties, and reactions, including alkanes, alkenes, alkynes, and aromatics.",
+    detailedExplanation: "This chapter focuses on hydrocarbons—compounds of carbon and hydrogen. It classifies them into alkanes (single bonds), alkenes (double bonds), alkynes (triple bonds), and aromatic hydrocarbons (benzene derivatives). The preparation, physical, and chemical properties (e.g., combustion, substitution, addition reactions) are discussed. The chapter also covers isomerism, conformational analysis, and the stability of benzene due to resonance.",
+    keyTopics: ["Alkanes", "Alkenes", "Alkynes", "Aromatic Hydrocarbons", "Chemical Reactions", "Isomerism"],
+    realWorldExample: "Gasoline, a mixture of alkanes, powers vehicles due to its high energy release during combustion.",
+    keyEquation: "",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/gas-properties',
-      'https://www.myphysicslab.com/ideal-gas/ideal-gas-en.html',
-      'https://ophysics.com/k.html'
+      "https://www.youtube.com/watch?v=8c0aY1lC7rQ",
+      "https://phet.colorado.edu/en/simulations/molecule-shapes",
+      "https://chem.libretexts.org/Bookshelves/Organic_Chemistry"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: Gas Properties', url: 'https://phet.colorado.edu/en/simulations/gas-properties' },
-      { title: 'HyperPhysics: Kinetic Theory', url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/kinetic/kinthe.html' }
+      { title: "Khan Academy: Hydrocarbons", url: "https://www.khanacademy.org/science/organic-chemistry/hydrocarbons" },
+      { title: "ChemGuide: Hydrocarbons", url: "https://www.chemguide.co.uk/organicprops/hydrocarbons.html" }
     ],
     quiz: [
-      { question: 'The kinetic theory of gases assumes that collisions between molecules are:', options: ['Perfectly elastic', 'Perfectly inelastic', 'Partially elastic', 'Adiabatic'], correct: 'Perfectly elastic' },
-      { question: 'The absolute temperature of a gas is proportional to the:', options: ['Average potential energy', 'Average kinetic energy', 'Total energy', 'Mass of the molecules'], correct: 'Average kinetic energy' },
+      { question: "The general formula for alkenes is:", options: ["CₙH₂ₙ₊₂", "CₙH₂ₙ", "CₙH₂ₙ₋₂", "CₙHₙ"], correct: "CₙH₂ₙ" },
+      { question: "Which hydrocarbon undergoes addition reactions?", options: ["Alkanes", "Alkenes", "Aromatics", "Cycloalkanes"], correct: "Alkenes" },
+      { question: "Benzene’s stability is due to:", options: ["Catenation", "Resonance", "Hybridization", "Isomerism"], correct: "Resonance" },
+      { question: "The reaction of methane with chlorine is:", options: ["Addition", "Substitution", "Combustion", "Elimination"], correct: "Substitution" },
+      { question: "The IUPAC name of C₂H₂ is:", options: ["Ethane", "Ethene", "Ethyne", "Ethanol"], correct: "Ethyne" },
+      { question: "Which hydrocarbon is saturated?", options: ["Ethene", "Ethyne", "Ethane", "Benzene"], correct: "Ethane" },
+      { question: "Alkenes react with H₂ in the presence of:", options: ["Catalyst (Ni)", "Light", "Heat", "Water"], correct: "Catalyst (Ni)" },
+      { question: "The hybridization of carbon in ethyne (C₂H₂) is:", options: ["sp", "sp²", "sp³", "dsp²"], correct: "sp" },
+      { question: "Which hydrocarbon is used in welding?", options: ["Methane", "Ethene", "Ethyne", "Benzene"], correct: "Ethyne" },
+      { question: "Aromatic hydrocarbons contain:", options: ["Single bonds only", "Double bonds only", "Delocalized π electrons", "Triple bonds"], correct: "Delocalized π electrons" },
     ]
   },
   {
     id: 14,
-    title: 'Oscillations',
-    summary: 'A detailed study of periodic motion, focusing on Simple Harmonic Motion (SHM) as a model for systems like pendulums and mass-spring systems.',
-    detailedExplanation: "This chapter focuses on a specific type of periodic motion called oscillation. The most fundamental type, Simple Harmonic Motion (SHM), is analyzed in detail. SHM occurs when the restoring force is directly proportional to the displacement from the mean position. The chapter derives equations for displacement, velocity, and acceleration in SHM and discusses the energy conservation in oscillating systems. It applies these concepts to real-world examples like a simple pendulum and a mass-spring system. The effects of damping and the phenomenon of resonance are also explored.",
-    keyTopics: ['Periodic and Oscillatory Motions', 'Simple Harmonic Motion (SHM)', 'Energy in SHM', 'Systems Executing SHM', 'Damped Oscillations', 'Forced Oscillations and Resonance'],
-    realWorldExample: 'A child on a swing is an example of a simple pendulum, which exhibits simple harmonic motion for small amplitudes.',
-    keyEquation: 'F = -kx',
-    icon: 'atom',
+    title: "Environmental Chemistry",
+    summary: "An exploration of chemical processes in the environment, including pollution, greenhouse effect, and ozone depletion.",
+    detailedExplanation: "This chapter examines the chemistry of the environment, focusing on atmospheric, water, and soil pollution. It discusses the greenhouse effect, global warming, and the role of gases like CO₂ and CH₄. Ozone depletion due to chlorofluorocarbons (CFCs) is explained, along with its consequences. The chapter covers strategies to control pollution, including waste management and green chemistry principles, and the impact of pollutants like smog and acid rain.",
+    keyTopics: ["Atmospheric Pollution", "Water Pollution", "Soil Pollution", "Greenhouse Effect", "Ozone Depletion", "Green Chemistry"],
+    realWorldExample: "CFCs used in refrigerants contribute to ozone layer depletion, increasing UV radiation on Earth.",
+    keyEquation: "",
+    icon: "atom",
     visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/masses-and-springs',
-      'https://phet.colorado.edu/en/simulations/pendulum-lab',
-      'https://ophysics.com/o.html'
+      "https://www.youtube.com/watch?v=6hSPFLsC8gc",
+      "https://phet.colorado.edu/en/simulations/greenhouse-effect",
+      "https://chem.libretexts.org/Bookshelves/Environmental_Chemistry"
     ],
     resourceLinks: [
-      { title: 'PhET Simulation: Masses and Springs', url: 'https://phet.colorado.edu/en/simulations/masses-and-springs' },
-      { title: 'The Physics Classroom: Vibrations and Waves', url: 'https://www.physicsclassroom.com/class/waves' }
+      { title: "Khan Academy: Environmental Chemistry", url: "https://www.khanacademy.org/science/chemistry/environmental-chemistry" },
+      { title: "EPA: Air Pollution", url: "https://www.epa.gov/air-pollution" }
     ],
     quiz: [
-      { question: 'In Simple Harmonic Motion (SHM), the restoring force is proportional to the:', options: ['Velocity', 'Acceleration', 'Displacement', 'Time period'], correct: 'Displacement' },
-      { question: 'What is resonance?', options: ['Driving a system at its natural frequency', 'Damping of oscillations', 'Starting of oscillations', 'A type of motion'], correct: 'Driving a system at its natural frequency' },
-    ]
-  },
-  {
-    id: 15,
-    title: 'Waves',
-    summary: 'An introduction to the properties and behavior of mechanical waves, including superposition, reflection, standing waves, and the Doppler effect.',
-    detailedExplanation: "This chapter deals with the propagation of disturbances, or waves. It distinguishes between transverse and longitudinal waves and provides the mathematical description of a traveling wave. The principle of superposition is introduced to explain what happens when waves meet, leading to phenomena like interference, the formation of standing waves, and beats. The chapter also discusses the reflection of waves from boundaries and concludes with the Doppler effect, the apparent change in frequency of a wave due to relative motion between the source and the observer.",
-    keyTopics: ['Transverse and Longitudinal Waves', 'Displacement Relation of a Wave', 'The Speed of a Travelling Wave', 'Principle of Superposition', 'Reflection of Waves', 'Beats', 'Doppler Effect'],
-    realWorldExample: 'The changing pitch of a siren on a moving ambulance is an example of the Doppler effect.',
-    keyEquation: 'v = fλ',
-    icon: 'atom',
-    visualizationLinks: [
-      'https://phet.colorado.edu/en/simulations/wave-on-a-string',
-      'https://phet.colorado.edu/en/simulations/sound',
-      'https://ophysics.com/w.html'
-    ],
-    resourceLinks: [
-      { title: 'PhET Simulation: Wave on a String', url: 'https://phet.colorado.edu/en/simulations/wave-on-a-string' },
-      { title: 'Khan Academy: Waves and sound', url: 'https://www.khanacademy.org/science/physics/waves-and-sound' }
-    ],
-    quiz: [
-      { question: 'Sound waves in air are an example of:', options: ['Transverse waves', 'Longitudinal waves', 'Electromagnetic waves', 'Matter waves'], correct: 'Longitudinal waves' },
-      { question: 'The Doppler effect is the apparent change in:', options: ['Frequency due to relative motion', 'Amplitude due to distance', 'Speed due to the medium', 'Wavelength due to reflection'], correct: 'Frequency due to relative motion' },
+      { question: "The greenhouse effect is caused by:", options: ["O₂", "CO₂", "N₂", "H₂"], correct: "CO₂" },
+      { question: "Ozone depletion is primarily due to:", options: ["CO₂", "CFCs", "SO₂", "NO₂"], correct: "CFCs" },
+      { question: "Smog is a type of:", options: ["Water pollution", "Air pollution", "Soil pollution", "Thermal pollution"], correct: "Air pollution" },
+      { question: "Acid rain is caused by:", options: ["CO₂ and CH₄", "SO₂ and NO₂", "CFCs", "O₃"], correct: "SO₂ and NO₂" },
+      { question: "Green chemistry aims to:", options: ["Increase pollution", "Reduce waste", "Increase energy use", "Promote CFCs"], correct: "Reduce waste" },
+      { question: "The layer protecting Earth from UV rays is:", options: ["Troposphere", "Stratosphere", "Mesosphere", "Thermosphere"], correct: "Stratosphere" },
+      { question: "Which gas contributes to global warming?", options: ["O₂", "N₂", "CH₄", "He"], correct: "CH₄" },
+      { question: "Eutrophication is related to:", options: ["Air pollution", "Water pollution", "Soil pollution", "Noise pollution"], correct: "Water pollution" },
+      { question: "The main component of photochemical smog is:", options: ["Ozone", "Carbon dioxide", "Sulfur dioxide", "Nitrogen"], correct: "Ozone" },
+      { question: "Which practice reduces environmental pollution?", options: ["Burning fossil fuels", "Using CFCs", "Recycling", "Dumping waste"], correct: "Recycling" },
     ]
   }
 ];
-export const modulesData11 = {
-  chemistryXI,
-  biologyXI,
-  physicsXI,
-};
+export const physicsXI = [
+  {
+    id: 1,
+    title: "Physical World and Measurement",
+    summary: "An introduction to the scope of physics, fundamental forces, and measurement techniques, including units and dimensions.",
+    detailedExplanation: "This chapter introduces physics as the study of natural phenomena, covering fundamental forces (gravitational, electromagnetic, strong nuclear, weak nuclear) and their roles. It discusses the importance of measurement, SI units, dimensional analysis, and errors in measurements. Concepts like accuracy, precision, and significant figures are explained, along with the use of tools like vernier calipers and screw gauges for precise measurements.",
+    keyTopics: ["Scope of Physics", "Fundamental Forces", "SI Units", "Dimensional Analysis", "Measurement Errors", "Significant Figures"],
+    realWorldExample: "The use of GPS relies on precise time measurements using atomic clocks, applying principles of physics and measurement accuracy.",
+    keyEquation: "Dimensional formula: [M^a L^b T^c]",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=Z9Wq9b1XzW4",
+      "https://phet.colorado.edu/en/simulations/unit-conversions",
+      "https://www.britannica.com/science/physics"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Introduction to Physics", url: "https://www.khanacademy.org/science/physics/introduction-to-physics" },
+      { title: "BYJU'S: Physical World", url: "https://byjus.com/physics/physical-world/" }
+    ],
+    quiz: [
+      { question: "Which is a fundamental force?", options: ["Frictional", "Gravitational", "Centrifugal", "Tension"], correct: "Gravitational" },
+      { question: "The SI unit of force is:", options: ["Newton", "Joule", "Watt", "Pascal"], correct: "Newton" },
+      { question: "Dimensional formula of energy is:", options: ["[M L T⁻²]", "[M L² T⁻²]", "[M L² T⁻¹]", "[M L T⁻¹]"], correct: "[M L² T⁻²]" },
+      { question: "Accuracy refers to:", options: ["Closeness to true value", "Repeatability", "Error magnitude", "Significant figures"], correct: "Closeness to true value" },
+      { question: "Which instrument measures small lengths?", options: ["Ruler", "Vernier caliper", "Balance", "Thermometer"], correct: "Vernier caliper" },
+      { question: "Significant figures in 0.00250 are:", options: ["2", "3", "4", "5"], correct: "3" },
+      { question: "The strongest fundamental force is:", options: ["Gravitational", "Electromagnetic", "Strong nuclear", "Weak nuclear"], correct: "Strong nuclear" },
+      { question: "Error in measurement is due to:", options: ["Instrument limitations", "Human error", "Environmental factors", "All of these"], correct: "All of these" },
+      { question: "The SI unit of time is:", options: ["Minute", "Second", "Hour", "Day"], correct: "Second" },
+      { question: "Dimensional analysis checks:", options: ["Numerical values", "Unit consistency", "Instrument accuracy", "Significant figures"], correct: "Unit consistency" },
+    ]
+  },
+  {
+    id: 2,
+    title: "Kinematics",
+    summary: "A study of motion without considering its causes, including displacement, velocity, and acceleration.",
+    detailedExplanation: "This chapter focuses on describing motion using concepts like displacement, velocity, acceleration, and time. It covers rectilinear motion, relative velocity, and projectile motion. Kinematic equations for uniformly accelerated motion are derived, and graphical analysis (position-time, velocity-time graphs) is explained. The chapter distinguishes between scalar and vector quantities and applies kinematics to one- and two-dimensional motion.",
+    keyTopics: ["Displacement", "Velocity", "Acceleration", "Kinematic Equations", "Projectile Motion", "Relative Velocity"],
+    realWorldExample: "A ball thrown upwards follows projectile motion, with its path determined by kinematic principles.",
+    keyEquation: "v = u + at",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=9Q4gC8vY9tQ",
+      "https://phet.colorado.edu/en/simulations/projectile-motion",
+      "https://www.physicsclassroom.com/Physics-Interactives/Kinematics"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Kinematics", url: "https://www.khanacademy.org/science/physics/one-dimensional-motion" },
+      { title: "Physics Classroom: Kinematics", url: "https://www.physicsclassroom.com/class/1DKin" }
+    ],
+    quiz: [
+      { question: "Which is a vector quantity?", options: ["Speed", "Distance", "Velocity", "Time"], correct: "Velocity" },
+      { question: "The first kinematic equation is:", options: ["v = u + at", "s = ut + ½at²", "v² = u² + 2as", "s = vt"], correct: "v = u + at" },
+      { question: "Projectile motion occurs in:", options: ["One dimension", "Two dimensions", "Three dimensions", "No dimensions"], correct: "Two dimensions" },
+      { question: "Relative velocity is:", options: ["Speed of one object", "Velocity of one object relative to another", "Total velocity", "Average velocity"], correct: "Velocity of one object relative to another" },
+      { question: "Acceleration is defined as:", options: ["Rate of change of distance", "Rate of change of velocity", "Rate of change of displacement", "Rate of change of speed"], correct: "Rate of change of velocity" },
+      { question: "The slope of a velocity-time graph gives:", options: ["Displacement", "Acceleration", "Speed", "Distance"], correct: "Acceleration" },
+      { question: "A body at rest has:", options: ["Zero velocity", "Constant velocity", "Zero acceleration", "Both a and c"], correct: "Both a and c" },
+      { question: "The range of a projectile depends on:", options: ["Angle of projection", "Initial velocity", "Gravity", "All of these"], correct: "All of these" },
+      { question: "Uniform motion implies:", options: ["Constant acceleration", "Constant velocity", "Zero velocity", "Increasing speed"], correct: "Constant velocity" },
+      { question: "Displacement can be:", options: ["Positive only", "Negative only", "Zero or positive/negative", "Always zero"], correct: "Zero or positive/negative" },
+    ]
+  },
+  {
+    id: 3,
+    title: "Laws of Motion",
+    summary: "A study of Newton’s laws of motion, forces, and their applications in dynamics.",
+    detailedExplanation: "This chapter explores Newton’s three laws of motion, which describe the relationship between forces and motion. The first law (inertia), second law (F = ma), and third law (action-reaction) are detailed. Concepts like momentum, friction, tension, and circular motion are covered, along with equilibrium and dynamics of systems. Applications include free body diagrams and solving problems involving multiple forces.",
+    keyTopics: ["Newton’s First Law", "Newton’s Second Law", "Newton’s Third Law", "Momentum", "Friction", "Circular Motion"],
+    realWorldExample: "A rocket’s motion is propelled by Newton’s third law, as exhaust gases push downward, propelling the rocket upward.",
+    keyEquation: "F = ma",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=NYVMowW7jfA",
+      "https://phet.colorado.edu/en/simulations/forces-and-motion-basics",
+      "https://www.physicsclassroom.com/Physics-Interactives/Newtons-Laws"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Newton’s Laws", url: "https://www.khanacademy.org/science/physics/forces-newtons-laws" },
+      { title: "Physics Classroom: Newton’s Laws", url: "https://www.physicsclassroom.com/class/newtlaws" }
+    ],
+    quiz: [
+      { question: "Newton’s first law is also known as:", options: ["Law of force", "Law of inertia", "Law of action-reaction", "Law of momentum"], correct: "Law of inertia" },
+      { question: "The formula F = ma is part of:", options: ["First law", "Second law", "Third law", "Law of gravitation"], correct: "Second law" },
+      { question: "The SI unit of momentum is:", options: ["kg m/s", "kg m/s²", "N m", "Joule"], correct: "kg m/s" },
+      { question: "Friction opposes:", options: ["Relative motion", "Absolute motion", "Gravitational force", "Tension"], correct: "Relative motion" },
+      { question: "Newton’s third law states:", options: ["Force equals mass times acceleration", "Action and reaction are equal and opposite", "Objects at rest stay at rest", "Momentum is conserved"], correct: "Action and reaction are equal and opposite" },
+      { question: "The force in circular motion is:", options: ["Tension", "Centripetal force", "Centrifugal force", "Gravitational force"], correct: "Centripetal force" },
+      { question: "Inertia depends on:", options: ["Velocity", "Mass", "Acceleration", "Force"], correct: "Mass" },
+      { question: "A body in equilibrium has:", options: ["Zero net force", "Constant velocity", "Zero acceleration", "Both a and c"], correct: "Both a and c" },
+      { question: "The force of friction depends on:", options: ["Surface area", "Normal force", "Speed", "Temperature"], correct: "Normal force" },
+      { question: "Momentum is defined as:", options: ["Mass × velocity", "Mass × acceleration", "Force × time", "Force × distance"], correct: "Mass × velocity" },
+    ]
+  },
+  {
+    id: 4,
+    title: "Work, Energy and Power",
+    summary: "An exploration of work, energy, and power, including kinetic and potential energy, and the work-energy theorem.",
+    detailedExplanation: "This chapter defines work as the product of force and displacement, and energy as the capacity to do work. It covers kinetic energy (motion), potential energy (position), and their conservation. The work-energy theorem links work done to changes in kinetic energy. Power, the rate of doing work, is explained, along with collisions (elastic, inelastic) and their energy implications.",
+    keyTopics: ["Work", "Kinetic Energy", "Potential Energy", "Work-Energy Theorem", "Power", "Collisions"],
+    realWorldExample: "A hydroelectric dam converts potential energy of stored water into electrical energy for power generation.",
+    keyEquation: "W = F × s × cosθ",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=3miE7RDpNTo",
+      "https://phet.colorado.edu/en/simulations/energy-skate-park",
+      "https://www.physicsclassroom.com/Physics-Interactives/Work-and-Energy"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Work and Energy", url: "https://www.khanacademy.org/science/physics/work-and-energy" },
+      { title: "Physics Classroom: Work, Energy, and Power", url: "https://www.physicsclassroom.com/class/energy" }
+    ],
+    quiz: [
+      { question: "Work is defined as:", options: ["Force × time", "Force × displacement", "Mass × acceleration", "Energy × time"], correct: "Force × displacement" },
+      { question: "The SI unit of energy is:", options: ["Newton", "Joule", "Watt", "Pascal"], correct: "Joule" },
+      { question: "Kinetic energy is given by:", options: ["½mv²", "mv²", "mgH", "F × s"], correct: "½mv²" },
+      { question: "Power is defined as:", options: ["Work × time", "Work / time", "Force × velocity", "Both b and c"], correct: "Both b and c" },
+      { question: "In an elastic collision:", options: ["Kinetic energy is conserved", "Momentum is not conserved", "Energy is lost", "Velocity is constant"], correct: "Kinetic energy is conserved" },
+      { question: "Potential energy depends on:", options: ["Velocity", "Height", "Acceleration", "Force"], correct: "Height" },
+      { question: "The work-energy theorem relates work to:", options: ["Potential energy", "Kinetic energy", "Total energy", "Power"], correct: "Kinetic energy" },
+      { question: "The SI unit of power is:", options: ["Joule", "Watt", "Newton", "Pascal"], correct: "Watt" },
+      { question: "Work done is maximum when θ is:", options: ["0°", "90°", "180°", "45°"], correct: "0°" },
+      { question: "In an inelastic collision:", options: ["Kinetic energy is conserved", "Momentum is conserved", "Energy is fully lost", "Velocity is zero"], correct: "Momentum is conserved" },
+    ]
+  },
+  {
+    id: 5,
+    title: "System of Particles and Rotational Motion",
+    summary: "A study of the motion of systems of particles, center of mass, and rotational dynamics, including torque and angular momentum.",
+    detailedExplanation: "This chapter examines the motion of systems of particles, focusing on the center of mass and its motion. It introduces rotational motion concepts like torque, moment of inertia, and angular momentum. The law of conservation of angular momentum and equations of rotational motion are discussed. Applications include rigid body dynamics, rolling motion, and equilibrium of rotating bodies.",
+    keyTopics: ["Center of Mass", "Torque", "Moment of Inertia", "Angular Momentum", "Rotational Motion", "Rolling Motion"],
+    realWorldExample: "A figure skater spins faster by pulling in their arms, conserving angular momentum.",
+    keyEquation: "τ = r × F",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=2P3b1C0Muls",
+      "https://phet.colorado.edu/en/simulations/torque",
+      "https://www.physicsclassroom.com/Physics-Interactives/Rotational-Motion"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Rotational Motion", url: "https://www.khanacademy.org/science/physics/torque-angular-momentum" },
+      { title: "Physics Classroom: Rotational Motion", url: "https://www.physicsclassroom.com/class/rotation" }
+    ],
+    quiz: [
+      { question: "The center of mass of a system:", options: ["Is always at the geometric center", "Moves as if all mass is concentrated there", "Is fixed", "Does not move"], correct: "Moves as if all mass is concentrated there" },
+      { question: "Torque is defined as:", options: ["Force × distance", "Force × velocity", "Mass × acceleration", "Moment of inertia × angular velocity"], correct: "Force × distance" },
+      { question: "The SI unit of angular momentum is:", options: ["kg m/s", "kg m²/s", "N m", "Joule"], correct: "kg m²/s" },
+      { question: "Moment of inertia depends on:", options: ["Mass distribution", "Velocity", "Force", "Time"], correct: "Mass distribution" },
+      { question: "Angular momentum is conserved when:", options: ["External torque is zero", "External force is zero", "Velocity is constant", "Mass is constant"], correct: "External torque is zero" },
+      { question: "Rolling motion involves:", options: ["Translation only", "Rotation only", "Both translation and rotation", "No motion"], correct: "Both translation and rotation" },
+      { question: "The SI unit of torque is:", options: ["Newton", "Joule", "N m", "Watt"], correct: "N m" },
+      { question: "The rotational equivalent of mass is:", options: ["Force", "Moment of inertia", "Torque", "Angular velocity"], correct: "Moment of inertia" },
+      { question: "The angular velocity is measured in:", options: ["m/s", "rad/s", "N m", "kg m²"], correct: "rad/s" },
+      { question: "The center of mass of two equal masses is:", options: ["At one mass", "Midway between them", "Outside the system", "At the heavier mass"], correct: "Midway between them" },
+    ]
+  },
+  {
+    id: 6,
+    title: "Gravitation",
+    summary: "An exploration of gravitational force, Kepler’s laws, and the motion of planets and satellites.",
+    detailedExplanation: "This chapter discusses the universal law of gravitation, describing the force between two masses. Kepler’s laws of planetary motion are explained, along with the gravitational constant. Concepts like acceleration due to gravity, gravitational potential energy, and escape velocity are covered. Orbital motion of satellites and the variation of gravity with altitude and depth are also discussed.",
+    keyTopics: ["Universal Law of Gravitation", "Kepler’s Laws", "Acceleration Due to Gravity", "Escape Velocity", "Satellite Motion"],
+    realWorldExample: "Satellites orbit Earth due to gravitational force, enabling communication and weather forecasting.",
+    keyEquation: "F = G (m₁m₂/r²)",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=MTY1Kje0yLg",
+      "https://phet.colorado.edu/en/simulations/gravity-and-orbits",
+      "https://www.physicsclassroom.com/Physics-Interactives/Circular-and-Satellite-Motion"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Gravitation", url: "https://www.khanacademy.org/science/physics/gravitation" },
+      { title: "Physics Classroom: Gravitation", url: "https://www.physicsclassroom.com/class/circles/Lesson-3/Newton-s-Law-of-Universal-Gravitation" }
+    ],
+    quiz: [
+      { question: "The universal law of gravitation was proposed by:", options: ["Kepler", "Newton", "Galileo", "Einstein"], correct: "Newton" },
+      { question: "Kepler’s first law states that planets move in:", options: ["Circles", "Ellipses", "Parabolas", "Hyperbolas"], correct: "Ellipses" },
+      { question: "The SI unit of gravitational constant G is:", options: ["N m²/kg²", "N m/kg", "kg m/s²", "m/s²"], correct: "N m²/kg²" },
+      { question: "Escape velocity depends on:", options: ["Mass of the object", "Radius of the planet", "Gravitational constant", "All of these"], correct: "All of these" },
+      { question: "Acceleration due to gravity is maximum at:", options: ["Poles", "Equator", "Center of Earth", "High altitudes"], correct: "Poles" },
+      { question: "Gravitational force is:", options: ["Attractive only", "Repulsive only", "Both attractive and repulsive", "Neither"], correct: "Attractive only" },
+      { question: "The time period of a satellite depends on:", options: ["Mass of satellite", "Radius of orbit", "Shape of orbit", "Both b and c"], correct: "Both b and c" },
+      { question: "Gravitational potential energy is given by:", options: ["mgh", "-G m₁m₂/r", "½mv²", "F × s"], correct: "-G m₁m₂/r" },
+      { question: "Kepler’s third law relates:", options: ["Orbital radius and time period", "Mass and radius", "Velocity and time", "Force and distance"], correct: "Orbital radius and time period" },
+      { question: "At the center of Earth, g is:", options: ["Maximum", "Zero", "Constant", "Infinite"], correct: "Zero" },
+    ]
+  },
+  {
+    id: 7,
+    title: "Properties of Bulk Matter",
+    summary: "A study of the mechanical properties of solids, liquids, and gases, including elasticity, viscosity, and surface tension.",
+    detailedExplanation: "This chapter examines the properties of bulk matter, including solids (elasticity, stress, strain), liquids (viscosity, surface tension, Bernoulli’s principle), and gases (pressure, ideal gas law). It covers Young’s modulus, Pascal’s law, and fluid dynamics. Thermal properties like thermal expansion and heat transfer are also discussed, along with applications like hydraulic systems and capillary action.",
+    keyTopics: ["Elasticity", "Stress and Strain", "Viscosity", "Surface Tension", "Fluid Dynamics", "Thermal Expansion"],
+    realWorldExample: "Hydraulic lifts use Pascal’s law to lift heavy objects with small forces, as in car repair shops.",
+    keyEquation: "Stress = F/A",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=Azn1TJ2m-4s",
+      "https://phet.colorado.edu/en/simulations/states-of-matter",
+      "https://www.physicsclassroom.com/Physics-Interactives/Fluids"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Properties of Matter", url: "https://www.khanacademy.org/science/physics/mechanical-properties" },
+      { title: "Physics Classroom: Properties of Matter", url: "https://www.physicsclassroom.com/class/properties" }
+    ],
+    quiz: [
+      { question: "Young’s modulus measures:", options: ["Pressure", "Elasticity", "Viscosity", "Surface tension"], correct: "Elasticity" },
+      { question: "Pascal’s law applies to:", options: ["Solids", "Fluids", "Gases only", "Solids and gases"], correct: "Fluids" },
+      { question: "Surface tension is due to:", options: ["Cohesive forces", "Adhesive forces", "Gravitational forces", "Frictional forces"], correct: "Cohesive forces" },
+      { question: "Viscosity is a measure of:", options: ["Fluid’s resistance to flow", "Elasticity", "Pressure", "Density"], correct: "Fluid’s resistance to flow" },
+      { question: "Bernoulli’s principle relates to:", options: ["Elasticity", "Fluid flow", "Thermal expansion", "Stress"], correct: "Fluid flow" },
+      { question: "The SI unit of stress is:", options: ["Newton", "Pascal", "Joule", "Watt"], correct: "Pascal" },
+      { question: "Capillary action is due to:", options: ["Viscosity", "Surface tension", "Pressure", "Elasticity"], correct: "Surface tension" },
+      { question: "Thermal expansion is highest in:", options: ["Solids", "Liquids", "Gases", "All equal"], correct: "Gases" },
+      { question: "Hooke’s law applies within:", options: ["Elastic limit", "Plastic limit", "Fracture point", "Yield point"], correct: "Elastic limit" },
+      { question: "Hydraulic systems work based on:", options: ["Newton’s law", "Pascal’s law", "Bernoulli’s principle", "Hooke’s law"], correct: "Pascal’s law" },
+    ]
+  },
+  {
+    id: 8,
+    title: "Thermodynamics",
+    summary: "An exploration of heat, work, and energy transformations, including the laws of thermodynamics.",
+    detailedExplanation: "This chapter covers thermodynamics, the study of heat and energy transformations. The zeroth law defines thermal equilibrium, the first law relates internal energy, heat, and work, and the second law introduces entropy and spontaneity. Concepts like specific heat, latent heat, and thermodynamic processes (isothermal, adiabatic) are discussed, along with applications in heat engines and refrigerators.",
+    keyTopics: ["Zeroth Law", "First Law of Thermodynamics", "Second Law of Thermodynamics", "Entropy", "Heat Engines", "Thermodynamic Processes"],
+    realWorldExample: "A refrigerator uses thermodynamic principles to transfer heat from a cold interior to a warmer exterior.",
+    keyEquation: "ΔU = Q - W",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=4i1bYROrY0k",
+      "https://phet.colorado.edu/en/simulations/energy-forms-and-changes",
+      "https://www.physicsclassroom.com/Physics-Interactives/Thermodynamics"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Thermodynamics", url: "https://www.khanacademy.org/science/physics/thermodynamics" },
+      { title: "Physics Classroom: Thermodynamics", url: "https://www.physicsclassroom.com/class/thermalP" }
+    ],
+    quiz: [
+      { question: "The first law of thermodynamics is about:", options: ["Entropy", "Energy conservation", "Thermal equilibrium", "Spontaneity"], correct: "Energy conservation" },
+      { question: "The zeroth law defines:", options: ["Heat transfer", "Thermal equilibrium", "Entropy", "Work"], correct: "Thermal equilibrium" },
+      { question: "Entropy measures:", options: ["Energy", "Disorder", "Temperature", "Pressure"], correct: "Disorder" },
+      { question: "In an isothermal process:", options: ["Temperature changes", "Temperature is constant", "Pressure is constant", "Volume is constant"], correct: "Temperature is constant" },
+      { question: "The SI unit of heat is:", options: ["Joule", "Watt", "Newton", "Pascal"], correct: "Joule" },
+      { question: "A heat engine converts:", options: ["Heat to work", "Work to heat", "Heat to electricity", "Work to electricity"], correct: "Heat to work" },
+      { question: "The second law states that:", options: ["Energy is conserved", "Entropy increases in a closed system", "Heat flows from cold to hot", "Work equals heat"], correct: "Entropy increases in a closed system" },
+      { question: "Adiabatic process involves:", options: ["No heat transfer", "Constant temperature", "Constant volume", "Constant pressure"], correct: "No heat transfer" },
+      { question: "Latent heat is associated with:", options: ["Temperature change", "Phase change", "Volume change", "Pressure change"], correct: "Phase change" },
+      { question: "Internal energy depends on:", options: ["Temperature", "Volume", "Pressure", "All of these"], correct: "All of these" },
+    ]
+  },
+  {
+    id: 9,
+    title: "Behaviour of Perfect Gases and Kinetic Theory of Gases",
+    summary: "A study of ideal gases, gas laws, and the kinetic theory explaining gas behavior at the molecular level.",
+    detailedExplanation: "This chapter explores the behavior of ideal gases through gas laws (Boyle’s, Charles’s, Gay-Lussac’s, Avogadro’s) and the ideal gas equation. The kinetic theory of gases explains macroscopic properties like pressure and temperature in terms of molecular motion. Concepts like mean free path, degrees of freedom, and the Maxwell-Boltzmann distribution are discussed, along with deviations of real gases from ideal behavior.",
+    keyTopics: ["Gas Laws", "Ideal Gas Equation", "Kinetic Theory", "Mean Free Path", "Degrees of Freedom", "Real Gases"],
+    realWorldExample: "A hot air balloon rises due to Charles’s law, as heated air expands, reducing density.",
+    keyEquation: "PV = nRT",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=EF0z9bOhvAw",
+      "https://phet.colorado.edu/en/simulations/gas-properties",
+      "https://www.physicsclassroom.com/Physics-Interactives/Gases"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Ideal Gas Law", url: "https://www.khanacademy.org/science/physics/thermodynamics/ideal-gas-law" },
+      { title: "Physics Classroom: Kinetic Theory", url: "https://www.physicsclassroom.com/class/gaslaws" }
+    ],
+    quiz: [
+      { question: "Boyle’s law relates:", options: ["Pressure and volume", "Volume and temperature", "Pressure and temperature", "Volume and moles"], correct: "Pressure and volume" },
+      { question: "The ideal gas equation is:", options: ["PV = nRT", "P = nRT/V", "V = nRT/P", "All of these"], correct: "PV = nRT" },
+      { question: "Kinetic theory assumes gas molecules:", options: ["Are stationary", "Have negligible volume", "Attract each other", "Are large"], correct: "Have negligible volume" },
+      { question: "The SI unit of R is:", options: ["Joule", "J/mol K", "N m", "Pascal"], correct: "J/mol K" },
+      { question: "Mean free path is:", options: ["Distance between molecules", "Average distance traveled between collisions", "Speed of molecules", "Total path length"], correct: "Average distance traveled between collisions" },
+      { question: "Charles’s law applies at constant:", options: ["Pressure", "Volume", "Temperature", "Moles"], correct: "Pressure" },
+      { question: "Degrees of freedom for a diatomic gas are:", options: ["3", "5", "6", "7"], correct: "5" },
+      { question: "Real gases deviate from ideal behavior at:", options: ["High temperature", "Low pressure", "High pressure", "Room temperature"], correct: "High pressure" },
+      { question: "The pressure of a gas is due to:", options: ["Molecular collisions", "Molecular attraction", "Molecular size", "Molecular weight"], correct: "Molecular collisions" },
+      { question: "Avogadro’s law states:", options: ["Equal volumes, equal moles", "Pressure is proportional to temperature", "Volume is proportional to pressure", "Temperature is constant"], correct: "Equal volumes, equal moles" },
+    ]
+  },
+  {
+    id: 10,
+    title: "Oscillations",
+    summary: "A study of periodic motion, including simple harmonic motion (SHM) and its applications.",
+    detailedExplanation: "This chapter covers oscillatory motion, focusing on simple harmonic motion (SHM), where restoring force is proportional to displacement. It discusses characteristics of SHM (amplitude, frequency, period), and equations for displacement, velocity, and acceleration. Damped and forced oscillations are explained, along with resonance. Applications include pendulums and spring-mass systems.",
+    keyTopics: ["Simple Harmonic Motion", "Amplitude and Frequency", "Damped Oscillations", "Forced Oscillations", "Resonance"],
+    realWorldExample: "A pendulum clock uses SHM to keep accurate time through regular oscillations.",
+    keyEquation: "F = -kx",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=ks6Z8F6vT9M",
+      "https://phet.colorado.edu/en/simulations/pendulum-lab",
+      "https://www.physicsclassroom.com/Physics-Interactives/Waves-and-Sound"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Oscillations", url: "https://www.khanacademy.org/science/physics/mechanical-waves-and-sound/simple-harmonic-motion" },
+      { title: "Physics Classroom: Simple Harmonic Motion", url: "https://www.physicsclassroom.com/class/waves/Lesson-0/Vibrations" }
+    ],
+    quiz: [
+      { question: "Simple harmonic motion requires:", options: ["Constant force", "Restoring force", "Frictional force", "Gravitational force"], correct: "Restoring force" },
+      { question: "The time period of SHM depends on:", options: ["Amplitude", "Mass and spring constant", "Velocity", "Acceleration"], correct: "Mass and spring constant" },
+      { question: "The restoring force in SHM is given by:", options: ["F = -kx", "F = ma", "F = mv", "F = mg"], correct: "F = -kx" },
+      { question: "The SI unit of frequency is:", options: ["Hertz", "Newton", "Joule", "Radian"], correct: "Hertz" },
+      { question: "Damped oscillations:", options: ["Increase in amplitude", "Decrease in amplitude", "Constant amplitude", "No oscillation"], correct: "Decrease in amplitude" },
+      { question: "Resonance occurs when:", options: ["Driving frequency equals natural frequency", "Amplitude is zero", "Force is constant", "Period is infinite"], correct: "Driving frequency equals natural frequency" },
+      { question: "The maximum displacement in SHM is:", options: ["Period", "Amplitude", "Frequency", "Velocity"], correct: "Amplitude" },
+      { question: "The velocity is maximum in SHM at:", options: ["Extreme position", "Mean position", "Halfway point", "Rest point"], correct: "Mean position" },
+      { question: "The time period of a simple pendulum depends on:", options: ["Mass", "Length", "Amplitude", "Velocity"], correct: "Length" },
+      { question: "Forced oscillations require:", options: ["Internal force", "External periodic force", "Constant force", "No force"], correct: "External periodic force" },
+    ]
+  },
+  {
+    id: 11,
+    title: "Waves",
+    summary: "An exploration of wave motion, including types of waves, their properties, and the Doppler effect.",
+    detailedExplanation: "This chapter studies wave motion, classifying waves as transverse and longitudinal. It covers wave properties like wavelength, frequency, amplitude, and speed, and the wave equation. Concepts like superposition, interference, standing waves, and beats are discussed. The Doppler effect explains changes in frequency due to relative motion, with applications in sound and light waves.",
+    keyTopics: ["Types of Waves", "Wave Properties", "Wave Equation", "Interference", "Standing Waves", "Doppler Effect"],
+    realWorldExample: "The Doppler effect causes a siren’s pitch to change as an ambulance passes, due to relative motion.",
+    keyEquation: "v = fλ",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=7cDAYFTXq3E",
+      "https://phet.colorado.edu/en/simulations/wave-on-a-string",
+      "https://www.physicsclassroom.com/Physics-Interactives/Waves-and-Sound"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Waves", url: "https://www.khanacademy.org/science/physics/mechanical-waves-and-sound" },
+      { title: "Physics Classroom: Waves", url: "https://www.physicsclassroom.com/class/waves" }
+    ],
+    quiz: [
+      { question: "Transverse waves have oscillations:", options: ["Parallel to direction of travel", "Perpendicular to direction of travel", "No oscillations", "Circular"], correct: "Perpendicular to direction of travel" },
+      { question: "The wave equation is:", options: ["v = fλ", "F = ma", "E = mc²", "P = VI"], correct: "v = fλ" },
+      { question: "The Doppler effect affects:", options: ["Wave speed", "Wave frequency", "Wave amplitude", "Wave direction"], correct: "Wave frequency" },
+      { question: "Standing waves form due to:", options: ["Reflection", "Refraction", "Interference", "Diffraction"], correct: "Interference" },
+      { question: "The SI unit of wavelength is:", options: ["Meter", "Hertz", "Second", "Newton"], correct: "Meter" },
+      { question: "Longitudinal waves include:", options: ["Light waves", "Sound waves", "Water waves", "Electromagnetic waves"], correct: "Sound waves" },
+      { question: "Beats occur due to:", options: ["Superposition of waves", "Single wave", "Constant frequency", "No interference"], correct: "Superposition of waves" },
+      { question: "The speed of a wave depends on:", options: ["Medium", "Frequency", "Amplitude", "Wavelength"], correct: "Medium" },
+      { question: "Nodes in a standing wave have:", options: ["Maximum amplitude", "Zero amplitude", "Constant frequency", "Maximum speed"], correct: "Zero amplitude" },
+      { question: "The Doppler effect is observed when:", options: ["Source is stationary", "Observer is stationary", "Source and observer are in relative motion", "Wave speed changes"], correct: "Source and observer are in relative motion" },
+    ]
+  },
+  {
+    id: 12,
+    title: "Thermal Properties of Matter",
+    summary: "A study of heat, temperature, specific heat, latent heat, and thermal expansion in matter.",
+    detailedExplanation: "This chapter explores the thermal properties of matter, including temperature, heat, and specific heat capacity. It discusses latent heat during phase changes and thermal expansion in solids, liquids, and gases. Modes of heat transfer (conduction, convection, radiation) are explained, along with applications like thermometers and thermal insulation.",
+    keyTopics: ["Temperature and Heat", "Specific Heat Capacity", "Latent Heat", "Thermal Expansion", "Heat Transfer"],
+    realWorldExample: "A bimetallic strip in a thermostat bends due to thermal expansion, controlling temperature.",
+    keyEquation: "Q = mCΔT",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=v1zOnyC3kSI",
+      "https://phet.colorado.edu/en/simulations/states-of-matter",
+      "https://www.physicsclassroom.com/Physics-Interactives/Thermal-Physics"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Thermal Properties", url: "https://www.khanacademy.org/science/physics/thermodynamics/thermal-properties" },
+      { title: "Physics Classroom: Thermal Physics", url: "https://www.physicsclassroom.com/class/thermalP" }
+    ],
+    quiz: [
+      { question: "Heat is measured in:", options: ["Kelvin", "Joule", "Watt", "Pascal"], correct: "Joule" },
+      { question: "Specific heat capacity is defined as:", options: ["Heat per unit mass", "Heat per unit temperature", "Heat per unit mass per degree", "Heat per unit volume"], correct: "Heat per unit mass per degree" },
+      { question: "Latent heat is associated with:", options: ["Temperature change", "Phase change", "Volume change", "Pressure change"], correct: "Phase change" },
+      { question: "Conduction occurs mainly in:", options: ["Solids", "Liquids", "Gases", "Vacuum"], correct: "Solids" },
+      { question: "Thermal expansion is highest in:", options: ["Solids", "Liquids", "Gases", "All equal"], correct: "Gases" },
+      { question: "The SI unit of temperature is:", options: ["Celsius", "Fahrenheit", "Kelvin", "Rankine"], correct: "Kelvin" },
+      { question: "Radiation transfers heat via:", options: ["Molecules", "Electromagnetic waves", "Convection currents", "Physical contact"], correct: "Electromagnetic waves" },
+      { question: "The formula for heat transfer is:", options: ["Q = mCΔT", "Q = mL", "Q = mc²", "Q = F × s"], correct: "Q = mCΔT" },
+      { question: "A bimetallic strip works due to:", options: ["Different thermal expansions", "Same thermal expansions", "Latent heat", "Specific heat"], correct: "Different thermal expansions" },
+      { question: "Convection requires:", options: ["A medium", "A vacuum", "No movement", "Electromagnetic waves"], correct: "A medium" },
+    ]
+  },
+  {
+    id: 13,
+    title: "Kinetic Theory",
+    summary: "An exploration of the kinetic theory of gases, explaining macroscopic properties through molecular motion.",
+    detailedExplanation: "This chapter revisits the kinetic theory of gases, linking macroscopic properties like pressure and temperature to molecular motion. It covers assumptions of the kinetic model, the derivation of the ideal gas law, and concepts like mean free path, root mean square speed, and Maxwell-Boltzmann distribution. The chapter emphasizes the microscopic basis of gas behavior and its applications.",
+    keyTopics: ["Kinetic Model Assumptions", "Ideal Gas Law Derivation", "Mean Free Path", "Molecular Speeds", "Maxwell-Boltzmann Distribution"],
+    realWorldExample: "The pressure in a tire increases with temperature due to faster molecular motion, explained by kinetic theory.",
+    keyEquation: "P = (1/3) (mn/v) v_rms²",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=EF0z9bOhvAw",
+      "https://phet.colorado.edu/en/simulations/gas-properties",
+      "https://www.physicsclassroom.com/Physics-Interactives/Gases"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Kinetic Theory", url: "https://www.khanacademy.org/science/physics/thermodynamics/kinetic-theory" },
+      { title: "Physics Classroom: Kinetic Theory", url: "https://www.physicsclassroom.com/class/gaslaws" }
+    ],
+    quiz: [
+      { question: "Kinetic theory explains:", options: ["Solid properties", "Gas properties", "Liquid properties", "All of these"], correct: "Gas properties" },
+      { question: "Pressure in kinetic theory is due to:", options: ["Molecular collisions", "Molecular attraction", "Molecular size", "Molecular weight"], correct: "Molecular collisions" },
+      { question: "The ideal gas law is derived from:", options: ["Newton’s laws", "Kinetic theory", "Thermodynamics", "Quantum mechanics"], correct: "Kinetic theory" },
+      { question: "Root mean square speed depends on:", options: ["Temperature", "Pressure", "Volume", "All of these"], correct: "Temperature" },
+      { question: "Mean free path increases with:", options: ["Increasing temperature", "Decreasing density", "Increasing pressure", "Increasing volume"], correct: "Decreasing density" },
+      { question: "The kinetic energy of gas molecules is proportional to:", options: ["Pressure", "Temperature", "Volume", "Density"], correct: "Temperature" },
+      { question: "Maxwell-Boltzmann distribution describes:", options: ["Pressure distribution", "Speed distribution", "Volume distribution", "Energy distribution"], correct: "Speed distribution" },
+      { question: "The average kinetic energy of a gas molecule is:", options: ["(3/2)kT", "(1/2)kT", "(3/2)RT", "(1/2)mv²"], correct: "(3/2)kT" },
+      { question: "Kinetic theory assumes gas molecules:", options: ["Are large", "Have negligible volume", "Attract each other", "Are stationary"], correct: "Have negligible volume" },
+      { question: "The SI unit of k (Boltzmann constant) is:", options: ["J/K", "J/mol K", "N m", "kg m²/s²"], correct: "J/K" },
+    ]
+  },
+  {
+    id: 14,
+    title: "Mechanical Properties of Fluids",
+    summary: "A study of fluid statics and dynamics, including pressure, buoyancy, viscosity, and surface tension.",
+    detailedExplanation: "This chapter examines the mechanical properties of fluids (liquids and gases), covering pressure, Pascal’s law, and Archimedes’ principle for buoyancy. It discusses fluid dynamics, including Bernoulli’s principle, viscosity, and streamline/turbulent flow. Surface tension and capillary action are explained, with applications like hydraulic systems and fluid flow in pipes.",
+    keyTopics: ["Pressure", "Buoyancy", "Viscosity", "Surface Tension", "Bernoulli’s Principle", "Fluid Flow"],
+    realWorldExample: "An airplane’s lift is generated by Bernoulli’s principle, as faster air over the wings reduces pressure.",
+    keyEquation: "P = ρgh",
+    icon: "atom",
+    visualizationLinks: [
+      "https://www.youtube.com/watch?v=Azn1TJ2m-4s",
+      "https://phet.colorado.edu/en/simulations/fluid-pressure-and-flow",
+      "https://www.physicsclassroom.com/Physics-Interactives/Fluids"
+    ],
+    resourceLinks: [
+      { title: "Khan Academy: Fluid Mechanics", url: "https://www.khanacademy.org/science/physics/fluids" },
+      { title: "Physics Classroom: Fluids", url: "https://www.physicsclassroom.com/class/fluids" }
+    ],
+    quiz: [
+      { question: "Pressure in a fluid is given by:", options: ["P = ρgh", "P = F/A", "P = mgh", "Both a and b"], correct: "Both a and b" },
+      { question: "Buoyancy is explained by:", options: ["Pascal’s law", "Archimedes’ principle", "Bernoulli’s principle", "Hooke’s law"], correct: "Archimedes’ principle" },
+      { question: "Surface tension causes:", options: ["Fluid flow", "Capillary action", "Pressure increase", "Viscosity"], correct: "Capillary action" },
+      { question: "Bernoulli’s principle applies to:", options: ["Static fluids", "Moving fluids", "Solids", "Gases only"], correct: "Moving fluids" },
+      { question: "Viscosity is highest in:", options: ["Water", "Honey", "Air", "Alcohol"], correct: "Honey" },
+      { question: "The SI unit of pressure is:", options: ["Newton", "Joule", "Pascal", "Watt"], correct: "Pascal" },
+      { question: "Streamline flow is:", options: ["Turbulent", "Smooth and orderly", "Random", "Stationary"], correct: "Smooth and orderly" },
+      { question: "The buoyant force depends on:", options: ["Density of fluid", "Volume of object", "Gravity", "All of these"], correct: "All of these" },
+      { question: "Pascal’s law is used in:", options: ["Airplanes", "Hydraulic lifts", "Pendulums", "Thermometers"], correct: "Hydraulic lifts" },
+      { question: "Surface tension is measured in:", options: ["N/m", "N m", "Pascal", "Joule"], correct: "N/m" },
+    ]
+  }
+];

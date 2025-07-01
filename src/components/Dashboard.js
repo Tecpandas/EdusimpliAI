@@ -18,6 +18,12 @@ import {
   // ListItemIcon,  // REMOVED - Not used
   Alert,
   CircularProgress,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Stack,
+  Divider,
 } from '@mui/material';
 import {
   Science as ScienceIcon,
@@ -29,9 +35,13 @@ import {
   Nightlight as NightlightIcon,
   Info as InfoIcon,
 } from '@mui/icons-material';
+import axios from 'axios';
+import Leaderboard from './Leaderboard';
+import Fab from '@mui/material/Fab';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 // Import data for Class XII
-import { modulesData } from './moduleData';
+import { biologyXII, chemistryXII, physicsXII } from './moduleData';
 
 // Import the separate Class XI modules directly
 import { biologyXI, chemistryXI, physicsXI } from './moduleData11.js';
@@ -52,9 +62,9 @@ const allClassModules = {
     'Biology': biologyXI
   },
   'XII': {
-    'Chemistry': modulesData.chemistryXII,
-    'Physics': modulesData.physicsXII,
-    'Biology': modulesData.biologyXII
+    'Chemistry': chemistryXII,
+    'Physics': physicsXII,
+    'Biology': biologyXII
   }
 };
 
@@ -75,6 +85,24 @@ function Dashboard() {
   const [exploreModule, setExploreModule] = useState(null);
   const [subjects, setSubjects] = useState([]);
   const [modules, setModules] = useState([]);
+  const [progress, setProgress] = useState([]);
+  const [streak, setStreak] = useState(0);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
+  const [leaderboardQuiz, setLeaderboardQuiz] = useState(null);
+  const [leaderboardData, setLeaderboardData] = useState([]);
+  const [explanationOpen, setExplanationOpen] = useState(false);
+  const [explanationLoading, setExplanationLoading] = useState(false);
+  const [explanation, setExplanation] = useState('');
+  const [explanationError, setExplanationError] = useState('');
+  const [importantOpen, setImportantOpen] = useState(false);
+  const [importantLoading, setImportantLoading] = useState(false);
+  const [importantTopics, setImportantTopics] = useState('');
+  const [importantError, setImportantError] = useState('');
+  const [pyqOpen, setPyqOpen] = useState(false);
+  const [pyqLoading, setPyqLoading] = useState(false);
+  const [pyqs, setPyqs] = useState('');
+  const [pyqError, setPyqError] = useState('');
+  const [currentModule, setCurrentModule] = useState(null);
   const navigate = useNavigate();
   const { currentUser, userProfile: authUserProfile, logout, isInitialized } = useAuth();
   const { mode, toggleTheme } = useThemeMode();
@@ -204,6 +232,11 @@ function Dashboard() {
         const currentModules = allClassModules[standard]?.[selectedSubject] || [];
         setModules(currentModules);
 
+        if (currentUser) {
+          fetchProgress();
+          fetchStreak();
+        }
+
       } catch (error) {
         setError(`Failed to load profile: ${error.message}`);
       } finally {
@@ -268,6 +301,97 @@ function Dashboard() {
     return null;
   };
 
+  const fetchProgress = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/api/quiz/progress', {
+        params: { user_id: currentUser.uid }
+      });
+      setProgress(res.data);
+    } catch (err) {}
+  };
+
+  const fetchStreak = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/api/quiz/streak', {
+        params: { user_id: currentUser.uid }
+      });
+      setStreak(res.data.streak);
+    } catch (err) {}
+  };
+
+  const openLeaderboard = async (quiz_id, subject, standard) => {
+    setLeaderboardQuiz({ quiz_id, subject, standard });
+    setShowLeaderboard(true);
+    try {
+      const res = await axios.get('http://localhost:5000/api/quiz/leaderboard', {
+        params: { quiz_id, subject, standard }
+      });
+      setLeaderboardData(res.data);
+    } catch (err) {
+      setLeaderboardData([]);
+    }
+  };
+
+  const closeLeaderboard = () => {
+    setShowLeaderboard(false);
+    setLeaderboardQuiz(null);
+    setLeaderboardData([]);
+  };
+
+  const handleOpenExplanation = async (subject, moduleTitle) => {
+    setExplanationOpen(true);
+    setExplanationLoading(true);
+    setExplanation('');
+    setExplanationError('');
+    setCurrentModule(moduleTitle);
+    try {
+      const res = await axios.post('http://localhost:5000/api/module/explanation', {
+        subject,
+        module_title: moduleTitle
+      });
+      setExplanation(res.data.explanation);
+    } catch (err) {
+      setExplanationError('Could not fetch explanation.');
+    }
+    setExplanationLoading(false);
+  };
+
+  const handleOpenImportant = async (subject, moduleTitle) => {
+    setImportantOpen(true);
+    setImportantLoading(true);
+    setImportantTopics('');
+    setImportantError('');
+    setCurrentModule(moduleTitle);
+    try {
+      const res = await axios.post('http://localhost:5000/api/module/important_topics', {
+        subject,
+        module_title: moduleTitle
+      });
+      setImportantTopics(res.data.important_topics);
+    } catch (err) {
+      setImportantError('Could not fetch important topics.');
+    }
+    setImportantLoading(false);
+  };
+
+  const handleOpenPyq = async (subject, moduleTitle) => {
+    setPyqOpen(true);
+    setPyqLoading(true);
+    setPyqs('');
+    setPyqError('');
+    setCurrentModule(moduleTitle);
+    try {
+      const res = await axios.post('http://localhost:5000/api/module/previous_year_questions', {
+        subject,
+        module_title: moduleTitle
+      });
+      setPyqs(res.data.previous_year_questions);
+    } catch (err) {
+      setPyqError('Could not fetch previous year questions.');
+    }
+    setPyqLoading(false);
+  };
+
   if (!isInitialized || loading) {
     return (
       <Container>
@@ -301,6 +425,9 @@ function Dashboard() {
             Welcome, {userProfile?.name || 'Student'}
           </Typography>
           <Box display="flex" alignItems="center" gap={2}>
+            <Typography variant="h6" color="secondary" sx={{ display: 'flex', alignItems: 'center', fontWeight: 600 }}>
+              <span role="img" aria-label="streak">🔥</span> {streak}
+            </Typography>
             <Button
               startIcon={mode === 'dark' ? <WbSunnyIcon /> : <NightlightIcon />}
               onClick={toggleTheme}
@@ -337,14 +464,11 @@ function Dashboard() {
           ))}
         </Tabs>
 
-        <Grid container spacing={4}>
-          {modules.length === 0 ? (
-            <Grid item xs={12}>
-              <Alert severity="info">No modules found for {selectedSubject} Class {userProfile.standard}.</Alert>
-            </Grid>
-          ) : (
-            modules.map((mod) => (
-              <Grid item xs={12} sm={6} md={4} key={`${mod.id}-${mod.title}`}>
+        <Box>
+          <Typography variant="h5" sx={{ mb: 2 }}>Modules</Typography>
+          <Grid container spacing={3}>
+            {modules.map((mod, idx) => (
+              <Grid item xs={12} sm={6} md={4} key={mod.id || idx}>
                 <Card
                   sx={{
                     height: '100%',
@@ -373,45 +497,67 @@ function Dashboard() {
                       <Typography variant="body2" color="textSecondary" mb={1}>{mod.summary}</Typography>
                   </CardContent>
                   <CardActions sx={{ justifyContent: 'space-around', px: 2, pb: 2, mt: 'auto' }}>
-                    <Button
-                      size="small"
-                      variant="contained"
-                      color="primary"
-                      startIcon={<Visibility />}
-                      onClick={() => handleVisualize(mod)}
-                    >
-                      Visualize
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      color="secondary"
-                      startIcon={<QuizIcon />}
-                      onClick={() => handleQuiz(mod)}
-                    >
-                      Quiz
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      color="info"
-                      startIcon={<InfoIcon />}
-                      onClick={() => handleExplore(mod)}
-                    >
-                      Explore
-                    </Button>
+                    <Stack direction="column" spacing={1} sx={{ width: '100%' }}>
+                      <Button onClick={() => handleOpenExplanation(selectedSubject, mod.title)} variant="outlined">Module Explanation</Button>
+                      <Button onClick={() => handleOpenImportant(selectedSubject, mod.title)} variant="outlined">Important Topics</Button>
+                      <Button onClick={() => handleOpenPyq(selectedSubject, mod.title)} variant="outlined">Previous Year Questions</Button>
+                      <Button onClick={() => openLeaderboard(`${selectedSubject}_${mod.title}`, selectedSubject, userProfile?.standard)} variant="outlined">View Leaderboard</Button>
+                      <Button onClick={() => handleQuiz(mod)} variant="contained" color="primary">Take Quiz</Button>
+                      {mod.visualizationLinks && mod.visualizationLinks.length > 0 && (
+                        <Button onClick={() => handleVisualize(mod)} variant="outlined">Visualize</Button>
+                      )}
+                    </Stack>
                   </CardActions>
                 </Card>
               </Grid>
-            ))
-          )}
-        </Grid>
+            ))}
+          </Grid>
+        </Box>
         
         <QuizModal open={quizOpen} onClose={() => setQuizOpen(false)} title={quizTitle} questions={quizQuestions} />
         <VisualizationModal open={visualizationOpen} onClose={() => setVisualizationOpen(false)} title={visualizationTitle} urls={visualizationLinks} />
         <ChatbotModal open={chatbotOpen} onClose={() => setChatbotOpen(false)} subjects={subjects} />
         <ExploreModal open={exploreOpen} onClose={() => setExploreOpen(false)} module={exploreModule} subject={selectedSubject} />
+        <Dialog open={showLeaderboard} onClose={closeLeaderboard} maxWidth="sm" fullWidth>
+          <DialogTitle>Leaderboard for {leaderboardQuiz?.quiz_id}</DialogTitle>
+          <DialogContent>
+            <Leaderboard leaderboard={leaderboardData} />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={closeLeaderboard}>Close</Button>
+          </DialogActions>
+        </Dialog>
+        <Dialog open={explanationOpen} onClose={() => setExplanationOpen(false)} maxWidth="md" fullWidth>
+          <DialogTitle>Module Explanation - {currentModule}</DialogTitle>
+          <DialogContent>
+            {explanationLoading ? <CircularProgress /> : explanationError ? <Typography color="error">{explanationError}</Typography> : <Typography>{explanation}</Typography>}
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setExplanationOpen(false)}>Close</Button>
+          </DialogActions>
+        </Dialog>
+        <Dialog open={importantOpen} onClose={() => setImportantOpen(false)} maxWidth="md" fullWidth>
+          <DialogTitle>Important Topics - {currentModule}</DialogTitle>
+          <DialogContent>
+            {importantLoading ? <CircularProgress /> : importantError ? <Typography color="error">{importantError}</Typography> : <Box component="pre">{importantTopics}</Box>}
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setImportantOpen(false)}>Close</Button>
+          </DialogActions>
+        </Dialog>
+        <Dialog open={pyqOpen} onClose={() => setPyqOpen(false)} maxWidth="md" fullWidth>
+          <DialogTitle>Previous Year Questions - {currentModule}</DialogTitle>
+          <DialogContent>
+            {pyqLoading ? <CircularProgress /> : pyqError ? <Typography color="error">{pyqError}</Typography> : <Box component="pre">{pyqs}</Box>}
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setPyqOpen(false)}>Close</Button>
+          </DialogActions>
+        </Dialog>
       </Container>
+      <Fab color="primary" aria-label="leaderboard" sx={{ position: 'fixed', bottom: 32, right: 32, zIndex: 2000 }} onClick={() => setShowLeaderboard(true)}>
+        <EmojiEventsIcon />
+      </Fab>
     </div>
   );
 }
